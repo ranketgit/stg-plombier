@@ -3,22 +3,20 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/homepage/Hero.astro';
 
 const heroData = {
-  title: "Plombier Expert Intervention Rapide",
-  subtitle: "Service d'urgence 24/7 et sur rendez-vous pour tous vos besoins en plomberie en Belgique.",
-  phoneNumber: "+32472808080",
+  title: "Plombiers déboucheurs à votre service",
+  subtitle: "Intervention rapide et efficace dans toute la Belgique. Devis gratuit et sans engagement.",
+  phoneNumber: "0472/80.80.80",
   callButtonText: "0472/80.80.80",
-  serviceButtonText: "Nos Services",
-  backgroundImageUrl: "/plumber.jpg", // <<<--- Path to your image
+  serviceButtonText: "Nos services"
 };
-const city = "";
+
 const seoData = {
 	title: "Service de plomberie en urgence 24/7 - plombier déboucheur agréé - Contact",
 	description: "Plombier déboucheur professionnel disponible en urgence dans toute la Belgique 24/7 , plombier chauffagiste",
-	schema: `visit ${city}`,
+	schema: "",
 }
 ---
 
 <Layout SeoData={seoData}>
-  <Hero heroData={heroData} />
-  <!-- Rest of your homepage content -->
+	<Hero heroData={heroData} />
 </Layout>

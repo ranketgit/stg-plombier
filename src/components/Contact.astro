@@ -1,0 +1,64 @@
+---
+const formActionUrl = "https://formsubmit.co/YOUR_FORMSUBMIT_KEY_HERE";
+---
+<div class="bg-white p-4 md:p-6 rounded-3xl shadow-lg text-gray-800 max-w-md mx-auto">
+ 
+  <form action={formActionUrl} method="POST" class="space-y-4">
+    <input type="hidden" name="_subject" value="Nouvelle demande de Devis - Site Plomberie" />
+    <input type="hidden" name="_next" value="https://YOUR_WEBSITE.com/merci" />
+    <input type="text" name="_honey" style="display:none;" />
+    <input type="hidden" name="_captcha" value="false" />
+    <div>
+      <label for="contact-hc-nom" class="block text-gray-700 text-sm mb-1 font-medium">Nom complet</label>
+      <input
+        type="text"
+        id="contact-hc-nom"
+        name="nom"
+        class="w-full px-3 py-2 border border-gray-300 bg-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+        placeholder="Jean Dupont"
+        required
+      />
+    </div>
+    <div>
+      <label for="contact-hc-email" class="block text-gray-700 text-sm mb-1 font-medium">Adresse mail</label>
+      <input
+        type="email"
+        id="contact-hc-email"
+        name="email"
+        class="w-full px-3 py-2 border border-gray-300 bg-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+        placeholder="jean.dupont@email.com"
+        required
+      />
+    </div>
+    <div>
+      <label for="contact-hc-telephone" class="block text-gray-700 text-sm mb-1 font-medium">Téléphone</label>
+      <input
+        type="tel"
+        id="contact-hc-telephone"
+        name="telephone"
+        class="w-full px-3 py-2 border border-gray-300 bg-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+        placeholder="04XX XX XX XX"
+        required
+      />
+    </div>
+    <div>
+      <label for="contact-hc-message" class="block text-gray-700 text-sm mb-1 font-medium">Votre message</label>
+      <textarea
+        id="contact-hc-message"
+        name="message"
+        rows="3"
+        class="w-full px-3 py-2 border border-gray-300 bg-gray-100 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+        placeholder="Décrivez votre problème ou demande ici..."
+        required
+      ></textarea>
+    </div>
+    <div class="pt-2">
+      <button
+        type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-2xl transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+      >
+        Envoyer ma demande
+      </button>
+    </div>
+  </form>
+</div>
