@@ -1,0 +1,170 @@
+---
+// src/components/Services.astro
+import { Icon } from 'astro-icon/components';
+
+// Updated service sections with background image paths
+const serviceSections = [
+  {
+    title: "Débouchage de Canalisations",
+    icon: "mdi:pipe-wrench",
+    backgroundImage: "/debouchage-de-canalisation.jpg", // Add your actual image paths
+    description: "Les canalisations bouchées représentent l'un des problèmes de plomberie les plus courants dans les foyers belges. Notre équipe de déboucheurs professionnels utilise des techniques de pointe et des équipements spécialisés pour déboucher efficacement vos canalisations:",
+    items: [
+      "Débouchage WC: Élimination rapide des obstructions dans vos toilettes sans endommager votre installation",
+      "Débouchage évier et lavabo: Techniques professionnelles pour rétablir l'écoulement normal de vos éviers",
+      "Débouchage baignoire et douche: Solutions efficaces contre les bouchons de cheveux et de savon",
+      "Débouchage de colonnes d'immeubles: Intervention dans les copropriétés et bâtiments collectifs",
+      "Débouchage canalisation extérieure: Traitement des problèmes d'évacuation dans vos conduites extérieures"
+    ],
+    conclusion: "Nos plombiers-déboucheurs interviennent avec du matériel professionnel comme des furets électriques, des pompes à haute pression et des caméras d'inspection pour résoudre définitivement vos problèmes d'écoulement."
+  },
+  {
+    title: "Réparation de Fuites d'Eau",
+    icon: "mdi:water-pump",
+    backgroundImage: "/reparation-fuite-eau.jpg",
+    description: "Une fuite d'eau non traitée peut causer d'importants dégâts dans votre habitation et augmenter considérablement votre facture d'eau. Notre service de détection et réparation de fuites vous propose:",
+    items: [
+      "Localisation précise des fuites cachées (sous carrelage, dans les murs, plafonds)",
+      "Réparation de tuyauterie endommagée",
+      "Remplacement de joints défectueux",
+      "Colmatage professionnel des conduites percées",
+      "Inspection par caméra des canalisations enterrées"
+    ],
+    conclusion: "Nos plombiers utilisent des technologies de détection non destructives pour identifier l'origine exacte des fuites avant d'intervenir, limitant ainsi les dégâts dans votre habitation."
+  },
+  {
+    title: "Services de Chauffagiste",
+    icon: "mdi:radiator",
+    backgroundImage: "/service-chaufagiste.jpg",
+    description: "Votre système de chauffage est essentiel au confort de votre foyer, particulièrement durant les hivers belges. Nos chauffagistes qualifiés vous proposent:",
+    items: [
+      "Installation de nouvelles chaudières (gaz, mazout, électrique)",
+      "Entretien annuel obligatoire de votre chaudière",
+      "Dépannage en urgence de systèmes de chauffage défaillants",
+      "Remplacement et purge de radiateurs",
+      "Installation de thermostats intelligents pour économiser l'énergie",
+      "Mise aux normes de votre installation"
+    ],
+    conclusion: "Un entretien régulier de votre système de chauffage par nos chauffagistes certifiés vous garantit non seulement une performance optimale mais également une réduction de vos factures d'énergie."
+  },
+  {
+    title: "Installation Sanitaire",
+    icon: "mdi:toilet",
+    backgroundImage: "/installation-sanitaire.jpg",
+    description: "Rénover votre salle de bain ou installer de nouveaux équipements sanitaires? Notre équipe spécialisée en installation sanitaire vous accompagne dans tous vos projets:",
+    items: [
+      "Installation et remplacement de WC, douches, baignoires et lavabos",
+      "Pose de robinetterie et mitigeurs",
+      "Installation de cabines de douche et baignoires balnéo",
+      "Aménagement complet de salles de bain",
+      "Installation de systèmes d'économie d'eau"
+    ],
+    conclusion: "Nous vous conseillons sur les meilleures solutions adaptées à votre espace et à votre budget, avec une finition impeccable garantie."
+  },
+  {
+    title: "Services pour Fosses Septiques",
+    icon: "mdi:biohazard",
+    backgroundImage: "/plumber.jpg",
+    description: "Pour les habitations non raccordées au tout-à-l'égout, nous proposons des services complets pour l'entretien de votre système d'assainissement:",
+    items: [
+      "Vidange de fosse septique",
+      "Installation de nouvelles fosses aux normes européennes",
+      "Entretien préventif des systèmes d'assainissement",
+      "Débouchage de fosses septiques",
+      "Diagnostic et résolution de problèmes d'odeurs"
+    ],
+    conclusion: "Un entretien régulier de votre fosse septique est essentiel pour éviter les problèmes d'évacuation et respecter les normes environnementales en vigueur."
+  }
+];
+
+const specializedServices = [
+    { name: "Installation pompe à chaleur", description: "Système de chauffage écologique et économique", benefits: "Réduction jusqu'à 70% de vos factures d'énergie" },
+    { name: "Adoucisseur d'eau", description: "Solution contre le calcaire dans l'eau", benefits: "Protection de vos appareils et tuyauterie" },
+    { name: "Système de récupération d'eau de pluie", description: "Installation de citernes et systèmes de filtration", benefits: "Économies sur votre facture d'eau" },
+    { name: "Traitement de l'eau", description: "Filtration et purification de l'eau potable", benefits: "Eau de meilleure qualité pour votre santé" }
+];
+---
+
+<section id="services" class="py-16 md:py-24 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-4">
+      Nos Services de Plomberie Professionnels
+    </h2>
+    <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+      Notre entreprise de plomberie propose une gamme complète de services pour répondre à tous vos besoins en matière d'installation, réparation et entretien de systèmes de plomberie. Découvrez ci-dessous nos principales prestations:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {serviceSections.map((service, index) => (
+          <div
+            key={index}
+            class={`relative rounded-3xl shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300 group ${
+              serviceSections.length === 5 && index >= 3 ? 'lg:col-span-3 lg:justify-center' : ''
+            }`}
+          >
+            {/* Background image with overlay */}
+            <div
+              class="absolute inset-0 w-full h-full bg-cover bg-center z-0"
+              style={`background-image: url('${service.backgroundImage}')`}
+            >
+              {/* Blue gradient overlay - adjust opacity as needed */}
+              <div class="absolute inset-0 bg-gradient-to-b from-blue-900/90 to-blue-600/90 group-hover:from-blue-800/80 group-hover:to-blue-700/95 transition-all duration-300"></div>
+            </div>
+      
+            {/* Content with higher z-index to appear above the background */}
+            <div class="relative z-10 p-6 flex flex-col h-full text-white">
+              <div class="flex items-center mb-4">
+                <Icon name={service.icon} class="h-8 w-8 text-blue-200 mr-3 flex-shrink-0" />
+                <h3 class="text-xl font-semibold text-white">{service.title}</h3>
+              </div>
+              <p class="text-blue-100 text-sm mb-4">{service.description}</p>
+              <ul class="space-y-2 mb-4 flex-grow">
+                {service.items.map((item, itemIndex) => (
+                  <li key={itemIndex} class="flex items-start text-sm">
+                    <Icon name="mdi:check-circle-outline" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                    <span class="text-white">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p class="text-blue-200 text-xs italic mt-auto">{service.conclusion}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    {/* Specialized Services Table */}
+    <h3 class="text-2xl md:text-3xl font-bold text-center text-blue-800 mb-8">
+      Services Spécialisés de Plomberie
+    </h3>
+    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+        Notre expertise s'étend également à des installations plus spécifiques:
+    </p>
+    <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+      <table class="w-full text-left border-collapse">
+        <thead class="bg-blue-50 border-b border-blue-200">
+          <tr>
+            <th class="py-3 px-4 md:px-6 font-semibold text-sm text-blue-800 uppercase">Service Spécialisé</th>
+            <th class="py-3 px-4 md:px-6 font-semibold text-sm text-blue-800 uppercase">Description</th>
+            <th class="py-3 px-4 md:px-6 font-semibold text-sm text-blue-800 uppercase">Avantages</th>
+          </tr>
+        </thead>
+        <tbody>
+          {specializedServices.map((service, index) => (
+            <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-800 font-medium">{service.name}</td>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-600">{service.description}</td>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-600">{service.benefits}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Additional styles for hover effects or adjustments */
+  .group:hover .text-white {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+</style>

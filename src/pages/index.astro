@@ -1,14 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/homepage/Hero.astro';
+import Intro from '../components/homepage/Intro.astro';
+import Services from '../components/homepage/Services.astro';
+import Locations from '../components/homepage/Locations.astro';
+import FAQ from '../components/homepage/FAQ.astro'
+import CTA from '../components/CTA.astro'
 
 const heroData = {
   title: "Plombier Expert Intervention Rapide",
   subtitle: "Service d'urgence 24/7 et sur rendez-vous pour tous vos besoins en plomberie en Belgique.",
   phoneNumber: "+32472808080",
-  callButtonText: "0472/80.80.80",
+  callButtonText: "0476/23.23.23",
   serviceButtonText: "Nos Services",
-  backgroundImageUrl: "/plumber.jpg", // <<<--- Path to your image
+  backgroundImageUrl: "/plumber.jpg",
 };
 const city = "";
 const seoData = {
@@ -20,5 +25,9 @@ const seoData = {
 
 <Layout SeoData={seoData}>
   <Hero heroData={heroData} />
-  <!-- Rest of your homepage content -->
+  <Intro />
+  <Services />
+  <Locations />
+  <FAQ />
+  <CTA />
 </Layout>

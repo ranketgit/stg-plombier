@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import icon from "astro-icon"; 
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,5 +18,7 @@ export default defineConfig({
       priority: 0.9,
       lastmod: new Date(),
   }
-  )]
+  ),
+  icon()
+]
 });
