@@ -142,7 +142,7 @@ const otherCities = [
 
       <div class="grid grid-cols-1 gap-4 mb-8 md:min-w-xl max-w-xl" id="city-container">
         {cities.map((city, index) => (
-          <details class="bg-white border border-gray-200 rounded-lg overflow-hidden city-dropdown" id={`city-${index}`}>
+          <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id={`city-${index}`}>
             <summary class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
               <span class="font-medium text-blue-800">{city.name}</span>
               <Icon name="mdi:chevron-down" class="h-5 w-5 text-blue-600 transform transition-transform" />
@@ -159,7 +159,7 @@ const otherCities = [
       </div>
 
       <!-- Other cities dropdown -->
-      <details class="bg-white border border-gray-200 rounded-lg overflow-hidden mx-auto max-w-2xl">
+      <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden mx-auto max-w-2xl">
         <summary class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
           <span class="font-medium text-blue-800">Autres villes desservies</span>
           <Icon name="mdi:chevron-down" class="h-5 w-5 text-blue-600 transform transition-transform" />

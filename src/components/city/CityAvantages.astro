@@ -3,55 +3,62 @@ interface Props {
   cityName: string;
 }
 const { cityName } = Astro.props;
+// Placeholder icons - replace with actual SVGs for each advantage
+const IconMap = `<svg class="h-10 w-10 text-blue-600 mb-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>`;
+const IconClock = `<svg class="h-10 w-10 text-blue-600 mb-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+const IconWrench = `<svg class="h-10 w-10 text-blue-600 mb-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>`;
+const IconTag = `<svg class="h-10 w-10 text-blue-600 mb-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>`;
+const IconHeart = `<svg class="h-10 w-10 text-blue-600 mb-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>`;
+const IconShield = `<svg class="h-10 w-10 text-blue-600 mb-3 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>`;
 ---
 <section class="bg-gray-100 py-12 md:py-16">
   <div class="container mx-auto px-4">
     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
       Les Avantages de Notre Service de Plomberie à {cityName}
     </h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       
-      <div class="text-center p-4">
-        {/* Add appropriate icon */}
-        <h3 class="font-semibold text-lg text-gray-700 mb-2">Connaissance Locale</h3>
+      <div class="text-center bg-white p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow">
+        <Fragment set:html={IconMap} />
+        <h3 class="font-semibold text-lg text-gray-800 mb-2">Connaissance Locale</h3>
         <p class="text-sm text-gray-600">
-          Notre équipe connaît parfaitement {cityName}, ses quartiers...
+          Notre équipe connaît parfaitement {cityName}, ses quartiers et les problématiques spécifiques de plomberie qui peuvent y survenir, garantissant ainsi des interventions adaptées et efficaces.
         </p>
       </div>
-      <div class="text-center p-4">
-        {/* Icon */}
-        <h3 class="font-semibold text-lg text-gray-700 mb-2">Disponibilité 24h/24</h3>
+      <div class="text-center bg-white p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow">
+        <Fragment set:html={IconClock} />
+        <h3 class="font-semibold text-lg text-gray-800 mb-2">Disponibilité 24h/24</h3>
         <p class="text-sm text-gray-600">
-          Notre service d'urgence à {cityName} est joignable à toute heure...
+          Notre service d'urgence à {cityName} est joignable à toute heure, vous assurant une tranquillité d'esprit en cas de problème imprévu de plomberie.
         </p>
       </div>
-       <div class="text-center p-4">
-        {/* Icon */}
-        <h3 class="font-semibold text-lg text-gray-700 mb-2">Expertise Technique</h3>
+       <div class="text-center bg-white p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow">
+        <Fragment set:html={IconWrench} />
+        <h3 class="font-semibold text-lg text-gray-800 mb-2">Expertise Technique</h3>
         <p class="text-sm text-gray-600">
-          Nos plombiers à {cityName} sont des professionnels qualifiés...
+          Nos plombiers à {cityName} sont des professionnels qualifiés, régulièrement formés aux dernières techniques et équipés d'outils modernes pour des interventions de qualité.
         </p>
       </div>
-       <div class="text-center p-4">
-        {/* Icon */}
-        <h3 class="font-semibold text-lg text-gray-700 mb-2">Transparence Tarifaire</h3>
-        <p class="text-sm text-gray-600">
-          Avant toute intervention à {cityName}, nous vous communiquons un tarif clair...
-        </p>
+       <div class="text-center bg-white p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow">
+         <Fragment set:html={IconTag} />
+         <h3 class="font-semibold text-lg text-gray-800 mb-2">Transparence Tarifaire</h3>
+         <p class="text-sm text-gray-600">
+          Avant toute intervention à {cityName}, nous vous communiquons un tarif clair, sans frais cachés ni surprises, avec des prix adaptés au marché local.
+         </p>
       </div>
-      <div class="text-center p-4">
-        {/* Icon */}
-        <h3 class="font-semibold text-lg text-gray-700 mb-2">Service Client Exceptionnel</h3>
-        <p class="text-sm text-gray-600">
-          Notre priorité est votre satisfaction. À {cityName}, nous mettons un point d'honneur...
-        </p>
+      <div class="text-center bg-white p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow">
+         <Fragment set:html={IconHeart} />
+         <h3 class="font-semibold text-lg text-gray-800 mb-2">Service Client Exceptionnel</h3>
+         <p class="text-sm text-gray-600">
+          Notre priorité est votre satisfaction. À {cityName}, nous mettons un point d'honneur à offrir un service attentif et respectueux, de votre premier contact jusqu'à la fin de notre intervention.
+         </p>
       </div>
-      <div class="text-center p-4">
-        {/* Icon */}
-        <h3 class="font-semibold text-lg text-gray-700 mb-2">Garantie sur Tous Nos Travaux</h3>
-        <p class="text-sm text-gray-600">
-          Tous nos travaux de plomberie à {cityName} sont garantis...
-        </p>
+      <div class="text-center bg-white p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow">
+         <Fragment set:html={IconShield} />
+         <h3 class="font-semibold text-lg text-gray-800 mb-2">Garantie sur Tous Nos Travaux</h3>
+         <p class="text-sm text-gray-600">
+          Tous nos travaux de plomberie à {cityName} sont garantis, vous assurant une tranquillité d'esprit quant à la qualité et la durabilité de nos interventions.
+         </p>
       </div>
     </div>
   </div>

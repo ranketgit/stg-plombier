@@ -21,6 +21,7 @@ const testimonials = [
     location: cityName
   }
 ];
+const QuoteIcon = `<svg class="h-8 w-8 text-blue-200" fill="currentColor" viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path></svg>`;
 ---
 <section class="bg-gray-100 py-12 md:py-16">
   <div class="container mx-auto px-4">
@@ -29,12 +30,17 @@ const testimonials = [
     </h2>
     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {testimonials.map(testimonial => (
-        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
-          <blockquote class="italic text-gray-600 mb-4">
+        <div class="bg-white p-6 rounded-3xl shadow-lg relative overflow-hidden">
+          <div class="absolute top-0 right-0 -mt-2 -mr-2 opacity-10">
+              <Fragment set:html={QuoteIcon} />
+          </div>
+          <blockquote class="text-gray-600 mb-4 italic relative z-10">
             "{testimonial.quote}"
           </blockquote>
-          <p class="font-semibold text-gray-800">{testimonial.name}</p>
-          <p class="text-sm text-gray-500">{testimonial.location}</p>
+          <div class="mt-4 pt-4 border-t border-gray-200">
+              <p class="font-semibold text-gray-800">{testimonial.name}</p>
+              <p class="text-sm text-blue-600 font-medium">{testimonial.location}</p>
+          </div>
         </div>
       ))}
     </div>

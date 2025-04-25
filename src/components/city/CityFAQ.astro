@@ -7,23 +7,23 @@ const { cityName } = Astro.props;
 const faqs = [
   {
     question: `Quel est votre délai d'intervention à ${cityName}?`,
-    answer: `Pour les urgences plomberie à ${cityName}, notre équipe s'engage...`
+    answer: `Pour les urgences plomberie à ${cityName}, notre équipe s'engage à intervenir dans l'heure suivant votre appel si vous êtes dans le centre ou les quartiers proches. Pour les zones périphériques de ${cityName}, le délai peut être de 1 à 1h30 selon la distance et la disponibilité de nos plombiers. Notre service d'urgence fonctionne 24h/24 et 7j/7.`
   },
   {
     question: `Proposez-vous des devis gratuits pour les travaux de plomberie à ${cityName}?`,
-    answer: `Oui, nous offrons des devis gratuits et sans engagement pour tous les projets à ${cityName}...`
+    answer: `Oui, nous offrons des devis gratuits et sans engagement pour tous les projets d'installation ou de rénovation plomberie à ${cityName}. Un de nos techniciens se déplace chez vous pour évaluer précisément vos besoins et vous proposer les solutions les plus adaptées, le tout sans frais ni obligation.`
   },
   {
     question: `Intervenez-vous aussi pour les problèmes de plomberie dans les commerces de ${cityName}?`,
-    answer: `Absolument! Outre nos services aux particuliers, nous intervenons dans les commerces de ${cityName}...`
+    answer: `Absolument! Outre nos services aux particuliers, nous intervenons pour tous types de problèmes de plomberie dans les commerces, restaurants, bureaux et entreprises de ${cityName}. Nous comprenons l'impact qu'un problème de plomberie peut avoir sur votre activité et nous nous engageons à intervenir rapidement pour minimiser toute interruption.`
   },
   {
     question: `Comment faites-vous pour détecter les fuites non visibles à ${cityName}?`,
-    answer: `Pour localiser les fuites cachées dans les habitations de ${cityName}, nous utilisons des équipements...`
+    answer: `Pour localiser les fuites cachées dans les habitations de ${cityName}, nous utilisons des équipements de détection avancés: caméras thermiques pour visualiser les différences de température révélant une fuite, détecteurs acoustiques pour entendre l'eau qui s'échappe, et tests de pression pour confirmer l'existence d'une fuite. Cette approche non destructive nous permet d'intervenir avec précision, sans dégâts inutiles.`
   },
   {
     question: `Quelles solutions proposez-vous contre le calcaire très présent à ${cityName}?`,
-    answer: `Pour lutter contre le calcaire dans l'eau de ${cityName}, nous proposons plusieurs solutions...`
+    answer: `Pour lutter contre le calcaire dans l'eau de ${cityName}, nous proposons plusieurs solutions: installation d'adoucisseurs d'eau pour les habitations entières, filtres anti-calcaire pour les appareils spécifiques (chaudière, machine à laver), et détartrage régulier des installations existantes. Nous pouvons vous conseiller sur la solution la plus adaptée à votre situation et à votre budget.`
   }
 ];
 ---
@@ -32,13 +32,37 @@ const faqs = [
     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
       Questions Fréquentes sur Nos Services de Plomberie à {cityName}
     </h2>
-    <div class="space-y-6">
-      {faqs.map(faq => (
-        <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
-          <h3 class="font-semibold text-lg text-blue-800 mb-2">{faq.question}</h3>
-          <p class="text-gray-600 text-sm">{faq.answer}</p>
-        </div>
+    <div class="space-y-5">
+      {faqs.map((faq, index) => (
+        <details class="group bg-gray-50 p-4 rounded-3xl shadow-sm border border-gray-200" open={index === 0}>
+          <summary class="flex justify-between items-center font-semibold text-lg text-blue-800 cursor-pointer list-none">
+            <span>{faq.question}</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <p class="text-gray-600 text-sm mt-3 group-open:animate-fadeIn">
+            {faq.answer}
+          </p>
+        </details>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .group-open\:animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+  /* Hide default marker */
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

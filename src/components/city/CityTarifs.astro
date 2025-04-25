@@ -3,6 +3,7 @@ interface Props {
   cityName: string;
 }
 const { cityName } = Astro.props;
+const Icon = `<svg class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>`;
 ---
 <section class="bg-gray-100 py-12 md:py-16">
   <div class="container mx-auto px-4 max-w-3xl">
@@ -12,15 +13,16 @@ const { cityName } = Astro.props;
     <p class="text-center text-gray-600 mb-10">
        Nos tarifs à {cityName} sont transparents et compétitifs. Voici un aperçu de nos prix pour les interventions les plus courantes:
     </p>
-    <div class="bg-white p-6 rounded-lg shadow-md">
-      <ul class="space-y-3 text-gray-700">
-        <li><strong>Déplacement à {cityName}:</strong> Inclus dans le prix de l'intervention</li>
-        <li><strong>Débouchage simple:</strong> À partir de 100€</li>
-        <li><strong>Recherche et réparation de fuite:</strong> À partir de 100€, selon complexité</li>
-        <li><strong>Remplacement robinetterie:</strong> À partir de 100€, fourniture comprise</li>
-        <li><strong>Installation sanitaire:</strong> Sur devis gratuit, adapté à votre projet</li>
+    <div class="bg-white p-8 rounded-3xl shadow-lg border-t-4 border-blue-500">
+      <ul class="space-y-4">
+        <li class="flex items-center text-gray-700"><Fragment set:html={Icon} /> <strong>Déplacement à {cityName}:</strong><span class="ml-auto font-medium">Inclus</span></li>
+        <li class="flex items-center text-gray-700"><Fragment set:html={Icon} /> <strong>Débouchage simple:</strong><span class="ml-auto font-medium">À partir de 100€</span></li>
+        <li class="flex items-center text-gray-700"><Fragment set:html={Icon} /> <strong>Recherche et réparation de fuite:</strong><span class="ml-auto font-medium">À partir de 100€*</span></li>
+        <li class="flex items-center text-gray-700"><Fragment set:html={Icon} /> <strong>Remplacement robinetterie:</strong><span class="ml-auto font-medium">À partir de 100€**</span></li>
+        <li class="flex items-center text-gray-700"><Fragment set:html={Icon} /> <strong>Installation sanitaire:</strong><span class="ml-auto font-medium">Sur devis gratuit</span></li>
       </ul>
-      <p class="text-sm text-gray-500 mt-6">
+      <p class="text-xs text-gray-500 mt-6 border-t pt-4">
+         * Selon complexité. ** Fourniture comprise (modèle standard).<br/>
          Tous nos tarifs sont annoncés avant intervention et comprennent la TVA. Pour les interventions d'urgence en dehors des heures ouvrables à {cityName}, un supplément peut s'appliquer, qui vous sera clairement communiqué lors de votre appel.
       </p>
     </div>

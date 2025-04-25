@@ -1,16 +1,13 @@
 ---
-// Define the structure of a section object, adjust if needed
 interface Section {
   name: string;
   slug: string;
   codePostal?: string; 
 }
-
 interface Props {
-  cityName: string; // The name of the main city this page is about
-  sections: Section[]; // The list of nearby sections/boroughs passed from getStaticPaths
+  cityName: string; 
+  sections: Section[]; 
 }
-
 const { cityName, sections } = Astro.props;
 ---
 {sections && sections.length > 0 && (
@@ -22,19 +19,17 @@ const { cityName, sections } = Astro.props;
       <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
         Notre équipe de plombiers intervient non seulement à {cityName} mais également dans les communes et localités avoisinantes:
       </p>
-      
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-center max-w-4xl mx-auto">
         {sections.map((section) => (
           <a 
-            href={`/plombier-${section.slug}`}  // Link to the specific page for this section
-            class="block bg-gray-100 text-center p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 text-blue-700 hover:text-blue-800 font-medium"
+            href={`/plombier-${section.slug}`} 
+            class="block bg-gray-100 text-center p-4 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 text-blue-700 hover:text-blue-800 font-medium"
             title={`Plombier à ${section.name}`}
           >
             {section.name}
           </a>
         ))}
       </div>
-
       <p class="text-center text-gray-600 mt-10 max-w-3xl mx-auto">
         Même si vous habitez dans une commune limitrophe de {cityName}, vous pouvez compter sur notre service de plomberie professionnel pour une intervention rapide et efficace.
       </p>

@@ -3,33 +3,38 @@ interface Props {
   cityName: string;
 }
 const { cityName } = Astro.props;
+// Placeholder SVG Icon - replace with actual relevant icons if desired
+const Icon = `<svg class="h-8 w-8 text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>`; 
 ---
 <section class="bg-gray-100 py-12 md:py-16">
-  <div class="container mx-auto px-4 max-w-4xl">
+  <div class="container mx-auto px-4">
     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
       Nos Interventions de Plomberie dans les Quartiers de {cityName}
     </h2>
-    <p class="text-center text-gray-600 mb-10">
+    <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
       Notre service de plomberie couvre l'ensemble de {cityName}, avec une connaissance approfondie des particularités de chaque quartier:
     </p>
-    <div class="space-y-6">
-      <div>
-        <h3 class="font-semibold text-lg text-gray-700 mb-2">Centre-ville de {cityName}</h3>
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="bg-white p-6 rounded-3xl shadow-md text-center">
+        <Fragment set:html={Icon} />
+        <h3 class="font-semibold text-lg text-gray-800 mb-2">Centre-ville de {cityName}</h3>
         <p class="text-gray-600 text-sm">
-          Dans le centre historique de {cityName}, nos plombiers sont habitués...
+          Dans le centre historique de {cityName}, nos plombiers sont habitués à intervenir dans des bâtiments anciens avec des configurations de plomberie spécifiques. Nous apportons des solutions adaptées tout en respectant l'architecture et les contraintes des logements du centre-ville.
         </p>
       </div>
-       <div>
-        <h3 class="font-semibold text-lg text-gray-700 mb-2">Quartiers résidentiels de {cityName}</h3>
+       <div class="bg-white p-6 rounded-3xl shadow-md text-center">
+        <Fragment set:html={Icon} />
+        <h3 class="font-semibold text-lg text-gray-800 mb-2">Quartiers résidentiels de {cityName}</h3>
         <p class="text-gray-600 text-sm">
-          Dans les zones résidentielles plus récentes de {cityName}, nous intervenons...
+          Dans les zones résidentielles plus récentes de {cityName}, nous intervenons pour tous types de problèmes de plomberie domestique, avec une attention particulière à la qualité de service et à la propreté lors de nos interventions.
         </p>
       </div>
-       <div>
-        <h3 class="font-semibold text-lg text-gray-700 mb-2">Zone industrielle de {cityName}</h3>
-        <p class="text-gray-600 text-sm">
-          Nous proposons également nos services aux entreprises et commerces situés dans la zone industrielle de {cityName}...
-        </p>
+       <div class="bg-white p-6 rounded-3xl shadow-md text-center">
+         <Fragment set:html={Icon} />
+         <h3 class="font-semibold text-lg text-gray-800 mb-2">Zone industrielle de {cityName}</h3>
+         <p class="text-gray-600 text-sm">
+          Nous proposons également nos services aux entreprises et commerces situés dans la zone industrielle de {cityName}, avec des interventions adaptées aux besoins spécifiques des installations professionnelles.
+         </p>
       </div>
     </div>
   </div>
