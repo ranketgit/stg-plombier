@@ -1,0 +1,39 @@
+---
+interface Props {
+  cityName: string;
+}
+const { cityName } = Astro.props;
+---
+<section class="bg-gray-100 py-12 md:py-16">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+      Conseils Plomberie pour les Habitants de {cityName}
+    </h2>
+     <div class="space-y-6">
+      <div>
+        <h3 class="font-semibold text-lg text-gray-700 mb-2">Prévention du Gel en Hiver</h3>
+        <p class="text-gray-600 text-sm">
+          À {cityName}, les températures hivernales peuvent parfois être rigoureuses...
+        </p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg text-gray-700 mb-2">Entretien de Votre Système de Chauffage</h3>
+        <p class="text-gray-600 text-sm">
+           Pour affronter les hivers à {cityName}, assurez-vous de faire entretenir votre chaudière...
+        </p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-lg text-gray-700 mb-2">Nettoyage Préventif des Canalisations</h3>
+        <p class="text-gray-600 text-sm">
+           Les réseaux d'évacuation à {cityName} peuvent s'encrasser progressivement...
+        </p>
+      </div>
+       <div>
+        <h3 class="font-semibold text-lg text-gray-700 mb-2">Économie d'Eau à {cityName}</h3>
+        <p class="text-gray-600 text-sm">
+          Face à l'augmentation des coûts de l'eau potable à {cityName}, envisagez...
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

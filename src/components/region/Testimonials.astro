@@ -1,0 +1,45 @@
+---
+interface Props {
+  state: string;
+}
+
+const { state } = Astro.props;
+
+// Replace placeholders dynamically. For specific communes, you might need more data or use generic terms.
+const testimonials = [
+  {
+    quote: `Intervention rapide et efficace pour un WC bouché un dimanche soir. Le plombier est arrivé en 45 minutes et a réglé le problème en moins de 30 minutes. Tarif correct et service impeccable!`,
+    name: "Laurent D.",
+    location: `une commune proche de ${state}` // Generic placeholder
+  },
+  {
+    quote: `Excellente prestation pour la rénovation complète de notre salle de bain. Travail soigné, respect des délais et équipe professionnelle. Je recommande vivement leurs services à tous les habitants de ${state}.`,
+    name: "Sophie M.",
+    location: `${state} centre`
+  },
+  {
+    quote: `J'ai fait appel à leur service pour une fuite sous mon évier. Diagnostic précis et réparation rapide sans avoir à tout démonter. Plombier ponctuel et travail propre. Très satisfait!`,
+    name: "Thomas L.",
+    location: `une commune proche de ${state}` // Generic placeholder
+  }
+];
+---
+
+<section class="bg-white py-12 md:py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+      Témoignages de Nos Clients à {state}
+    </h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {testimonials.map(testimonial => (
+        <div class="bg-gray-50 p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+          <blockquote class="italic text-gray-600 mb-4">
+            "{testimonial.quote}"
+          </blockquote>
+          <p class="font-semibold text-gray-800">{testimonial.name}</p>
+          <p class="text-sm text-gray-500">{testimonial.location}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

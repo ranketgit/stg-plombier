@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro"; // Adjust path
+import Hero from "../components/homepage/Hero.astro"; // Adjust path
+import { data } from "../data/locations"; // Adjust path
+
+// Import City Components
+import CityServices from '../components/city/CityServices.astro';
+import CityQuartiers from '../components/city/CityQuartiers.astro';
+import CityUrgence from '../components/city/CityUrgence.astro';
+import CityAvantages from '../components/city/CityAvantages.astro';
+import CityProblems from '../components/city/CityProblems.astro';
+import CityTestimonials from '../components/city/CityTestimonials.astro';
+import CityFAQ from '../components/city/CityFAQ.astro';
+import CityTips from '../components/city/CityTips.astro';
+import CityEnvirons from '../components/city/CityEnvirons.astro';
+import CityTarifs from '../components/city/CityTarifs.astro';
+import CityConclusion from '../components/city/CityConclusion.astro';
+// Optional: Import a general Contact form component if you have one
+// import Contact from '../components/Contact.astro';
+
+// getStaticPaths function (from step 1 above)
+export function getStaticPaths() {
+    const paths = [];
+    data.forEach(stateObject => {
+        if (stateObject.Cities && Array.isArray(stateObject.Cities)) {
+            stateObject.Cities.forEach(cityObject => {
+                if (cityObject.slug && cityObject.cityName) {
+                    paths.push({
+                        params: { city: cityObject.slug },
+                        props: {
+                            cityName: cityObject.cityName,
+                            stateName: stateObject.State,
+                            sections: cityObject.sections && Array.isArray(cityObject.sections) ? cityObject.sections : [] 
+                        }
+                    });
+                }
+                if (cityObject.sections && Array.isArray(cityObject.sections)) {
+                    cityObject.sections.forEach(sectionObject => {
+                        if (sectionObject.slug && sectionObject.name) {
+                             paths.push({
+                                params: { city: sectionObject.slug },
+                                props: {
+                                    cityName: sectionObject.name, 
+                                    stateName: stateObject.State,
+                                    sections: [] 
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+    return paths;
+}
+
+// Get props passed from getStaticPaths
+const { cityName, stateName, sections } = Astro.props;
+
+// Define Hero Data for the city page
+const heroData = {
+  title: `Plombier ${cityName} - Dépannage d'Urgence et Services Professionnels`, // Updated H1 from brief
+  subtitle: `Besoin d'un plombier à ${cityName}? Notre équipe intervient rapidement dans tout ${cityName} et ses environs pour résoudre efficacement vos problèmes de plomberie. Disponibles 24/7.`, // Shortened subtitle
+  phoneNumber: "+32472808080", // Use your actual phone number
+  callButtonText: "Appel Urgence 24/7", // Or your number like "0476/23.23.23"
+  serviceButtonText: "Nos Services à " + cityName,
+  backgroundImageUrl: "/plombier-professionnel-belgique.jpg", // Keep or change background
+};
+
+// Define SEO Data for the city page
+const seoData = {
+    title: `Plombier à ${cityName} - Service Débouchage et Plomberie d'Urgence 24/7`, // From brief
+    description: `Plombier professionnel à ${cityName} ⭐️ Débouchage canalisation, réparation fuite d'eau, installation sanitaire. Intervention urgente 24h/24, 7j/7. Devis gratuit.`, // From brief
+    schema: "", // Add relevant LocalBusiness Schema.org markup here if needed
+}
+---
+
+<Layout SeoData={seoData}>
+    <Hero heroData={heroData} />
+
+    <CityServices cityName={cityName} />
+    <CityQuartiers cityName={cityName} />
+    <CityUrgence cityName={cityName} />
+    <CityAvantages cityName={cityName} />
+    <CityProblems cityName={cityName} />
+    <CityTestimonials cityName={cityName} />
+    <CityFAQ cityName={cityName} />
+    <CityTips cityName={cityName} />
+    
+    {/* Conditionally render Environs only if sections data is available */}
+    <CityEnvirons cityName={cityName} sections={sections} /> 
+    
+    <CityTarifs cityName={cityName} />
+    <CityConclusion cityName={cityName} />
+
+    {/* Optional: Add a contact form section */}
+    {/* <Contact id="contact" /> */}
+
+</Layout>

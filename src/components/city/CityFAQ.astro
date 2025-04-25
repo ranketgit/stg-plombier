@@ -1,0 +1,44 @@
+---
+interface Props {
+  cityName: string;
+}
+const { cityName } = Astro.props;
+
+const faqs = [
+  {
+    question: `Quel est votre délai d'intervention à ${cityName}?`,
+    answer: `Pour les urgences plomberie à ${cityName}, notre équipe s'engage...`
+  },
+  {
+    question: `Proposez-vous des devis gratuits pour les travaux de plomberie à ${cityName}?`,
+    answer: `Oui, nous offrons des devis gratuits et sans engagement pour tous les projets à ${cityName}...`
+  },
+  {
+    question: `Intervenez-vous aussi pour les problèmes de plomberie dans les commerces de ${cityName}?`,
+    answer: `Absolument! Outre nos services aux particuliers, nous intervenons dans les commerces de ${cityName}...`
+  },
+  {
+    question: `Comment faites-vous pour détecter les fuites non visibles à ${cityName}?`,
+    answer: `Pour localiser les fuites cachées dans les habitations de ${cityName}, nous utilisons des équipements...`
+  },
+  {
+    question: `Quelles solutions proposez-vous contre le calcaire très présent à ${cityName}?`,
+    answer: `Pour lutter contre le calcaire dans l'eau de ${cityName}, nous proposons plusieurs solutions...`
+  }
+];
+---
+<section class="bg-white py-12 md:py-16">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+      Questions Fréquentes sur Nos Services de Plomberie à {cityName}
+    </h2>
+    <div class="space-y-6">
+      {faqs.map(faq => (
+        <div class="bg-gray-50 p-5 rounded-lg shadow-sm">
+          <h3 class="font-semibold text-lg text-blue-800 mb-2">{faq.question}</h3>
+          <p class="text-gray-600 text-sm">{faq.answer}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

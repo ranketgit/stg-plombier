@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/homepage/Hero.astro";
+import { data, slugify } from "../data/locations";
+import Services from "../components/region/Services.astro";
+import WhyChooseUs from "../components/region/WhyChooseUs.astro";
+import Interventions from "../components/region/Interventions.astro";
+import Testimonials from '../components/region/Testimonials.astro';
+import FAQ from '../components/region/FAQ.astro';
+import CommonProblems from '../components/region/CommonProblems.astro';
+import Tips from '../components/region/Tips.astro';
+import Conclusion from '../components/region/Conclusion.astro';
+import { array } from "astro:schema";
+
+
+
+export function getStaticPaths() {
+    return data.map(stateObject => {
+        
+        // Simplified logic: Get only the main city names
+        let cityNamesForState = [];
+        if (stateObject.Cities && Array.isArray(stateObject.Cities)) {
+            // Map directly over the Cities array to get cityName
+            cityNamesForState = stateObject.Cities
+                .map(city => city.cityName) 
+                .filter(name => name); // Filter out any undefined/null names just in case
+        }
+
+        return {
+            params: { 
+                // Use the slug from data if available, otherwise generate it
+                state: slugify(stateObject.State) 
+            },
+            props: { 
+                state: stateObject.State, 
+                // Pass the list of main city names
+                cities: cityNamesForState
+            } 
+        };
+    });
+}
+
+const {state, cities} = Astro.props;
+
+const heroData = {
+  title: `Plombier Professionnel à ${state} - Intervention Rapide 24h/24`,
+  subtitle: `Besoin d'un plombier qualifié à ${state} ? Notre équipe de plombiers professionnels intervient rapidement dans toute la région ${state} pour résoudre tous vos problèmes de plomberie. Disponibles 24h/24 et 7j/7, nous vous garantissons une intervention dans l'heure en cas d'urgence pour tout débouchage de canalisation, réparation de fuite d'eau ou panne de chauffage.`,
+  phoneNumber: "+32472808080",
+  callButtonText: "0476/23.23.23",
+  serviceButtonText: "Nos Services",
+  backgroundImageUrl: "/plombier-professionnel-belgique.jpg",
+};
+
+const seoData = {
+	title: `Plombier en Urgence à ${state} - Plomberie et débouchage 24/7`,
+	description: `Plombier et deboucheur professionnel ⭐️ disponible 24/7 en ${state}. Intervention rapide, devis gratuit. Expert en débouchage canalisation, réparation fuite et chauffage.`,
+	schema: "",
+}
+---
+
+<Layout SeoData={seoData}>
+    <Hero heroData={heroData} />
+    <Services state={state} />
+    <WhyChooseUs state={state} />
+    <Interventions state={state} cities={cities}/>
+    <Testimonials state={state} />
+    <FAQ state={state} />
+    <CommonProblems state={state} />
+    <Tips state={state} />
+    <Conclusion state={state}/>
+
+</Layout>

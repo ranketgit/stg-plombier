@@ -1,0 +1,28 @@
+---
+interface Props {
+  cityName: string;
+}
+const { cityName } = Astro.props;
+---
+<section class="bg-gray-100 py-12 md:py-16">
+  <div class="container mx-auto px-4 max-w-3xl">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+      Tarifs Plombier à {cityName}
+    </h2>
+    <p class="text-center text-gray-600 mb-10">
+       Nos tarifs à {cityName} sont transparents et compétitifs. Voici un aperçu de nos prix pour les interventions les plus courantes:
+    </p>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <ul class="space-y-3 text-gray-700">
+        <li><strong>Déplacement à {cityName}:</strong> Inclus dans le prix de l'intervention</li>
+        <li><strong>Débouchage simple:</strong> À partir de 100€</li>
+        <li><strong>Recherche et réparation de fuite:</strong> À partir de 100€, selon complexité</li>
+        <li><strong>Remplacement robinetterie:</strong> À partir de 100€, fourniture comprise</li>
+        <li><strong>Installation sanitaire:</strong> Sur devis gratuit, adapté à votre projet</li>
+      </ul>
+      <p class="text-sm text-gray-500 mt-6">
+         Tous nos tarifs sont annoncés avant intervention et comprennent la TVA. Pour les interventions d'urgence en dehors des heures ouvrables à {cityName}, un supplément peut s'appliquer, qui vous sera clairement communiqué lors de votre appel.
+      </p>
+    </div>
+  </div>
+</section>

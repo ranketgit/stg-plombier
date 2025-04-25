@@ -1,0 +1,34 @@
+---
+interface Props {
+  state: string;
+}
+
+const { state } = Astro.props;
+---
+
+<section class="bg-white py-12 md:py-16">
+  <div class="container mx-auto px-4 max-w-4xl">
+     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+      Conclusion: Votre Plombier de Confiance à {state}
+    </h2>
+    <div class="text-center text-gray-600 space-y-4">
+      <p>
+        Que vous soyez confronté à une urgence plomberie ou que vous planifiez des travaux d'installation ou de rénovation, notre équipe de plombiers professionnels à {state} est à votre service pour vous garantir une prestation de qualité, rapide et au meilleur prix.
+      </p>
+      <p>
+        Notre connaissance approfondie du territoire de {state} et de ses spécificités en matière de plomberie nous permet d'intervenir efficacement pour tout type de problème, des plus courants aux plus complexes.
+      </p>
+      <p>
+        N'hésitez pas à nous contacter pour bénéficier de l'expertise de nos plombiers qualifiés à {state} et obtenir un devis gratuit adapté à vos besoins spécifiques.
+      </p>
+       <div class="pt-4">
+         <a 
+            href="#contact"
+            class="bg-blue-700 text-white hover:bg-blue-800 font-semibold py-2 px-6 rounded-xl inline-flex items-center justify-center transition-colors duration-300 shadow-md"
+          >
+            Demander un Devis Gratuit
+          </a>
+       </div>
+    </div>
+  </div>
+</section>

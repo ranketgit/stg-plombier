@@ -1,0 +1,109 @@
+---
+interface Props {
+  state: string;
+}
+
+const { state } = Astro.props;
+---
+
+<section id="services" class="bg-white py-12 md:py-16">
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+      Services de Plomberie Disponibles à {state}
+    </h2>
+    <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
+      Notre entreprise de plomberie à {state} vous propose une gamme complète de services pour répondre à tous vos besoins:
+    </p>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+        <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage Canalisation à {state}</h3>
+        <p class="text-gray-600 mb-4 text-sm">
+          Les canalisations bouchées sont l'un des problèmes les plus courants auxquels sont confrontés les habitants de {state}. Que ce soit dans les anciennes habitations du centre-ville ou dans les constructions plus récentes des quartiers périphériques, nos déboucheurs professionnels interviennent rapidement pour:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
+          <li>Débouchage WC et toilettes bouchées</li>
+          <li>Débouchage évier et lavabo</li>
+          <li>Débouchage douche et baignoire</li>
+          <li>Débouchage machine à laver</li>
+          <li>Débouchage canalisation extérieure</li>
+        </ul>
+        <p class="text-gray-600 text-sm">
+          Notre équipe de {state} utilise des techniques professionnelles comme le furet électrique, la pompe haute pression ou la caméra d'inspection pour identifier et éliminer efficacement toute obstruction dans vos tuyauteries, même les plus tenaces.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+        <h3 class="text-xl font-semibold text-blue-800 mb-3">Réparation Fuite d'Eau à {state}</h3>
+        <p class="text-gray-600 mb-4 text-sm">
+          Une fuite d'eau non traitée peut rapidement causer d'importants dégâts dans votre habitation à {state}. Notre service de détection et réparation de fuites intervient rapidement pour:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
+          <li>Localisation de fuites cachées (sous carrelage, dans les murs)</li>
+          <li>Réparation de tuyaux qui fuient</li>
+          <li>Remplacement de joints défectueux</li>
+          <li>Réparation de robinets qui gouttent</li>
+          <li>Colmatage professionnel de conduites</li>
+        </ul>
+        <p class="text-gray-600 text-sm">
+          Nos plombiers à {state} utilisent des équipements de détection acoustique et thermographique pour identifier l'origine exacte des fuites avant d'intervenir, limitant ainsi les travaux nécessaires dans votre logement.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+        <h3 class="text-xl font-semibold text-blue-800 mb-3">Services de Chauffagiste à {state}</h3>
+        <p class="text-gray-600 mb-4 text-sm">
+          Les hivers peuvent être rigoureux en {state}, rendant votre système de chauffage indispensable au confort de votre foyer. Nos chauffagistes qualifiés à {state} vous proposent:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
+          <li>Installation de chaudières (gaz, mazout, électrique)</li>
+          <li>Entretien annuel obligatoire de chaudière</li>
+          <li>Dépannage chauffage en urgence</li>
+          <li>Remplacement et purge de radiateurs</li>
+          <li>Installation de systèmes de chauffage écologiques</li>
+          <li>Réparation de pannes de chauffage</li>
+        </ul>
+        <p class="text-gray-600 text-sm">
+          Conformément à la législation belge, nous vous recommandons un entretien annuel de votre chaudière par nos techniciens certifiés à {state}, garantissant ainsi sa performance optimale et une réduction de vos factures d'énergie.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+        <h3 class="text-xl font-semibold text-blue-800 mb-3">Installation Sanitaire en {state}</h3>
+        <p class="text-gray-600 mb-4 text-sm">
+          Pour tous vos projets de rénovation ou d'installation sanitaire à {state}, notre équipe de plombiers professionnels vous accompagne:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
+          <li>Installation et remplacement de WC</li>
+          <li>Installation de douches et baignoires</li>
+          <li>Pose de lavabos et éviers</li>
+          <li>Installation de robinetterie</li>
+          <li>Aménagement complet de salle de bain</li>
+          <li>Installation de systèmes d'économie d'eau</li>
+        </ul>
+        <p class="text-gray-600 text-sm">
+          Nous vous proposons un service complet, de la conception à la réalisation, avec des finitions soignées pour votre plus grande satisfaction.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+        <h3 class="text-xl font-semibold text-blue-800 mb-3">Vidange Fosse Septique à {state}</h3>
+        <p class="text-gray-600 mb-4 text-sm">
+          Dans les zones rurales autour de {state}, de nombreuses habitations ne sont pas raccordées au tout-à-l'égout. Notre service d'assainissement propose:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
+          <li>Vidange de fosse septique</li>
+          <li>Entretien de systèmes d'assainissement individuel</li>
+          <li>Débouchage de fosses septiques</li>
+          <li>Mise aux normes d'installations existantes</li>
+          <li>Diagnostic et résolution de problèmes d'odeurs</li>
+        </ul>
+        <p class="text-gray-600 text-sm">
+          Un entretien régulier de votre fosse septique est essentiel pour éviter les problèmes d'évacuation et respecter les normes environnementales en vigueur dans la région de {state}.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
