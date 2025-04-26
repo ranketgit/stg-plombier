@@ -27,7 +27,7 @@ const faqs = [
     </h2>
     <div class="space-y-5">
       {faqs.map((faq, index) => (
-        <details class="group bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200" open={index === 0}>
+        <details class="group bg-gray-50 p-4 rounded-3xl shadow-sm border border-gray-200" open={index === 0}>
           <summary class="flex justify-between items-center font-semibold text-lg text-blue-800 cursor-pointer list-none">
             <span>{faq.question}</span>
             <span class="transition group-open:rotate-180">
