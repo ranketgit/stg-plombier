@@ -5,14 +5,14 @@ export const schemaMarkup = {
     "alternateName": "Plombier David",
     "description": "Service de plomberie professionnel disponible 24h/7j dans toute la Belgique. Intervention rapide pour tous vos problèmes de tuyauterie, débouchage, chauffage et sanitaire.",
     "url": "https://plombier-david.be",
-    "image": "REPLACE_WITH_ACTUAL_LOGO_URL", // <-- Replace placeholder with a real URL
+    "image": "/favicon.svg",
     "telephone": "+32476232323",
     "email": "contact@plombier-david.be",
-    "priceRange": "€", // Consider using "$$" or "$$$" for relative price or a more descriptive range if possible, e.g., "€50-€500"
+    "priceRange": "€",
     "currenciesAccepted": "EUR",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Rue St Laurent 39, 4000 Liège", // <-- Combined street address onto one line, removed newline
+      "streetAddress": "Rue St Laurent 39, 4000 Liège",
       "addressLocality": "Liège",
       "postalCode": "4000",
       "addressRegion": "Liège",
@@ -23,7 +23,7 @@ export const schemaMarkup = {
       "latitude": "50.6426",
       "longitude": "5.5610"
     },
-    "openingHoursSpecification": [ // <-- Added opening hours based on 24/7 description
+    "openingHoursSpecification": [ 
         {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": [
