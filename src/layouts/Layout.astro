@@ -13,16 +13,33 @@ interface Props {
 	SeoData: ISeoData;
 }
 const {SeoData} = Astro.props;
+
+const canonicalUrl=Astro.url.pathname
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="fr-BE">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{SeoData.title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{SeoData.title}</title>
+    <meta name="description" content={SeoData.description} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href=`https://sosdeboucheur.be${canonicalUrl}`/>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={SeoData.title} />
+    <meta property="og:description" content={SeoData.description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content=`https://plombier.be${canonicalUrl}` />
+  
+    {SeoData.schema && (
+      <script type="application/ld+json" set:html={JSON.stringify(SeoData.schema)} />
+    )}
 	</head>
 	<body>
 		<Header />

@@ -1,0 +1,56 @@
+---
+interface Props {
+  sectionName: string;
+  parentCityName: string;
+}
+const { sectionName, parentCityName } = Astro.props;
+
+const faqs = [
+  {
+    question: `Quel est votre délai d'intervention à ${parentCityName} ${sectionName}?`,
+    answer: `Pour les urgences plomberie dans le quartier ${sectionName}, notre équipe s'engage à intervenir dans l'heure suivant votre appel. Notre service d'urgence fonctionne 24h/24 et 7j/7, y compris les week-ends et jours fériés.`
+  },
+  {
+    question: `Connaissez-vous bien les spécificités des installations du quartier ${sectionName}?`,
+    answer: `Absolument! Notre équipe intervient régulièrement dans le quartier ${sectionName} et connaît parfaitement les caractéristiques des installations locales, notamment [spécificité technique locale de ${sectionName}]. Cette expertise nous permet d'intervenir efficacement et rapidement. ` // Developer Note: Replace bracketed text with actual data
+  },
+  {
+    question: `Proposez-vous des devis gratuits dans le quartier ${sectionName}?`,
+    answer: `Oui, nous offrons des devis gratuits et sans engagement pour tous les projets d'installation ou de rénovation plomberie à ${parentCityName} ${sectionName}. Un de nos techniciens se déplace chez vous pour évaluer précisément vos besoins et vous proposer les solutions les plus adaptées.`
+  }
+];
+---
+<section class="bg-white py-12 md:py-16">
+  <div class="container mx-auto px-4 max-w-4xl">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+      Questions Fréquentes sur Nos Services dans le Quartier {sectionName}
+    </h2>
+    <div class="space-y-5">
+      {faqs.map((faq, index) => (
+        <details class="group bg-gray-50 p-4 rounded-lg shadow-sm border border-gray-200" open={index === 0}>
+          <summary class="flex justify-between items-center font-semibold text-lg text-blue-800 cursor-pointer list-none">
+            <span>{faq.question}</span>
+            <span class="transition group-open:rotate-180">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+            </span>
+          </summary>
+          <p class="text-gray-600 text-sm mt-3 group-open:animate-fadeIn">
+            {faq.answer}
+          </p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .group-open\:animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+  details > summary { list-style: none; }
+  details > summary::-webkit-details-marker { display: none; }
+</style>

@@ -1,0 +1,80 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Hero from "../../components/homepage/Hero.astro";
+import { data } from "../../data/locations";        
+
+import SectionServices from '../../components/section/SectionServices.astro';
+import SectionParticularites from '../../components/section/SectionParticularities.astro';
+import SectionUrgence from '../../components/section/SectionUrgence.astro';
+import SectionTestimonials from '../../components/section/SectionTestimonials.astro';
+import SectionFAQ from '../../components/section/SectionFAQ.astro';
+import SectionTips from '../../components/section/SectionTips.astro';
+import SectionConclusion from '../../components/section/SectionConclusion.astro';
+
+export function getStaticPaths() {
+    const paths = [];
+
+    data.forEach(stateObject => {
+        if (stateObject.Cities && Array.isArray(stateObject.Cities)) {
+            stateObject.Cities.forEach(cityObject => {
+                // We only care about cities that *have* sections for this file
+                if (cityObject.sections && Array.isArray(cityObject.sections) && cityObject.slug) {
+                    cityObject.sections.forEach(sectionObject => {
+                        // Ensure the section has a slug and name
+                        if (sectionObject.slug && sectionObject.name) {
+                             paths.push({
+                                params: { 
+                                    city: cityObject.slug,      // Param for the folder name [city]
+                                    section: sectionObject.slug // Param for the file name [section]
+                                }, 
+                                props: { // Props remain the same as before
+                                    sectionName: sectionObject.name, 
+                                    parentCityName: cityObject.cityName, 
+                                    stateName: stateObject.State,       
+                                    codePostal: sectionObject.codePostal || cityObject.codePostal || '' 
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    return paths;
+}
+
+// Get props passed from getStaticPaths
+const { sectionName, parentCityName, stateName, codePostal } = Astro.props;
+
+// Define Hero Data for the section page
+const heroData = {
+  title: `Plombier ${parentCityName} ${sectionName} - Intervention Rapide et Qualité`, // H1 from brief
+  subtitle: `Vous recherchez un plombier de confiance à ${sectionName}? Notre équipe de plombiers qualifiés intervient rapidement dans tout le quartier ${sectionName} pour tous vos besoins en plomberie. Spécialistes du débouchage, de la réparation de fuites et de l'installation sanitaire, nous sommes à votre service 24h/24 et 7j/7 pour résoudre efficacement vos problèmes de plomberie.\nGrâce à notre excellente connaissance du quartier ${sectionName} de ${parentCityName} et de ses spécificités, nous vous garantissons une intervention adaptée et rapide, quel que soit votre problème de plomberie.`, // Full subtitle
+  phoneNumber: "+32472808080", // Your actual number
+  callButtonText: "Urgence " + sectionName, 
+  serviceButtonText: "Nos Services à " + sectionName,
+  backgroundImageUrl: "/plombier-professionnel-belgique.jpg", // Adjust path or use different image
+};
+
+// Define SEO Data for the section page
+const seoData = {
+    title: `Plombier à ${parentCityName} ${sectionName} - Service Débouchage et Plomberie 24/7`, // From brief
+    description: `Plombier professionnel à ${sectionName} ⭐️ Débouchage, réparation fuites, installations sanitaires. Intervention urgente 24h/24. Devis gratuit.`, // From brief
+    schema: "", // Add LocalBusiness schema specific to the section/postal code if possible
+}
+---
+
+<Layout SeoData={seoData}>
+    <Hero heroData={heroData} />
+
+
+    <SectionServices sectionName={sectionName} parentCityName={parentCityName} />
+    <SectionParticularites sectionName={sectionName} />
+    <SectionUrgence sectionName={sectionName} parentCityName={parentCityName} />
+    <SectionTestimonials sectionName={sectionName} parentCityName={parentCityName} />
+    <SectionFAQ sectionName={sectionName} parentCityName={parentCityName} />
+    <SectionTips sectionName={sectionName} />
+    <SectionConclusion sectionName={sectionName} parentCityName={parentCityName} />
+
+</Layout>
