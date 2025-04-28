@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://plombier.be/sitemap-index.xml
+Sitemap: https://plombier-david.be/sitemap-index.xml

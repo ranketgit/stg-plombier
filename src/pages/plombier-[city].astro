@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro"; // Adjust path
 import Hero from "../components/homepage/Hero.astro"; // Adjust path
 import { data } from "../data/locations"; // Adjust path
 
-// Import City Components
 import CityServices from '../components/city/CityServices.astro';
 import CityQuartiers from '../components/city/CityQuartiers.astro';
 import CityUrgence from '../components/city/CityUrgence.astro';
@@ -15,10 +14,7 @@ import CityTips from '../components/city/CityTips.astro';
 import CityEnvirons from '../components/city/CityEnvirons.astro';
 import CityTarifs from '../components/city/CityTarifs.astro';
 import CityConclusion from '../components/city/CityConclusion.astro';
-// Optional: Import a general Contact form component if you have one
-// import Contact from '../components/Contact.astro';
 
-// getStaticPaths function (from step 1 above)
 export function getStaticPaths() {
     const paths = [];
     data.forEach(stateObject => {
@@ -31,20 +27,6 @@ export function getStaticPaths() {
                             cityName: cityObject.cityName,
                             stateName: stateObject.State,
                             sections: cityObject.sections && Array.isArray(cityObject.sections) ? cityObject.sections : [] 
-                        }
-                    });
-                }
-                if (cityObject.sections && Array.isArray(cityObject.sections)) {
-                    cityObject.sections.forEach(sectionObject => {
-                        if (sectionObject.slug && sectionObject.name) {
-                             paths.push({
-                                params: { city: sectionObject.slug },
-                                props: {
-                                    cityName: sectionObject.name, 
-                                    stateName: stateObject.State,
-                                    sections: [] 
-                                }
-                            });
                         }
                     });
                 }
