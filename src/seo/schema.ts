@@ -1,9 +1,10 @@
-export const schemaMarkup = {
+export function createSchema(location: string){
+   let schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "PlumbingService",
-    "name": "Plombier David - plombier professionnel en urgence",
+    "name": `Plombier David - plombier professionnel en urgence - ${location} `,
     "alternateName": "Plombier David",
-    "description": "Service de plomberie professionnel disponible 24h/7j dans toute la Belgique. Intervention rapide pour tous vos problèmes de tuyauterie, débouchage, chauffage et sanitaire.",
+    "description":`Service de plomberie professionnel disponible 24h/7j dans toute ${location}. Intervention rapide pour tous vos problèmes de tuyauterie, débouchage, chauffage et sanitaire.`,
     "url": "https://plombier-david.be",
     "image": "/favicon.svg",
     "telephone": "+32476232323",
@@ -46,14 +47,14 @@ export const schemaMarkup = {
         "latitude": "50.6426",
         "longitude": "5.5610"
       },
-      "geoRadius": "50000" // Radius in meters (50km)
+      "geoRadius": "50000"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",
       "reviewCount": "85"
     },
-    "keywords": [ // <-- Added missing comma
+    "keywords": [
       "plombier bruxelles",
       "Plombier Liège",
       "débouchage canalisation belgique",
@@ -65,3 +66,10 @@ export const schemaMarkup = {
       "installation chauffage"
     ]
   };
+
+  return schemaMarkup;
+}
+
+
+
+

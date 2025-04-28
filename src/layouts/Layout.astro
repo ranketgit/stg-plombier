@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import {schemaMarkup} from '../seo/schema'
+import {createSchema} from '../seo/schema'
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -12,8 +12,9 @@ interface ISeoData {
 
 interface Props {
 	SeoData: ISeoData;
+  location: string;
 }
-const {SeoData} = Astro.props;
+const {SeoData, location} = Astro.props;
 
 
 
@@ -39,7 +40,7 @@ const canonicalUrl=Astro.url.pathname
     <meta property="og:description" content={SeoData.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content=`https://plombier-david.be${canonicalUrl}` />
-    <script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
+    <script type="application/ld+json" set:html={JSON.stringify(createSchema(location))} />
     
 	</head>
 	<body class="relative">
