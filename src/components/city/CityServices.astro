@@ -1,92 +1,94 @@
 ---
 interface Props {
-  cityName: string;
+  cityName: string;
+  cardBackgroundImages?: string[]; // Array of image URLs for each card
 }
-const { cityName } = Astro.props;
+const { cityName, cardBackgroundImages = [] } = Astro.props;
 // Placeholder SVG Icon - replace with actual relevant icons if desired
-const Icon = `<svg class="h-8 w-8 text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`; 
+const Icon = `<svg class="h-8 w-8 text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+
+const cardData = [
+  {
+    title: `Débouchage Canalisation ${cityName}`,
+    content: `Les habitants de ${cityName} font régulièrement face à des problèmes de canalisations bouchées, particulièrement dans les quartiers aux infrastructures plus anciennes. Notre service de débouchage intervient rapidement pour:`,
+    listItems: [
+      `<strong>Débouchage WC à ${cityName}:</strong> Élimination efficace des obstructions dans vos toilettes`,
+      `<strong>Débouchage évier et lavabo:</strong> Techniques adaptées pour rétablir l'écoulement normal`,
+      `<strong>Débouchage douche et baignoire:</strong> Solutions contre les accumulations de cheveux et savon`,
+      `<strong>Débouchage canalisation extérieure:</strong> Intervention sur vos évacuations extérieures`,
+      `<strong>Débouchage colonne d'immeuble:</strong> Services pour copropriétés et immeubles collectifs à ${cityName}`,
+    ],
+    lastParagraph: `Notre équipe de déboucheurs à ${cityName} dispose d'équipements professionnels adaptés à chaque situation: furets électriques, pompes haute pression et caméras d'inspection pour localiser et éliminer efficacement tous types d'obstructions.`,
+  },
+  {
+    title: `Détection et Réparation de Fuites d'Eau à ${cityName}`,
+    content: `Les fuites d'eau peuvent causer des dommages considérables dans votre logement à ${cityName} et entraîner une augmentation significative de votre facture d'eau. Notre service de détection et réparation de fuites vous propose:`,
+    listItems: [
+      `<strong>Localisation précise des fuites cachées:</strong> Sous carrelage, dans les murs ou plafonds`,
+      `<strong>Réparation de tuyauterie endommagée:</strong> Solutions durables pour tous types de conduites`,
+      `<strong>Remplacement de joints défectueux:</strong> Intervention sur robinetterie et raccords`,
+      `<strong>Traitement des fuites sur canalisations enterrées:</strong> Expertise pour les installations extérieures`,
+      `<strong>Réparation de fuites sur ballon d'eau chaude:</strong> Service spécialisé pour vos équipements sanitaires`,
+    ],
+    lastParagraph: `À ${cityName}, nous utilisons des équipements de détection non invasifs (caméras thermiques, détecteurs acoustiques) pour identifier l'origine exacte des fuites avant d'intervenir, limitant ainsi les dégâts dans votre habitation.`,
+  },
+  {
+    title: `Services de Chauffagiste à ${cityName}`,
+    content: `Le climat à ${cityName} nécessite un système de chauffage performant et fiable. Nos chauffagistes qualifiés vous offrent:`,
+    listItems: [
+      `<strong>Installation de chaudières à ${cityName}:</strong> Pose de chaudières gaz, mazout ou électriques`,
+      `<strong>Entretien annuel obligatoire:</strong> Maintenance préventive conformément à la législation belge`,
+      `<strong>Dépannage chauffage d'urgence:</strong> Intervention rapide en cas de panne`,
+      `<strong>Remplacement et purge de radiateurs:</strong> Optimisation de votre système de chauffage`,
+      `<strong>Installation de chauffage écologique:</strong> Solutions durables adaptées aux logements de ${cityName}`,
+      `<strong>Réglage et équilibrage de systèmes:</strong> Performance optimale pour vos installations`,
+    ],
+    lastParagraph: `Nos techniciens certifiés à ${cityName} vous garantissent une installation aux normes et un fonctionnement optimal de votre système de chauffage, particulièrement important durant les périodes hivernales.`,
+  },
+  {
+    title: `Installation Sanitaire à ${cityName}`,
+    content: `Pour vos projets de rénovation ou d'installation sanitaire à ${cityName}, notre équipe de plombiers expérimentés vous propose:`,
+    listItems: [
+      `<strong>Installation et remplacement de WC:</strong> Pose de toilettes classiques ou suspendues`,
+      `<strong>Installation de douches et baignoires:</strong> Adaptation à tout type d'espace`,
+      `<strong>Pose de lavabos et éviers:</strong> Solutions pour cuisines et salles de bain`,
+      `<strong>Installation de robinetterie:</strong> Pose de mitigeurs et robinets thermostatiques`,
+      `<strong>Aménagement complet de salle de bain:</strong> Service clé en main pour votre confort`,
+      `<strong>Installation de systèmes d'économie d'eau:</strong> Solutions écologiques pour les habitants de ${cityName}`,
+    ],
+    lastParagraph: `Nous accompagnons les résidents de ${cityName} à chaque étape de leur projet, de la conception à la réalisation, en proposant des solutions adaptées aux spécificités de leur logement et à leur budget.`,
+  },
+];
 ---
 <section class="bg-white py-12 md:py-16">
-  <div class="container mx-auto px-4">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
-      Services de Plomberie Professionnels à {cityName}
-    </h2>
-    <div class="grid md:grid-cols-2 gap-8">
-      
-      <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
-        <Fragment set:html={Icon} />
-        <h3 class="text-xl font-semibold text-blue-800 mb-4">Débouchage Canalisation {cityName}</h3>
-        <p class="text-gray-600 mb-4 text-sm">
-          Les habitants de {cityName} font régulièrement face à des problèmes de canalisations bouchées, particulièrement dans les quartiers aux infrastructures plus anciennes. Notre service de débouchage intervient rapidement pour:
-        </p>
-        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
-          <li><strong>Débouchage WC à {cityName}:</strong> Élimination efficace des obstructions dans vos toilettes</li>
-          <li><strong>Débouchage évier et lavabo:</strong> Techniques adaptées pour rétablir l'écoulement normal</li>
-          <li><strong>Débouchage douche et baignoire:</strong> Solutions contre les accumulations de cheveux et savon</li>
-          <li><strong>Débouchage canalisation extérieure:</strong> Intervention sur vos évacuations extérieures</li>
-          <li><strong>Débouchage colonne d'immeuble:</strong> Services pour copropriétés et immeubles collectifs à {cityName}</li>
-        </ul>
-        <p class="text-gray-600 text-sm">
-          Notre équipe de déboucheurs à {cityName} dispose d'équipements professionnels adaptés à chaque situation: furets électriques, pompes haute pression et caméras d'inspection pour localiser et éliminer efficacement tous types d'obstructions.
-        </p>
-      </div>
-
-      <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
-         <Fragment set:html={Icon} />
-         <h3 class="text-xl font-semibold text-blue-800 mb-4">Détection et Réparation de Fuites d'Eau à {cityName}</h3>
-         <p class="text-gray-600 mb-4 text-sm">
-          Les fuites d'eau peuvent causer des dommages considérables dans votre logement à {cityName} et entraîner une augmentation significative de votre facture d'eau. Notre service de détection et réparation de fuites vous propose:
-         </p>
-         <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
-          <li><strong>Localisation précise des fuites cachées:</strong> Sous carrelage, dans les murs ou plafonds</li>
-          <li><strong>Réparation de tuyauterie endommagée:</strong> Solutions durables pour tous types de conduites</li>
-          <li><strong>Remplacement de joints défectueux:</strong> Intervention sur robinetterie et raccords</li>
-          <li><strong>Traitement des fuites sur canalisations enterrées:</strong> Expertise pour les installations extérieures</li>
-          <li><strong>Réparation de fuites sur ballon d'eau chaude:</strong> Service spécialisé pour vos équipements sanitaires</li>
-         </ul>
-         <p class="text-gray-600 text-sm">
-          À {cityName}, nous utilisons des équipements de détection non invasifs (caméras thermiques, détecteurs acoustiques) pour identifier l'origine exacte des fuites avant d'intervenir, limitant ainsi les dégâts dans votre habitation.
-         </p>
-      </div>
-
-       <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
-         <Fragment set:html={Icon} />
-         <h3 class="text-xl font-semibold text-blue-800 mb-4">Services de Chauffagiste à {cityName}</h3>
-         <p class="text-gray-600 mb-4 text-sm">
-           Le climat à {cityName} nécessite un système de chauffage performant et fiable. Nos chauffagistes qualifiés vous offrent:
-         </p>
-         <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
-          <li><strong>Installation de chaudières à {cityName}:</strong> Pose de chaudières gaz, mazout ou électriques</li>
-          <li><strong>Entretien annuel obligatoire:</strong> Maintenance préventive conformément à la législation belge</li>
-          <li><strong>Dépannage chauffage d'urgence:</strong> Intervention rapide en cas de panne</li>
-          <li><strong>Remplacement et purge de radiateurs:</strong> Optimisation de votre système de chauffage</li>
-          <li><strong>Installation de chauffage écologique:</strong> Solutions durables adaptées aux logements de {cityName}</li>
-          <li><strong>Réglage et équilibrage de systèmes:</strong> Performance optimale pour vos installations</li>
-         </ul>
-         <p class="text-gray-600 text-sm">
-           Nos techniciens certifiés à {cityName} vous garantissent une installation aux normes et un fonctionnement optimal de votre système de chauffage, particulièrement important durant les périodes hivernales.
-         </p>
-      </div>
-
-       <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
-         <Fragment set:html={Icon} />
-         <h3 class="text-xl font-semibold text-blue-800 mb-4">Installation Sanitaire à {cityName}</h3>
-         <p class="text-gray-600 mb-4 text-sm">
-           Pour vos projets de rénovation ou d'installation sanitaire à {cityName}, notre équipe de plombiers expérimentés vous propose:
-         </p>
-         <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
-          <li><strong>Installation et remplacement de WC:</strong> Pose de toilettes classiques ou suspendues</li>
-          <li><strong>Installation de douches et baignoires:</strong> Adaptation à tout type d'espace</li>
-          <li><strong>Pose de lavabos et éviers:</strong> Solutions pour cuisines et salles de bain</li>
-          <li><strong>Installation de robinetterie:</strong> Pose de mitigeurs et robinets thermostatiques</li>
-          <li><strong>Aménagement complet de salle de bain:</strong> Service clé en main pour votre confort</li>
-          <li><strong>Installation de systèmes d'économie d'eau:</strong> Solutions écologiques pour les habitants de {cityName}</li>
-         </ul>
-         <p class="text-gray-600 text-sm">
-           Nous accompagnons les résidents de {cityName} à chaque étape de leur projet, de la conception à la réalisation, en proposant des solutions adaptées aux spécificités de leur logement et à leur budget.
-         </p>
-      </div>
-
-    </div>
-  </div>
+  <div class="container mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+      Services de Plomberie Professionnels à {cityName}
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      {cardData.map((card, index) => (
+        <div
+          class="relative bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500 overflow-hidden"
+          style={{
+            backgroundImage: cardBackgroundImages[index] ? `url(${cardBackgroundImages[index]})` : 'none',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <div class="absolute inset-0 bg-blue-800 opacity-60"></div>
+          <div class="relative z-10">
+            <Fragment set:html={Icon} />
+            <h3 class="text-xl font-semibold text-white mb-4">{card.title}</h3>
+            <p class="text-gray-100 mb-4 text-sm">{card.content}</p>
+            <ul class="list-disc list-inside text-gray-50 space-y-1 text-sm mb-4 pl-2">
+              {card.listItems.map((item) => (
+                <li set:html={item}></li>
+              ))}
+            </ul>
+            <p class="text-gray-200 text-sm">{card.lastParagraph}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 </section>

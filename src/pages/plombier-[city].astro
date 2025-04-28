@@ -60,8 +60,15 @@ const seoData = {
 <Layout SeoData={seoData}>
     <Hero heroData={heroData} />
 
-    <CityServices cityName={cityName} />
-    <CityQuartiers cityName={cityName} />
+    <CityServices cityName={cityName} 
+    cardBackgroundImages={[
+        '/debouchage-de-canalisation.jpg',
+        '/installation-sanitaire.jpg',
+        '/service-chaufagiste.jpg',
+        '/reparation-fuite-eau.jpg',
+      ]}
+    />
+    <CityQuartiers cityName={cityName} imageUrl="/plombier-pro-belgique.jpg" />
     <CityUrgence cityName={cityName} />
     <CityAvantages cityName={cityName} />
     <CityProblems cityName={cityName} />

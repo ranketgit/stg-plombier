@@ -14,6 +14,13 @@ const { state } = Astro.props;
     <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
       Notre entreprise de plomberie à {state} vous propose une gamme complète de services pour répondre à tous vos besoins:
     </p>
+    <div class="mb-8">
+              <img
+                src="/plumber.jpg"
+                alt={`Services de plomberie à ${state}`}
+                class="rounded-lg shadow-md w-full lg:max-w-4xl mx-auto"
+              />
+            </div>
     
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       
