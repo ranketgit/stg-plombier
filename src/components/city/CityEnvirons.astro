@@ -1,4 +1,6 @@
 ---
+import { slugify } from '../../data/locations';
+
 interface Section {
   name: string;
   slug: string;
@@ -22,7 +24,7 @@ const { cityName, sections } = Astro.props;
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-center max-w-4xl mx-auto">
         {sections.map((section) => (
           <a 
-            href={`/plombier-${section.slug}`} 
+            href={`/plombier-${slugify(cityName)}/${section.slug}`} 
             class="block bg-gray-100 text-center p-4 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 text-blue-700 hover:text-blue-800 font-medium"
             title={`Plombier à ${section.name}`}
           >

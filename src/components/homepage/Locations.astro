@@ -4,46 +4,61 @@ import { Icon } from 'astro-icon/components';
 
 // Data structure for regions (to be displayed as cards)
 const regions = [
-  {
-    name: "Région de Bruxelles-Capitale",
-    description: "Notre service de plomberie à Bruxelles vous garantit une intervention rapide 24h/24. Nos plombiers bruxellois connaissent parfaitement les spécificités des installations dans les maisons de maître comme dans les appartements modernes de la capitale."
-  },
-  {
-    name: "Province du Brabant Wallon",
-    description: "De Wavre à Nivelles, en passant par Ottignies-Louvain-la-Neuve, nos plombiers interviennent dans tout le Brabant Wallon pour des services de débouchage, plomberie et chauffage de qualité."
-  },
-  {
-    name: "Province du Brabant Flamand",
-    description: "Nos équipes de plombiers couvrent l'ensemble du Brabant Flamand, de Louvain à Vilvorde, pour tous vos besoins en plomberie et chauffage."
-  },
-  {
-    name: "Province de Liège",
-    description: "De la ville de Liège aux communes avoisinantes, notre service de plomberie liégeois vous assure un dépannage rapide et efficace pour tous vos problèmes de plomberie."
-  },
-  {
-    name: "Province du Hainaut",
-    description: "De Charleroi à Mons, nos plombiers hainuyers sont à votre disposition pour toute intervention d'urgence ou travaux planifiés."
-  },
-  {
-    name: "Province de Namur",
-    description: "Notre équipe de plombiers couvre l'ensemble de la province de Namur pour vous offrir des services de plomberie de qualité."
-  },
-  {
-    name: "Province du Luxembourg",
-    description: "Malgré la vaste étendue de la province, nos plombiers luxembourgeois vous garantissent une intervention rapide même dans les zones les plus reculées."
-  },
-  {
-    name: "Province d'Anvers",
-    description: "De la métropole anversoise aux communes environnantes, nos plombiers sont disponibles 24h/24 pour répondre à vos urgences."
-  },
-  {
-    name: "Flandre Occidentale",
-    description: "Notre service de plomberie couvre toute la Flandre Occidentale, de Bruges à Ostende, pour tous vos besoins en plomberie."
-  },
-  {
-    name: "Flandre Orientale",
-    description: "De Gand à Alost, nos plombiers sont à votre service pour toute intervention de plomberie en Flandre Orientale."
-  }
+    {
+        name: "Province d'Anvers", // Kept original name, maps to 'antwerpen' slug
+        slug: "/plombier-region-antwerpen/",
+        description: "De la métropole anversoise aux communes environnantes, nos plombiers sont disponibles 24h/24 pour répondre à vos urgences."
+    },
+    {
+        name: "Région de Bruxelles-Capitale",
+        slug: "/plombier-region-bruxelles-capitale/",
+        description: "Notre service de plomberie à Bruxelles vous garantit une intervention rapide 24h/24. Nos plombiers bruxellois connaissent parfaitement les spécificités des installations dans les maisons de maître comme dans les appartements modernes de la capitale."
+    },
+    {
+        name: "Province du Hainaut",
+        slug: "/plombier-region-hainaut/",
+        description: "De Charleroi à Mons, nos plombiers hainuyers sont à votre disposition pour toute intervention d'urgence ou travaux planifiés."
+    },
+    {
+        name: "Province du Brabant Wallon",
+        slug: "/plombier-region-brabant-wallon/",
+        description: "De Wavre à Nivelles, en passant par Ottignies-Louvain-la-Neuve, nos plombiers interviennent dans tout le Brabant Wallon pour des services de débouchage, plomberie et chauffage de qualité."
+    },
+    {
+        name: "Province de Liège",
+        slug: "/plombier-region-liege/",
+        description: "De la ville de Liège aux communes avoisinantes, notre service de plomberie liégeois vous assure un dépannage rapide et efficace pour tous vos problèmes de plomberie."
+    },
+    {
+        name: "Province de Limbourg", // Added Limbourg
+        slug: "/plombier-region-limbourg/",
+        description: "Nos plombiers interviennent rapidement dans toute la province de Limbourg pour vos besoins en plomberie et chauffage." // Added a generic description
+    },
+    {
+        name: "Province du Luxembourg",
+        slug: "/plombier-region-luxembourg/",
+        description: "Malgré la vaste étendue de la province, nos plombiers luxembourgeois vous garantissent une intervention rapide même dans les zones les plus reculées."
+    },
+    {
+        name: "Province de Namur",
+        slug: "/plombier-region-namur/",
+        description: "Notre équipe de plombiers couvre l'ensemble de la province de Namur pour vous offrir des services de plomberie de qualité."
+    },
+    {
+        name: "Flandre Orientale",
+        slug: "/plombier-region-flandre-orientale/",
+        description: "De Gand à Alost, nos plombiers sont à votre service pour toute intervention de plomberie en Flandre Orientale."
+    },
+    {
+        name: "Province du Brabant Flamand",
+        slug: "/plombier-region-brabant-flamand/",
+        description: "Nos équipes de plombiers couvrent l'ensemble du Brabant Flamand, de Louvain à Vilvorde, pour tous vos besoins en plomberie et chauffage."
+    },
+    {
+        name: "Flandre Occidentale",
+        slug: "/plombier-region-flandre-occidentale/",
+        description: "Notre service de plomberie couvre toute la Flandre Occidentale, de Bruges à Ostende, pour tous vos besoins en plomberie."
+    }
 ];
 
 // Data structure for cities (to be displayed as individual dropdowns)
@@ -122,10 +137,10 @@ const otherCities = [
                 {region.name}
               </h3>
               <p class="text-gray-600 text-sm">{region.description}</p>
-              <button class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+              <a href={region.slug} class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
                 Nos services dans cette région
                 <Icon name="mdi:arrow-right" class="h-4 w-4 ml-1" />
-              </button>
+              </a>
             </div>
           </div>
         ))}

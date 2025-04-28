@@ -18,7 +18,7 @@ const canonicalUrl=Astro.url.pathname
 ---
 
 <!doctype html>
-<html lang="fr-BE">
+<html class="" lang="fr-BE">
 	<head>
 		<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,7 +41,7 @@ const canonicalUrl=Astro.url.pathname
       <script type="application/ld+json" set:html={JSON.stringify(SeoData.schema)} />
     )}
 	</head>
-	<body>
+	<body class="relative">
 		<Header />
 		<slot /> 
 		<Footer />
@@ -53,6 +53,5 @@ const canonicalUrl=Astro.url.pathname
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
 	}
 </style>

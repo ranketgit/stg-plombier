@@ -1,6 +1,6 @@
 export const data = [
   {
-    State: "Province Antwerpen",
+    State: "Antwerpen",
     slug: "province-antwerpen",
     Cities: [
       { cityName: "Aartselaar", slug: "aartselaar", codePostal: "2630" },
@@ -110,7 +110,7 @@ export const data = [
     ]
   },
   {
-    State: "Région Bruxelles-Capitale",
+    State: "Bruxelles Capitale",
     slug: "region-bruxelles-capitale",
     Cities: [
       { cityName: "Anderlecht", slug: "anderlecht", codePostal: "1070" },
@@ -144,7 +144,7 @@ export const data = [
     ]
   },
   {
-    State: "Province Hainaut",
+    State: "Hainaut",
     slug: "province-hainaut",
     Cities: [
       {
@@ -977,7 +977,7 @@ export const data = [
     ]
   },
 {
-    State: "Province Brabant-Wallon",
+    State: "Brabant-Wallon",
     slug: "province-brabant-wallon",
     Cities: [
       {
@@ -1242,7 +1242,7 @@ export const data = [
     ]
   },
   {
-    State: "Province Liège",
+    State: "Liège",
     slug: "province-liege",
     Cities: [
       {
@@ -1943,7 +1943,7 @@ export const data = [
     ]
   },
   {
-    State: "Province Limbourg",
+    State: "Limbourg",
     slug: "province-limburg",
     Cities: [
       { cityName: "Alken", slug: "alken", codePostal: "3570" },
@@ -1991,7 +1991,7 @@ export const data = [
     ]
   },
   {
-    State: "Province Luxembourg",
+    State: "Luxembourg",
     slug: "province-luxembourg",
     Cities: [
       {
@@ -2514,7 +2514,7 @@ export const data = [
     ]
   },
   {
-    State: "Province Namur",
+    State: "Namur",
     slug: "province-namur",
     Cities: [
       {
@@ -3111,7 +3111,7 @@ export const data = [
     ]
   },
   {
-    State: "Province Flandre-Orientale",
+    State: "Flandre-Orientale",
     slug: "province-oost-vlaanderen",
     Cities: [
       {
@@ -3311,7 +3311,7 @@ export const data = [
     ]
   },
   {
-    State: "Province Brabant flamand",
+    State: "Brabant flamand",
     slug: "province-vlaams-brabant",
     Cities: [
       { cityName: "Aarschot", slug: "aarschot", codePostal: "3200" },
@@ -3637,7 +3637,7 @@ export const data = [
     ]
   },
   {
-    State: "Province Flandre-Occidentale",
+    State: "Flandre-Occidentale",
     slug: "province-west-vlaanderen",
     Cities: [
       { cityName: "Alveringem", slug: "alveringem", codePostal: "8690" },
