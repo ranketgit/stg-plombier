@@ -7,7 +7,7 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://plombier-david.be",
+  site: "https://assur-plombier.be",
   vite: {
     plugins: [tailwindcss()]
   },

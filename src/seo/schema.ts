@@ -2,13 +2,13 @@ export function createSchema(location: string){
    let schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "PlumbingService",
-    "name": `Plombier David - plombier professionnel en urgence - ${location} `,
+    "name": `Assur Plombier - plombier professionnel en urgence - ${location} `,
     "alternateName": "Plombier David",
     "description":`Service de plomberie professionnel disponible 24h/7j dans toute ${location}. Intervention rapide pour tous vos problèmes de tuyauterie, débouchage, chauffage et sanitaire.`,
-    "url": "https://plombier-david.be",
+    "url": "https://assur-plombier.be",
     "image": "/favicon.svg",
     "telephone": "+32476232323",
-    "email": "contact@plombier-david.be",
+    "email": "contact@assur-plombier.be",
     "priceRange": "€",
     "currenciesAccepted": "EUR",
     "address": {

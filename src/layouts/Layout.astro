@@ -29,7 +29,7 @@ const canonicalUrl=Astro.url.pathname
     <title>{SeoData.title}</title>
     <meta name="description" content={SeoData.description} />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="canonical" href=`https://plombier-david.be${canonicalUrl}`/>
+    <link rel="canonical" href=`https://assur-plombier.be${canonicalUrl}`/>
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
@@ -39,7 +39,7 @@ const canonicalUrl=Astro.url.pathname
     <meta property="og:title" content={SeoData.title} />
     <meta property="og:description" content={SeoData.description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content=`https://plombier-david.be${canonicalUrl}` />
+    <meta property="og:url" content=`https://assur-plombier.be${canonicalUrl}` />
     <script type="application/ld+json" set:html={JSON.stringify(createSchema(location))} />
     
 	</head>
