@@ -1,10 +1,10 @@
-export function createSchema(location: string){
-   let schemaMarkup = {
+export function createSchema(location: string) {
+  let schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "PlumbingService",
     "name": `Assur Plombier - plombier professionnel en urgence - ${location} `,
     "alternateName": "Assur plombier",
-    "description":`Service de plomberie professionnel disponible 24h/7j dans toute ${location}. Intervention rapide pour tous vos problèmes de tuyauterie, débouchage, chauffage et sanitaire.`,
+    "description": `Service de plomberie professionnel disponible 24h/7j dans toute ${location}. Intervention rapide pour tous vos problèmes de tuyauterie, débouchage, chauffage et sanitaire.`,
     "url": "https://assur-plombier.be",
     "image": "/favicon.svg",
     "telephone": "+32476232323",
@@ -24,22 +24,22 @@ export function createSchema(location: string){
       "latitude": "50.6426",
       "longitude": "5.5610"
     },
-    "openingHoursSpecification": [ 
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          ],
-          "opens": "00:00",
-          "closes": "23:59"
-        }
-      ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    ],
     "serviceArea": {
       "@type": "GeoCircle",
       "geoMidpoint": {
@@ -71,7 +71,3 @@ export function createSchema(location: string){
 
   return schemaMarkup;
 }
-
-
-
-
