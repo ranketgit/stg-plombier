@@ -51,8 +51,10 @@ export function createSchema(location: string){
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "85"
+      ratingValue: "9.9",
+      reviewCount: "7",
+      bestRating: "10",
+      worstRating: "1",
     },
     "keywords": [
       "plombier bruxelles",
