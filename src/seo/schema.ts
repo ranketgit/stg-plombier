@@ -52,7 +52,7 @@ export function createSchema(location: string) {
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "9.9",
-      "reviewCount": "7",
+      "reviewCount": "10",
       "bestRating": "10",
       "worstRating": "1",
     },
