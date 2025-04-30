@@ -1,7 +1,7 @@
 export function createSchema(location: string) {
   let schemaMarkup = {
     "@context": "https://schema.org",
-    "@type": "PlumbingService",
+    "@type": "ProfessionalService",
     "name": `Assur Plombier - plombier professionnel en urgence - Belgique `,
     "alternateName": "Assur plombier",
     "description": `Service de plomberie professionnel disponible 24h/7j dans toute Belgique. Intervention rapide pour tous vos problèmes de tuyauterie, débouchage, chauffage et sanitaire.`,
