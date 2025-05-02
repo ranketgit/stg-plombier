@@ -51,8 +51,8 @@ export function createSchema(location: string) {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "9.9",
-      "reviewCount": "10",
+      "ratingValue": "9.7",
+      "reviewCount": "14",
       "bestRating": "10",
       "worstRating": "1",
     },
