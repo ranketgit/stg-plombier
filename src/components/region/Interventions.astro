@@ -1,20 +1,25 @@
 ---
-import { slugify } from '../../data/locations'; // Adjust path if needed
+// Removed: import { slugify } from '../../data/locations'; 
+// slugify is no longer needed here as slugs are provided
+
+interface City {
+  name: string;
+  slug: string;
+}
 
 interface Props {
   state: string;
-  cities: string[]; // Array of city names for the current state
+  cities: City[]; // Updated to reflect array of city objects
 }
 
 const { state, cities } = Astro.props;
 
-// Function to generate a placeholder link for a city (replace with actual logic if needed)
-const getCityLink = (city: string, currentState: string) => {
-  // Example: /plombier/wallonie/liege
-  // return `/plombier/${slugify(currentState)}/${slugify(city)}`;
-  // Or return '#' if city pages don't exist yet
-  return '#'; 
-};
+// The getCityLink function is not used in the template below, 
+// so it can be removed or kept if you plan to use it elsewhere.
+// For now, I'll assume it's not needed for this specific structure.
+// const getCityLink = (citySlug: string, currentStateSlug: string) => {
+//   return `/plombier/${currentStateSlug}/${citySlug}`;
+// };
 ---
 
 <section class="bg-gray-100 py-12 md:py-16">
@@ -30,11 +35,11 @@ const getCityLink = (city: string, currentState: string) => {
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {cities.map((city) => (
           <a 
-            href={`/plombier-${slugify(city)}/`} 
+            href={`/plombier-${city.slug}/`} 
             class="block bg-white text-center p-4 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 text-blue-700 hover:text-blue-800 font-medium"
-            title={`Plombier à ${city}, ${state}`}
+            title={`Plombier à ${city.name}, ${state}`}
           >
-            {city}
+            {city.name}
           </a>
         ))}
       </div>

@@ -10,37 +10,34 @@ import FAQ from '../components/region/FAQ.astro';
 import CommonProblems from '../components/region/CommonProblems.astro';
 import Tips from '../components/region/Tips.astro';
 import Conclusion from '../components/region/Conclusion.astro';
-import { array } from "astro:schema";
-
-
 
 export function getStaticPaths() {
     return data.map(stateObject => {
         
-        // Simplified logic: Get only the main city names
-        let cityNamesForState = [];
+        let citiesForState = [];
         if (stateObject.Cities && Array.isArray(stateObject.Cities)) {
-            // Map directly over the Cities array to get cityName
-            cityNamesForState = stateObject.Cities
-                .map(city => city.cityName) 
-                .filter(name => name); // Filter out any undefined/null names just in case
+            citiesForState = stateObject.Cities.map(city => {
+                // We expect city.cityName and city.slug to be present based on your data
+                return { name: city.cityName, slug: city.slug };
+            }).filter(city => city.name && city.slug); // Ensure valid city objects
         }
 
         return {
             params: { 
-                // Use the slug from data if available, otherwise generate it
+                // Reverted to use slugify on the State name for the path parameter
+                // This was the likely original behavior for generating the state page URL
                 state: slugify(stateObject.State) 
             },
             props: { 
-                state: stateObject.State, 
-                // Pass the list of main city names
-                cities: cityNamesForState
+                state: stateObject.State, // The actual state name, e.g., "Bruxelles Capitale"
+                // Pass the array of city objects (name and slug)
+                cities: citiesForState
             } 
         };
     });
 }
 
-const {state, cities} = Astro.props;
+const {state, cities} = Astro.props; // 'state' is the actual name, 'cities' is [{name, slug}, ...]
 
 const heroData = {
   title: `Plombier Professionnel à ${state} - Intervention Rapide 24h/24`,
@@ -52,9 +49,9 @@ const heroData = {
 };
 
 const seoData = {
-	title: `Plombier ${state} en urgence - Plomberie et débouchage 24/7`,
-	description: `Plombier et deboucheur professionnel ⭐️ disponible 24/7 à ${state}. Intervention rapide, devis gratuit. Expert en débouchage canalisation. ☎️ 0476/23.23.23`,
-	schema: "",
+    title: `Plombier ${state} en urgence - Plomberie et débouchage 24/7`,
+    description: `Plombier et deboucheur professionnel ⭐️ disponible 24/7 à ${state}. Intervention rapide, devis gratuit. Expert en débouchage canalisation. ☎️ 0476/23.23.23`,
+    schema: "",
 }
 ---
 
@@ -62,11 +59,10 @@ const seoData = {
     <Hero heroData={heroData} />
     <Services state={state} />
     <WhyChooseUs state={state} />
-    <Interventions state={state} cities={cities}/>
+    <Interventions state={state} cities={cities}/> {/* cities now contains { name, slug } for each city */}
     <Testimonials state={state} />
     <FAQ state={state} />
     <CommonProblems state={state} />
     <Tips state={state} />
     <Conclusion state={state}/>
-
 </Layout>

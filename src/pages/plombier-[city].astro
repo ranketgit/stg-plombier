@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro"; // Adjust path
-import Hero from "../components/homepage/Hero.astro"; // Adjust path
-import { data } from "../data/locations"; // Adjust path
+import Layout from "../layouts/Layout.astro"; 
+import Hero from "../components/homepage/Hero.astro"; 
+import { data } from "../data/locations";
 
 import CityServices from '../components/city/CityServices.astro';
 import CityQuartiers from '../components/city/CityQuartiers.astro';
@@ -25,8 +25,11 @@ export function getStaticPaths() {
                         params: { city: cityObject.slug },
                         props: {
                             cityName: cityObject.cityName,
+                            citySlug: cityObject.slug, // ADD citySlug HERE (necessary for CityEnvirons)
                             stateName: stateObject.State,
-                            sections: cityObject.sections && Array.isArray(cityObject.sections) ? cityObject.sections : [] 
+                            sections: cityObject.sections && Array.isArray(cityObject.sections) 
+                                ? cityObject.sections.map(s => ({ name: s.name, slug: s.slug, codePostal: s.codePostal })) 
+                                : [] 
                         }
                     });
                 }
@@ -37,23 +40,21 @@ export function getStaticPaths() {
 }
 
 // Get props passed from getStaticPaths
-const { cityName, stateName, sections } = Astro.props;
+const { cityName, citySlug, stateName, sections } = Astro.props; // ADD citySlug HERE (necessary for CityEnvirons)
 
-// Define Hero Data for the city page
 const heroData = {
-  title: `Plombier ${cityName} - Dépannage d'Urgence et Services Professionnels`, // Updated H1 from brief
-  subtitle: `Besoin d'un plombier à ${cityName}? Notre équipe intervient rapidement dans tout ${cityName} et ses environs pour résoudre efficacement vos problèmes de plomberie. Disponibles 24/7.`, // Shortened subtitle
-  phoneNumber: "+32476232323", // Use your actual phone number
-  callButtonText: "0476/23.23.23", // Or your number like "0476/23.23.23"
+  title: `Plombier ${cityName} - Dépannage d'Urgence et Services Professionnels`,
+  subtitle: `Besoin d'un plombier à ${cityName}? Notre équipe intervient rapidement dans tout ${cityName} et ses environs pour résoudre efficacement vos problèmes de plomberie. Disponibles 24/7.`,
+  phoneNumber: "+32476232323",
+  callButtonText: "0476/23.23.23",
   serviceButtonText: "Nos Services à " + cityName,
-  backgroundImageUrl: "/plombier-professionnel-belgique.jpg", // Keep or change background
+  backgroundImageUrl: "/plombier-professionnel-belgique.jpg",
 };
 
-// Define SEO Data for the city page
 const seoData = {
-    title: `Plombier ${cityName} - Service Débouchage et Plomberie d'Urgence 24/7`, // From brief
-    description: `Plombier professionnel à ${cityName} ⭐️ Débouchage canalisation, réparation fuite d'eau, installation sanitaire. Intervention urgente 24/7.  ☎️ 0476/23.23.23`, // From brief
-    schema: "", // Add relevant LocalBusiness Schema.org markup here if needed
+    title: `Plombier ${cityName} - Service Débouchage et Plomberie d'Urgence 24/7`,
+    description: `Plombier professionnel à ${cityName} ⭐️ Débouchage canalisation, réparation fuite d'eau, installation sanitaire. Intervention urgente 24/7.  ☎️ 0476/23.23.23`,
+    schema: "",
 }
 ---
 
@@ -68,7 +69,8 @@ const seoData = {
         '/reparation-fuite-eau.jpg',
       ]}
     />
-    <CityQuartiers cityName={cityName} imageUrl="/plombier-pro-belgique.jpg" />
+    {/* CityQuartiers reverted to its original props */}
+    <CityQuartiers cityName={cityName} imageUrl="/plombier-pro-belgique.jpg" /> 
     <CityUrgence cityName={cityName} />
     <CityAvantages cityName={cityName} />
     <CityProblems cityName={cityName} />
@@ -76,11 +78,9 @@ const seoData = {
     <CityFAQ cityName={cityName} />
     <CityTips cityName={cityName} />
     
-    {/* Conditionally render Environs only if sections data is available */}
-    <CityEnvirons cityName={cityName} sections={sections} /> 
+    {/* CityEnvirons receives citySlug as intended */}
+    <CityEnvirons cityName={cityName} citySlug={citySlug} sections={sections} /> 
     
     <CityTarifs cityName={cityName} />
     <CityConclusion cityName={cityName} />
-
-
 </Layout>
