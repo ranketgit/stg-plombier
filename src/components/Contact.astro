@@ -7,7 +7,7 @@ const formActionUrl = "https://formsubmit.co/info@msbxl.be";
     <input type="hidden" name="_subject" value="Nouvelle demande de Devis - Site Plomberie" />
     <input type="text" name="_honey" style="display:none;" />
     <input type="hidden" name="_captcha" value="false" />
-    <input type="text" name="_next" value={new URL(Astro.url.pathname, import.meta.env.SITE).href}/>
+    <input type="text" name="_next" style="display:none;" value={new URL(Astro.url.pathname, import.meta.env.SITE).href}/>
     <div>
       <label for="contact-hc-nom" class="block text-gray-700 text-sm mb-1 font-medium">Nom complet</label>
       <input
