@@ -8,7 +8,7 @@ export function generateSchema(
       "@type": "Product",
       name: `${title}`,
       brand: "Assur Plombier",
-      image: "https://assur-plombier.be/plombier-samuel-debouchage-vidange.webp",
+      image: "https://assur-plombier.be/assur-plombier-deboucheur-chauffagiste.webp",
       description: `${description}`,
       sku: "0476232323",
       aggregateRating: {
