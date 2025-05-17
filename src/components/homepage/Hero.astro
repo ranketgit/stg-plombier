@@ -4,9 +4,6 @@ import Contact from '../Contact.astro';
 interface IHeroData {
   title: string;
   subtitle: string;
-  phoneNumber: string;
-  callButtonText: string;
-  serviceButtonText: string;
   backgroundImageUrl: string;
 }
 
@@ -44,7 +41,7 @@ const { heroData } = Astro.props;
             href="tel:+32476232323"
             class="bg-white text-blue-800 hover:bg-gray-100 font-semibold py-2 px-4 rounded-xl inline-flex items-center justify-center transition-colors duration-300 shadow-md"
           >
-            {heroData.callButtonText}
+           Tél 0476/23.23.23
           </a>
         </div>
         <div class="flex flex-wrap items-center gap-6 pt-6">
