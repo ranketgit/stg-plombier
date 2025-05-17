@@ -10,6 +10,7 @@ import SectionTestimonials from '../../components/section/SectionTestimonials.as
 import SectionFAQ from '../../components/section/SectionFAQ.astro';
 import SectionTips from '../../components/section/SectionTips.astro';
 import SectionConclusion from '../../components/section/SectionConclusion.astro';
+import { generateSchema } from "../../seo/schema";
 
 export function getStaticPaths() {
     const paths = [];
@@ -49,26 +50,21 @@ const { sectionName, parentCityName, stateName, codePostal } = Astro.props;
 
 // Define Hero Data for the section page
 const heroData = {
-  title: `Plombier ${parentCityName} ${sectionName} - Intervention Rapide et Qualité`, // H1 from brief
+  title: `Plombier ${sectionName} ${parentCityName} - Intervention Rapide et Qualité`,
   subtitle: `Vous recherchez un plombier de confiance à ${sectionName}? Notre équipe de plombiers qualifiés intervient rapidement dans tout le quartier ${sectionName} pour tous vos besoins en plomberie. Spécialistes du débouchage, de la réparation de fuites et de l'installation sanitaire, nous sommes à votre service 24h/24 et 7j/7 pour résoudre efficacement vos problèmes de plomberie.\nGrâce à notre excellente connaissance du quartier ${sectionName} de ${parentCityName} et de ses spécificités, nous vous garantissons une intervention adaptée et rapide, quel que soit votre problème de plomberie.`, // Full subtitle
-  phoneNumber: "+32472808080", // Your actual number
+  phoneNumber: "+32476232323", // Your actual number
   callButtonText: "Urgence " + sectionName, 
   serviceButtonText: "Nos Services à " + sectionName,
-  backgroundImageUrl: "/plombier-professionnel-belgique.jpg", // Adjust path or use different image
+  backgroundImageUrl: "/plombier-professionnel-belgique.webp", // Adjust path or use different image
 };
 
-// Define SEO Data for the section page
-const seoData = {
-    title: `Plombier à ${parentCityName} ${sectionName} - Service Débouchage et Plomberie 24/7`, // From brief
-    description: `Plombier professionnel à ${sectionName} ⭐️ Débouchage, réparation fuites, installations sanitaires. Intervention urgente 24h/24. Devis gratuit.`, // From brief
-    schema: "", // Add LocalBusiness schema specific to the section/postal code if possible
-}
+const meta_title = `Plombier ${sectionName} en urgence ⭐️ 24/7`;
+const meta_description = `Plombier professionnel à ${sectionName} ⭐️ réparation fuites, installations sanitaires. Intervention urgente 24h/24 et 7j/7. Devis gratuit ☎️ 0476/23.23.23.`;
+const schemaMarkup = generateSchema(meta_title, meta_description, 21);
 ---
 
-<Layout SeoData={seoData} location={sectionName}>
+<Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
     <Hero heroData={heroData} />
-
-
     <SectionServices sectionName={sectionName} parentCityName={parentCityName} />
     <SectionParticularites sectionName={sectionName} />
     <SectionUrgence sectionName={sectionName} parentCityName={parentCityName} />
@@ -76,5 +72,4 @@ const seoData = {
     <SectionFAQ sectionName={sectionName} parentCityName={parentCityName} />
     <SectionTips sectionName={sectionName} />
     <SectionConclusion sectionName={sectionName} parentCityName={parentCityName} />
-
 </Layout>

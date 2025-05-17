@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro"; 
 import Hero from "../components/homepage/Hero.astro"; 
 import { data } from "../data/locations";
-
 import CityServices from '../components/city/CityServices.astro';
 import CityQuartiers from '../components/city/CityQuartiers.astro';
 import CityUrgence from '../components/city/CityUrgence.astro';
@@ -14,6 +13,7 @@ import CityTips from '../components/city/CityTips.astro';
 import CityEnvirons from '../components/city/CityEnvirons.astro';
 import CityTarifs from '../components/city/CityTarifs.astro';
 import CityConclusion from '../components/city/CityConclusion.astro';
+import { generateSchema } from "../seo/schema";
 
 export function getStaticPaths() {
     const paths = [];
@@ -39,48 +39,40 @@ export function getStaticPaths() {
     return paths;
 }
 
-// Get props passed from getStaticPaths
-const { cityName, citySlug, stateName, sections } = Astro.props; // ADD citySlug HERE (necessary for CityEnvirons)
-
+const { cityName, citySlug, stateName, sections } = Astro.props;
 const heroData = {
   title: `Plombier ${cityName} - Dépannage d'Urgence et Services Professionnels`,
   subtitle: `Besoin d'un plombier à ${cityName}? Notre équipe intervient rapidement dans tout ${cityName} et ses environs pour résoudre efficacement vos problèmes de plomberie. Disponibles 24/7.`,
   phoneNumber: "+32476232323",
   callButtonText: "0476/23.23.23",
   serviceButtonText: "Nos Services à " + cityName,
-  backgroundImageUrl: "/plombier-professionnel-belgique.jpg",
+  backgroundImageUrl: "/plombier-professionnel-belgique.webp",
 };
 
-const seoData = {
-    title: `Plombier ${cityName} - Service Débouchage et Plomberie d'Urgence 24/7`,
-    description: `Plombier professionnel à ${cityName} ⭐️ Débouchage canalisation, réparation fuite d'eau, installation sanitaire. Intervention urgente 24/7.  ☎️ 0476/23.23.23`,
-    schema: "",
-}
+
+const meta_title = `Plombier ${cityName} en urgence ⭐️ 24/7`;
+const meta_description = `Plombier professionnel et agréé à ${cityName} ⭐️ détection et réparation de fuite d'eau, installation sanitaire. Intervention urgente 24/7 ☎️ 0476/23.23.23.`;
+const schemaMarkup = generateSchema(meta_title, meta_description, 31);
 ---
 
-<Layout SeoData={seoData} location={cityName}>
+<Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
     <Hero heroData={heroData} />
-
     <CityServices cityName={cityName} 
     cardBackgroundImages={[
-        '/debouchage-de-canalisation.jpg',
-        '/installation-sanitaire.jpg',
-        '/service-chaufagiste.jpg',
-        '/reparation-fuite-eau.jpg',
+        '/debouchage-de-canalisation.webp',
+        '/installation-sanitaire.webp',
+        '/service-chaufagiste.webp',
+        '/reparation-fuite-eau.webp',
       ]}
     />
-    {/* CityQuartiers reverted to its original props */}
-    <CityQuartiers cityName={cityName} imageUrl="/plombier-pro-belgique.jpg" /> 
+    <CityQuartiers cityName={cityName} imageUrl="/plombier-pro-belgique-assur-plombier.webp" /> 
     <CityUrgence cityName={cityName} />
     <CityAvantages cityName={cityName} />
     <CityProblems cityName={cityName} />
     <CityTestimonials cityName={cityName} />
     <CityFAQ cityName={cityName} />
     <CityTips cityName={cityName} />
-    
-    {/* CityEnvirons receives citySlug as intended */}
-    <CityEnvirons cityName={cityName} citySlug={citySlug} sections={sections} /> 
-    
+    <CityEnvirons cityName={cityName} citySlug={citySlug} sections={sections} />     
     <CityTarifs cityName={cityName} />
     <CityConclusion cityName={cityName} />
 </Layout>

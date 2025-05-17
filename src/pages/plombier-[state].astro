@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/homepage/Hero.astro";
+import { data } from "../data/locations";
+import Services from "../components/region/Services.astro";
+import WhyChooseUs from "../components/region/WhyChooseUs.astro";
+import Interventions from "../components/region/Interventions.astro";
+import Testimonials from '../components/region/Testimonials.astro';
+import FAQ from '../components/region/FAQ.astro';
+import CommonProblems from '../components/region/CommonProblems.astro';
+import Tips from '../components/region/Tips.astro';
+import Conclusion from '../components/region/Conclusion.astro';
+import { generateSchema } from "../seo/schema";
+
+export async function getStaticPaths() {
+  return data.map(location => ({
+    params: { 
+      state: location.slug 
+    },
+    props: {
+      locationData: {
+        name: location.State,
+        cities: location.Cities.map(city => ({
+          name: city.cityName,
+          slug: city.slug,
+          postalCode: city.codePostal
+        }))
+      }
+    }
+  }));
+}
+const { locationData } = Astro.props;
+
+const heroData = {
+  title: `Plombier Professionnel à ${locationData.name} - Intervention Rapide 24h/24`,
+  subtitle: `Besoin d'un plombier qualifié dans la ${locationData.name} ? Notre équipe de plombiers professionnels intervient rapidement dans toute la ${locationData.name} pour résoudre tous vos problèmes de plomberie. Disponibles 24h/24 et 7j/7, nous vous garantissons une intervention dans l'heure en cas d'urgence pour tout débouchage de canalisation, réparation de fuite d'eau ou panne de chauffage.`,
+  phoneNumber: "+32476232323",
+  callButtonText: "0476/23.23.23",
+  serviceButtonText: "Nos Services",
+  backgroundImageUrl: "/plombier-professionnel-belgique.webp",
+};
+
+const meta_title = `Plombier ${locationData.name} en urgence ⭐️ 24/7`;
+const meta_description = `Plombier professionnel ⭐️ disponible 24/7 dans la ${locationData.name}. Intervention rapide et efficace, devis gratuit. Expert en plomberie sanitaire. ☎️ 0476/23.23.23`;
+const schemaMarkup = generateSchema(meta_title, meta_description, 51);
+---
+
+<Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
+    <Hero heroData={heroData} />
+    <Services state={locationData.name} />
+    <WhyChooseUs state={locationData.name} />
+    <Interventions state={locationData.name} cities={locationData.cities}/> {/* cities now contains { name, slug } for each city */}
+    <Testimonials state={locationData.name} />
+    <FAQ state={locationData.name} />
+    <CommonProblems state={locationData.name} />
+    <Tips state={locationData.name} />
+    <Conclusion state={locationData.name}/>
+</Layout>

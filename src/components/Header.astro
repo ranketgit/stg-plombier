@@ -1,4 +1,5 @@
 ---
+import { data } from "../data/locations";
 ---
 
 <header class="sticky top-0 z-50 w-full shadow-md">
@@ -11,7 +12,7 @@
 
               <div class="flex items-center">
                   <a href="/" class="flex items-center">
-                      <img src="/Assur-plombier-deboucheur.png" class="h-14" alt="Assur plombier Logo - Plombier Belgique">
+                      <img src="/logo-assur-plombier.svg" class="h-14" alt="Assur plombier Logo - Plombier Belgique" width="168" height="60">
                   </a>
               </div>
               
@@ -20,31 +21,26 @@
                   
                   <div class="relative group">
                       <button class="px-3 py-2 hover:text-blue-700 font-medium flex items-center">
-                          Zones d'Intervention
+                          Zones d'intervention
                           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                           </svg>
                       </button>
-                      <div class="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                      <div class="absolute left-0 mt-2 w-64 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                           <div class="py-1">
-                              <a href="/plombier-region-antwerpen/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Antwerpen</a>
-                              <a href="/plombier-region-bruxelles-capitale/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Bruxelles-Capitale</a>
-                              <a href="/plombier-region-hainaut/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Hainaut</a>
-                              <a href="/plombier-region-brabant-wallon/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Brabant Wallon</a>
-                              <a href="/plombier-region-liege/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Liège</a>
-                              <a href="/plombier-region-limbourg/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Limbourg</a>
-                              <a href="/plombier-region-luxembourg/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Luxembourg</a>
-                              <a href="/plombier-region-namur/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Namur</a>
-                              <a href="/plombier-region-flandre-orientale/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Flandre Orientale</a>
-                              <a href="/plombier-region-brabant-flamand/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Brabant Flamand</a>
-                              <a href="/plombier-region-flandre-occidentale/" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Flandre Occidentale</a>
+                              {
+                              data.map(State => (
+                              <a href={`/plombier-${State.slug}/`}
+                                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" title={`Service de
+                                  plomberie dans la ${State.State}`}>
+                                  Plombier {State.State}
+                              </a>
+                              ))
+                              }
                           </div>
                       </div>
                   </div>
-                  
-             
-              </div>
-              
+                </div>              
               <div class="hidden lg:inline">
                   <a href="tel:+32476232323" class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md flex items-center">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -52,8 +48,7 @@
                       </svg>
                       Urgence 24/7
                   </a>
-              </div>
-              
+              </div>              
               <div class="lg:hidden">
                   <button type="button" id="mobile-menu-button" class="text-gray-700 hover:text-blue-700 focus:outline-none">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -74,17 +69,15 @@
                       </svg>
                   </button>
                   <div class="pl-4 hidden">
-                      <a href="/plombier-region-antwerpen/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Antwerpen</a>
-                      <a href="/plombier-region-bruxelles-capitale/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Bruxelles-Capitale</a>
-                      <a href="/plombier-region-hainaut/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Hainaut</a>
-                      <a href="/plombier-region-brabant-wallon/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Brabant Wallon</a>
-                      <a href="/plombier-region-liege/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Liège</a>
-                      <a href="/plombier-region-limbourg/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Limbourg</a>
-                      <a href="/plombier-region-luxembourg/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Luxembourg</a>
-                      <a href="/plombier-region-namur/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Namur</a>
-                      <a href="/plombier-region-flandre-orientale/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Flandre Orientale</a>
-                      <a href="/plombier-region-brabant-flamand/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Brabant Flamand</a>
-                      <a href="/plombier-region-flandre-occidentale/" class="block py-2 px-2 text-gray-700 hover:bg-gray-100 rounded">Flandre Occidentale</a>
+                      {
+                      data.map(State => (
+                      <a href={`/plombier-${State.slug}/`}
+                          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" title={`Service de plomberie
+                          dans la ${State.State}`}>
+                          Plombier {State.State}
+                      </a>
+                      ))
+                      }
                   </div>
               </div>
               

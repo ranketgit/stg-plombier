@@ -1,47 +1,48 @@
 ---
 import '../styles/global.css';
-import {createSchema} from '../seo/schema'
-
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-interface ISeoData {
-	title: string;
-	description: string;
-	schema: string;
-}
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
-	SeoData: ISeoData;
-  location: string;
+  meta_title: string;
+  meta_description: string;
+  schemaMarkup?: object;
 }
-const {SeoData, location} = Astro.props;
-
-
-
-const canonicalUrl=Astro.url.pathname
+const {  meta_title,  meta_description,  schemaMarkup} = Astro.props;
 ---
 
 <!doctype html>
 <html class="" lang="fr-BE">
-	<head>
-		<meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{SeoData.title}</title>
-    <meta name="description" content={SeoData.description} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="canonical" href=`https://assur-plombier.be${canonicalUrl}`/>
-    <link rel="icon" type="image/svg+xml" href="/Assur-plombier-deboucheur.png" />
-    <link rel="shortcut icon" href="/Assur-plombier-deboucheur.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/Assur-plombier-deboucheur.png" />
- 
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content={SeoData.title} />
-    <meta property="og:description" content={SeoData.description} />
-    <meta property="og:type" content="website" />
-<meta property="og:image" content="https://assur-plombier.be/Assur-plombier-deboucheur.png">
-    <meta property="og:url" content=`https://assur-plombier.be${canonicalUrl}` />
-    <script type="application/ld+json" set:html={JSON.stringify(createSchema(location))} />
-    
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>{meta_title}</title>
+	<meta name="description" content={meta_description} />
+	<link rel="sitemap" href="/sitemap-index.xml" />
+	<link rel="canonical" href={new URL(Astro.url.pathname, import.meta.env.SITE).href} item-prop="url" />
+	<meta name="robots" content="index, follow" />
+
+	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+	<link rel="manifest" href="/site.webmanifest" />
+	<meta property="og:title" content={meta_title} />
+	<meta property="og:description" content={meta_description} />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={new URL(Astro.url.pathname, import.meta.env.SITE).href} />
+	<meta name="twitter:title" content={meta_title} />
+	<meta name="twitter:description" content={meta_description} />
+	<meta property="og:image" content="https://allo-vidange.be/entreprise-vidange-fosse-septique.webp" />
+	<meta name="twitter:image" content="https://allo-vidange.be/entreprise-vidange-fosse-septique.webp" />
+	<meta name="twitter:card" content="summary_large_image" />
+	{schemaMarkup && (
+	<script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
+	)
+  }
+  <ClientRouter />
 	</head>
 	<body class="relative">
 		<Header />
