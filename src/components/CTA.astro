@@ -1,9 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components';
-
-const companyName = "Assur plombier";
-const callToActionText = "Contactez-nous dès aujourd'hui pour un devis gratuit";
-const phoneNumber = "+32476232323";
 ---
 
 <section class="bg-blue-800 py-16">
@@ -12,7 +8,7 @@ const phoneNumber = "+32476232323";
 
     <div class="mb-8 text-lg text-gray-200 leading-relaxed">
       <p class="mb-4">
-        Chez {companyName}, nous nous engageons à vous offrir les meilleurs services de plomberie en Belgique, avec une qualité constante et des tarifs transparents. Notre équipe de plombiers professionnels est formée aux techniques les plus récentes et utilise du matériel de pointe pour résoudre efficacement tous vos problèmes de plomberie.
+        Chez Assur plombier, nous nous engageons à vous offrir les meilleurs services de plomberie en Belgique, avec une qualité constante et des tarifs transparents. Notre équipe de plombiers professionnels est formée aux techniques les plus récentes et utilise du matériel de pointe pour résoudre efficacement tous vos problèmes de plomberie.
       </p>
       <p class="mb-4">
         Que vous ayez besoin d'un débouchage urgent, d'une réparation de fuite, d'un entretien de chaudière ou d'une installation sanitaire complète, nous sommes à votre service 24h/24 et 7j/7 dans toute la Belgique.
@@ -20,11 +16,12 @@ const phoneNumber = "+32476232323";
       
       <div class="border-2 border-blue-500 rounded-4xl p-6 bg-white shadow-md my-8 mx-auto max-w-3xl">
         <p class="font-semibold text-blue-600 mb-4 text-xl">
-          {callToActionText}
+         Contactez-nous dès aujourd'hui pour un devis gratuit
         </p>
         
         <div class="flex justify-center mb-4">
-          <a href={`tel:${phoneNumber.replace(/\s/g, '')}`} class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-3xl transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-400 flex items-center shadow-md">
+          <a href="tel:+32476232323" title="Téléphone Assur Plombier 0476/23.23.23"
+          class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-3xl transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-400 flex items-center shadow-md">
             <Icon name="mdi:phone" class="w-6 h-6 mr-3" /> 
             <span class="text-xl">0476/23.23.23</span>
           </a>
@@ -41,7 +38,7 @@ const phoneNumber = "+32476232323";
     </div>
 
     <p class="mt-6 text-sm text-gray-400 italic">
-      {companyName} - Service de plomberie professionnel disponible 24h/24 et 7j/7 - Débouchage, plomberie, chauffage et installation sanitaire en Belgique.
+      <strong>Assur plombier</strong> - Service de plomberie professionnel disponible 24h/24 et 7j/7 - Débouchage, plomberie, chauffage et installation sanitaire en Belgique.
     </p>
   </div>
 </section>
