@@ -8,75 +8,97 @@ import SectionParticularites from '../../components/section/SectionParticulariti
 import SectionUrgence from '../../components/section/SectionUrgence.astro';
 import SectionTestimonials from '../../components/section/SectionTestimonials.astro';
 import SectionFAQ from '../../components/section/SectionFAQ.astro';
-import SectionTips from '../../components/section/SectionTips.astro';
-import SectionConclusion from '../../components/section/SectionConclusion.astro';
+const Icon = `<svg class="h-6 w-6 text-green-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
 import { generateSchema } from "../../seo/schema";
 
-export function getStaticPaths() {
-    const paths = [];
-
-    data.forEach(stateObject => {
-        if (stateObject.Cities && Array.isArray(stateObject.Cities)) {
-            stateObject.Cities.forEach(cityObject => {
-                // We only care about cities that *have* sections for this file
-                if (cityObject.sections && Array.isArray(cityObject.sections) && cityObject.slug) {
-                    cityObject.sections.forEach(sectionObject => {
-                        // Ensure the section has a slug and name
-                        if (sectionObject.slug && sectionObject.name) {
-                             paths.push({
-                                params: { 
-                                    city: cityObject.slug,      // Param for the folder name [city]
-                                    section: sectionObject.slug // Param for the file name [section]
-                                }, 
-                                props: { // Props remain the same as before
-                                    sectionName: sectionObject.name, 
-                                    parentCityName: cityObject.cityName, 
-                                    stateName: stateObject.State,       
-                                    codePostal: sectionObject.codePostal || cityObject.codePostal || '' 
-                                }
-                            });
-                        }
-                    });
-                }
-            });
+export async function getStaticPaths() {
+  const paths = data.flatMap(province =>
+    province.Cities.flatMap(city =>
+      (city.sections || []).map(section => ({
+        params: {
+          city: city.slug,
+          section: section.slug
+        },
+        props: {
+          locationData: {
+            sectionName: section.name,
+            cityName: city.cityName,
+            province: province.State,
+            postalCode: section.codePostal || city.codePostal,
+            fullPath: `${city.slug}/${section.slug}`
+          }
         }
-    });
+      }))
+    )
+  );
 
-    return paths;
+  return paths;
 }
+const { city, section } = Astro.params;
+const { locationData } = Astro.props;
 
-// Get props passed from getStaticPaths
-const { sectionName, parentCityName, stateName, codePostal } = Astro.props;
-
-// Define Hero Data for the section page
 const heroData = {
-  title: `Plombier ${sectionName} ${codePostal} - Intervention Rapide et Qualité`,
-  subtitle: `Vous recherchez un plombier de confiance à ${sectionName}? Notre équipe de plombiers qualifiés intervient rapidement dans tout le quartier ${sectionName} pour tous vos besoins en plomberie. Spécialistes du débouchage, de la réparation de fuites et de l'installation sanitaire, nous sommes à votre service 24h/24 et 7j/7 pour résoudre efficacement vos problèmes de plomberie.\nGrâce à notre excellente connaissance du quartier ${sectionName} de ${parentCityName} et de ses spécificités, nous vous garantissons une intervention adaptée et rapide, quel que soit votre problème de plomberie.`, // Full subtitle
+  title: `Plombier ${locationData.sectionName} ${locationData.cityName} ⭐️ Intervention Rapide et Qualité`,
+  subtitle: `Vous recherchez un plombier de confiance à $${locationData.sectionName} $${locationData.postalCode} ? Notre équipe de plombiers qualifiés intervient rapidement à ${locationData.sectionName} pour tous vos besoins en plomberie. Spécialistes du débouchage, de la réparation de fuites et de l'installation sanitaire, nous sommes à votre service 24h/24 et 7j/7 pour résoudre efficacement vos problèmes de plomberie.\nGrâce à notre excellente connaissance à ${locationData.sectionName} de ${locationData.cityName} et de ses spécificités, nous vous garantissons une intervention adaptée et rapide, quel que soit votre problème de plomberie.`, // Full subtitle
   backgroundImageUrl: "/plombier-professionnel-belgique.webp", // Adjust path or use different image
 };
 
-const meta_title = `Plombier ${sectionName} en urgence ⭐️ 24/7`;
-const meta_description = `Plombier professionnel à ${sectionName} ⭐️ réparation fuites, installations sanitaires. Intervention urgente 24h/24 et 7j/7. Devis gratuit ☎️ 0476/23.23.23.`;
+const meta_title = `Plombier ${locationData.sectionName} en urgence ⭐️ 24/7`;
+const meta_description = `Plombier professionnel à ${locationData.sectionName} ⭐️ réparation fuites, installations sanitaires. Intervention urgente 24h/24 et 7j/7. Devis gratuit ☎️ 0476/23.23.23.`;
 const schemaMarkup = generateSchema(meta_title, meta_description, 21);
 ---
 
 <Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
     <Hero heroData={heroData} />
-    <SectionServices sectionName={sectionName} parentCityName={parentCityName} />
-    <SectionParticularites sectionName={sectionName} />
-    <SectionUrgence sectionName={sectionName} parentCityName={parentCityName} />
-    <SectionTestimonials sectionName={sectionName} parentCityName={parentCityName} />
-    <SectionFAQ sectionName={sectionName} parentCityName={parentCityName} />
-    <SectionTips sectionName={sectionName} />
+    <SectionServices sectionName={locationData.sectionName} parentCityName={locationData.cityName} />
+    <SectionParticularites sectionName={locationData.sectionName} />
+    <SectionUrgence sectionName={locationData.sectionName} parentCityName={locationData.cityName} />
+    <SectionTestimonials sectionName={locationData.sectionName} parentCityName={locationData.cityName} />
+    <SectionFAQ sectionName={locationData.sectionName} parentCityName={locationData.cityName} />
+    <section class="bg-green-50 py-12 md:py-16">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-2xl md:text-3xl font-bold text-green-800 mb-8 text-center">
+                Conseils de plomberie pour les résidents de {locationData.sectionName}
+            </h2>
+            <img src="/service-de-plomberie-sanitaire-assur-plombier-agree.webp" width="1600" height="900"
+                class="rounded-3xl mb-8" alt={`Plombier agréé à ${locationData.sectionName}
+                ${locationData.postalCode}`} />
+            <div class="space-y-5">
+                <div class="flex items-start bg-white p-4 rounded-3xl shadow border border-green-200">
+                    <Fragment set:html={Icon} />
+                    <div>
+                        <h3 class="font-semibold text-lg text-green-700 mb-1">Prévention Spécifique au Quartier</h3>
+                        <p class="text-gray-700 text-sm">
+                            En raison de particularité locale de {locationData.sectionName}, nous recommandons aux
+                            habitants de {locationData.sectionName} de conseil préventif spécifique pour
+                            {locationData.sectionName} pour éviter les <strong>problèmes récurrents de plomberie</strong>.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start bg-white p-4 rounded-3xl shadow border border-green-200">
+                    <Fragment set:html={Icon} />
+                    <div>
+                        <h3 class="font-semibold text-lg text-green-700 mb-1">Entretien Régulier</h3>
+                        <p class="text-gray-700 text-sm">
+                            Pour les habitations de {locationData.sectionName}, un entretien préventif de vos
+                            canalisations tous les période recommandée pour {locationData.sectionName}, ex: 18 mois
+                            permet d'éviter la plupart des <strong>problèmes de bouchons et d'écoulement</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="bg-blue-700 text-white py-12 md:py-16">
         <div class="container mx-auto px-4 max-w-4xl text-center">
             <h2 class="text-2xl md:text-3xl font-bold mb-6">
-                Conclusion - Votre Plombier de proximité à {sectionName} - {parentCityName} 
+                Conclusion - Votre Plombier de proximité à {locationData.sectionName} - {locationData.cityName}
             </h2>
             <div class="space-y-4 text-blue-100 mb-8">
                 <p>
                     Notre équipe de <strong>plombiers professionnels</strong> connaît parfaitement la section (localité)
-                    <strong>{sectionName} </strong>de la commune de {parentCityName}. Cette proximité nous permet d'intervenir rapidement
+                    <strong>{locationData.sectionName} </strong>de la commune de {locationData.cityName}. Cette
+                    proximité nous permet d'intervenir rapidement
                     et efficacement pour tous vos besoins en plomberie, en débouchage et en chauffage.
                 </p>
                 <p class="font-semibold text-white">

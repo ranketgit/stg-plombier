@@ -10,7 +10,6 @@ import CityProblems from '../components/city/CityProblems.astro';
 import CityTestimonials from '../components/city/CityTestimonials.astro';
 import CityFAQ from '../components/city/CityFAQ.astro';
 import CityTips from '../components/city/CityTips.astro';
-import CityEnvirons from '../components/city/CityEnvirons.astro';
 import CityTarifs from '../components/city/CityTarifs.astro';
 import CityConclusion from '../components/city/CityConclusion.astro';
 import { generateSchema } from "../seo/schema";
@@ -53,50 +52,49 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 31);
 ---
 
 <Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
-    <Hero heroData={heroData} />
-    <CityServices cityName={cityData.name} cardBackgroundImages={[ '/debouchage-de-canalisation.webp'
-        , '/installation-sanitaire.webp' , '/service-chaufagiste.webp' , '/reparation-fuite-eau.webp' , ]} />
-    <CityQuartiers cityName={cityData.name} imageUrl="/plombier-pro-belgique-assur-plombier.webp" />
-    <CityUrgence cityName={cityData.name} />
-    <CityAvantages cityName={cityData.name} />
-    <CityProblems cityName={cityData.name} />
-    <CityTestimonials cityName={cityData.name} />
-    <CityFAQ cityName={cityData.name} />
-    <CityTips cityName={cityData.name} />
+  <Hero heroData={heroData} />
+  <CityServices cityName={cityData.name} cardBackgroundImages={[ '/debouchage-de-canalisation.webp'
+    , '/installation-sanitaire.webp' , '/service-chaufagiste.webp' , '/reparation-fuite-eau.webp' , ]} />
+  <CityQuartiers cityName={cityData.name} imageUrl="/plombier-pro-belgique-assur-plombier.webp" />
+  <CityUrgence cityName={cityData.name} />
+  <CityAvantages cityName={cityData.name} />
+  <CityProblems cityName={cityData.name} />
+  <CityTestimonials cityName={cityData.name} />
+  <CityFAQ cityName={cityData.name} />
+  <CityTips cityName={cityData.name} />
 
-    {cityData.sections && cityData.sections.length > 0 && (
-    <section class="bg-white py-12 md:py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
-                Nos services de plomberie à {cityData.name}
-            </h2>
-            <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
-                Notre équipe de plombiers intervient non seulement à {cityData.name} mais également dans les communes et
-                localités avoisinantes:
-            </p>
-             <div class="flex flex-wrap justify-center gap-y-6 -mt-6">
-                 {cityData.sections.map((section) => (
-                 <div class="md:col-4 lg:col-3">
-                     <div
-                         class="group relative h-full rounded-xl p-3 text-center">
-                         <a href={`/plombier-${city}/${section.slug}/`}
-                             class="p-4 block bg-gray-100 text-center rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 text-blue-700 hover:text-blue-800 font-medium"
-                             title={`Plombier à ${section.name} - ${cityData.name}`}>
-                             Plombier {section.name}
-                         </a> </div>
-                 </div>
-                 ))}
-             </div>
-            <p class="text-center text-gray-600 mt-10 max-w-3xl mx-auto">
-                Même si vous habitez dans une commune limitrophe de {cityData.name}, vous pouvez compter sur notre
-                <strong>service de plomberie professionnel</strong> pour une intervention rapide et efficace.
-            </p>
+  {cityData.sections && cityData.sections.length > 0 && (
+  <section class="bg-white py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+        Nos services de plomberie à {cityData.name}
+      </h2>
+      <img src="/service-de-plomberie-sanitaire-assur-plombier.webp" width="1600" height="900" class="rounded-3xl mb-8"
+      alt={`Plombier agréé à ${cityData.name} ${cityData.postalCode}`} />
+      <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
+        Notre <strong>équipe de plombiers</strong> intervient non seulement à <strong>{cityData.name} {cityData.postalCode}</strong> mais également dans les communes et
+        localités avoisinantes:
+      </p>
+      <div class="flex flex-wrap justify-center gap-y-6 -mt-6">
+        {cityData.sections.map((section) => (
+        <div class="md:col-4 lg:col-3">
+          <div class="group relative h-full rounded-xl p-3 text-center">
+            <a href={`/plombier-${city}/${section.slug}/`}
+              class="p-4 block bg-gray-100 text-center rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 text-blue-700 hover:text-blue-800 font-medium"
+              title={`Plombier à ${section.name} - ${cityData.name}`}>
+              Plombier {section.name}
+            </a> </div>
         </div>
-    </section>
-    )}
+        ))}
+      </div>
+      <p class="text-center text-gray-600 mt-10 max-w-3xl mx-auto">
+        Même si vous habitez dans une commune limitrophe de <strong>{cityData.name}</strong>, vous pouvez compter sur notre
+        <strong>service de plomberie professionnel</strong> pour une intervention rapide et efficace.
+      </p>
+    </div>
+  </section>
+  )}
 
-
-
-    <CityTarifs cityName={cityData.name} />
-    <CityConclusion cityName={cityData.name} />
+  <CityTarifs cityName={cityData.name} />
+  <CityConclusion cityName={cityData.name} />
 </Layout>
