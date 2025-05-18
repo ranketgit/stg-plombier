@@ -4,7 +4,6 @@ interface Props {
   parentCityName: string; // Added prop
 }
 const { sectionName, parentCityName } = Astro.props;
-// Placeholder Icon
 const Icon = `<svg class="h-8 w-8 text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`; 
 ---
 <section class="bg-white py-12 md:py-16">
@@ -13,12 +12,13 @@ const Icon = `<svg class="h-8 w-8 text-blue-600 mb-3" fill="none" stroke="curren
       Services de Plomberie à {sectionName} de {parentCityName}
     </h2>
     <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      
+
       <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
         <Fragment set:html={Icon} />
         <h3 class="text-xl font-semibold text-blue-800 mb-4">Débouchage Canalisation à {sectionName}</h3>
         <p class="text-gray-600 mb-4 text-sm">
-          Les habitants du quartier {sectionName} font régulièrement face à des problèmes de canalisations bouchées. Notre service de débouchage intervient pour:
+          Les habitants de {sectionName} font régulièrement face à des problèmes de canalisations bouchées.
+          Notre service de débouchage intervient pour:
         </p>
         <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
           <li><strong>Débouchage WC:</strong> Élimination rapide des obstructions</li>
@@ -27,42 +27,48 @@ const Icon = `<svg class="h-8 w-8 text-blue-600 mb-3" fill="none" stroke="curren
           <li><strong>Débouchage canalisation extérieure:</strong> Intervention sur vos évacuations extérieures</li>
         </ul>
         <p class="text-gray-600 text-sm">
-          Notre équipe utilise des équipements professionnels adaptés aux spécificités des installations du quartier {sectionName}: furets électriques, pompes haute pression et caméras d'inspection.
+          Notre équipe utilise des équipements professionnels adaptés aux spécificités des installations à
+          {sectionName} : furets électriques, pompes haute pression et caméras d'inspection.
         </p>
       </div>
 
       <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
-         <Fragment set:html={Icon} />
-         <h3 class="text-xl font-semibold text-blue-800 mb-4">Réparation de Fuites d'Eau à {parentCityName} {sectionName}</h3>
-         <p class="text-gray-600 mb-4 text-sm">
-          Les fuites d'eau peuvent causer d'importants dégâts dans les habitations du quartier {sectionName}. Notre service de détection et réparation vous propose:
-         </p>
-         <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
+        <Fragment set:html={Icon} />
+        <h3 class="text-xl font-semibold text-blue-800 mb-4">Réparation de Fuites d'Eau à {sectionName} -
+          {parentCityName}</h3>
+        <p class="text-gray-600 mb-4 text-sm">
+          Les fuites d'eau peuvent causer d'importants dégâts dans les habitations de la localité de {sectionName}. Notre
+          service de détection et réparation vous propose:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
           <li><strong>Localisation de fuites cachées:</strong> Sous carrelage, dans les murs</li>
           <li><strong>Réparation de tuyauterie endommagée:</strong> Solutions durables</li>
           <li><strong>Remplacement de joints défectueux:</strong> Intervention sur robinetterie</li>
           <li><strong>Traitement des fuites sur canalisations enterrées:</strong> Expertise extérieure</li>
-         </ul>
-         <p class="text-gray-600 text-sm">
-          À {parentCityName} {sectionName}, nous utilisons des technologies de détection non destructives pour identifier précisément l'origine des fuites avant d'intervenir.
-         </p>
+        </ul>
+        <p class="text-gray-600 text-sm">
+          À <strong>{sectionName} - {parentCityName}</strong>, nous utilisons des technologies de détection non
+          destructives pour identifier précisément l'origine des fuites avant d'intervenir.
+        </p>
       </div>
 
-       <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
-         <Fragment set:html={Icon} />
-         <h3 class="text-xl font-semibold text-blue-800 mb-4">Services de Chauffagiste à {sectionName}</h3>
-         <p class="text-gray-600 mb-4 text-sm">
-           Les logements du quartier {sectionName} nécessitent un système de chauffage fiable. Nos chauffagistes qualifiés vous offrent:
-         </p>
-         <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
+      <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
+        <Fragment set:html={Icon} />
+        <h3 class="text-xl font-semibold text-blue-800 mb-4">Services de Chauffagiste à {sectionName}</h3>
+        <p class="text-gray-600 mb-4 text-sm">
+          Les logements de la section de {sectionName} nécessitent un système de chauffage fiable. Nos chauffagistes
+          qualifiés vous offrent:
+        </p>
+        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
           <li><strong>Installation et remplacement de chaudières:</strong> Solutions adaptées</li>
           <li><strong>Entretien annuel obligatoire:</strong> Conformité avec la législation belge</li>
           <li><strong>Dépannage chauffage d'urgence:</strong> Intervention rapide</li>
           <li><strong>Réparation et purge de radiateurs:</strong> Optimisation de votre système</li>
-         </ul>
-         <p class="text-gray-600 text-sm">
-           Nos techniciens certifiés garantissent la performance de votre installation de chauffage, essentielle au confort des résidents de {sectionName}.
-         </p>
+        </ul>
+        <p class="text-gray-600 text-sm">
+          Nos techniciens certifiés garantissent la performance de votre installation de chauffage, essentielle au
+          confort des résidents de {sectionName}.
+        </p>
       </div>
     </div>
   </div>
