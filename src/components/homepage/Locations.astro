@@ -1,8 +1,5 @@
 ---
-// src/components/Locations.astro
 import { Icon } from 'astro-icon/components';
-
-// Data structure for regions (to be displayed as cards)
 const regions = [
     {
         name: "Province d'Anvers", // Kept original name, maps to 'antwerpen' slug
@@ -119,87 +116,85 @@ const otherCities = [
 
 <section id="locations" class="py-16 md:py-24 bg-white">
   <div class="container mx-auto px-4">
-    <!-- Provinces Section -->
     <div class="mb-16">
       <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-4">
         Plombier à votre service dans toutes les provinces de Belgique
       </h2>
       <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-        Notre équipe de plombiers professionnels intervient rapidement dans toutes les provinces belges. Que vous habitiez en Flandre, en Wallonie ou dans la région de Bruxelles-Capitale, un plombier qualifié peut être à votre domicile en moins d'une heure en cas d'urgence.
+        Notre équipe de <strong>plombiers professionnels </strong>intervient rapidement dans toutes les provinces
+        belges. Que vous habitiez en Flandre, en Wallonie ou dans la <strong>région de Bruxelles-Capitale</strong>, un
+        <strong>plombier qualifié</strong> peut être à votre domicile en moins d'une heure en cas d'urgence.
       </p>
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-24">
         {regions.map((region, index) => (
-          <div key={index} class={`bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer ${regions.length % 3 === 1 && index === regions.length - 1 ? 'lg:col-span-3 lg:justify-center' : ''}`}>
-            <div class="p-5">
-              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
-                {region.icon && <Icon name={region.icon} class="h-5 w-5 mr-2" />}
-                {region.name}
-              </h3>
-              <p class="text-gray-600 text-sm">{region.description}</p>
-              <a href={region.slug} class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
-                Nos services dans toute la {region.name}
-                <Icon name="mdi:arrow-right" class="h-4 w-4 ml-1" />
-              </a>
-            </div>
+        <div key={index} class={`bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg
+          transition-shadow cursor-pointer ${regions.length % 3===1 && index===regions.length - 1
+          ? 'lg:col-span-3 lg:justify-center' : '' }`}>
+          <div class="p-5">
+            <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+              {region.name}
+            </h3>
+            <p class="text-gray-600 text-sm">{region.description}</p>
+            <a href={region.slug} class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+              Nos services dans toute la {region.name}
+              <Icon name="mdi:arrow-right" class="h-4 w-4 ml-1" />
+            </a>
           </div>
+        </div>
         ))}
       </div>
+      <div class="mb-16 flex flex-col justify-center items-center">
+        <h2 class="text-3xl font-bold text-center text-blue-800 mb-6">
+          Plombier Professionnel dans les Principales Villes Belges
+        </h2>
+        <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-10">
+          Notre service de plomberie est disponible dans toutes les grandes villes de Belgique ainsi que dans leurs
+          communes périphériques. Quel que soit votre lieu de résidence, nos plombiers locaux peuvent intervenir
+          rapidement à votre domicile.
+        </p>
 
-    <!-- Cities Section with Independent Dropdowns -->
-    <div class="mb-16 flex flex-col justify-center items-center">
-      <h2 class="text-3xl font-bold text-center text-blue-800 mb-6">
-        Plombier Professionnel dans les Principales Villes Belges
-      </h2>
-      <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-10">
-        Notre service de plomberie est disponible dans toutes les grandes villes de Belgique ainsi que dans leurs communes périphériques. Quel que soit votre lieu de résidence, nos plombiers locaux peuvent intervenir rapidement à votre domicile.
-      </p>
-
-      <div class="grid grid-cols-1 gap-4 mb-8 md:min-w-xl max-w-xl" id="city-container">
-        {cities.map((city, index) => (
-          <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id={`city-${index}`}>
-            <summary class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+        <div class="grid grid-cols-1 gap-4 mb-8 md:min-w-xl max-w-xl" id="city-container">
+          {cities.map((city, index) => (
+          <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown"
+            id={`city-${index}`}>
+            <summary
+              class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
               <span class="font-medium text-blue-800">{city.name}</span>
               <Icon name="mdi:chevron-down" class="h-5 w-5 text-blue-600 transform transition-transform" />
             </summary>
             <div class="p-4 border-t border-gray-200">
               <p class="text-gray-600">{city.description}</p>
-            
+
             </div>
           </details>
-        ))}
-      </div>
-
-      <!-- Other cities dropdown -->
-      <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden mx-auto max-w-2xl">
-        <summary class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
-          <span class="font-medium text-blue-800">Autres communes desservies</span>
-          <Icon name="mdi:chevron-down" class="h-5 w-5 text-blue-600 transform transition-transform" />
-        </summary>
-        <div class="p-4 border-t border-gray-200">
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
-            {otherCities.map((city) => (
+          ))}
+        </div>
+        <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden mx-auto max-w-2xl">
+          <summary
+            class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+            <span class="font-medium text-blue-800">Autres communes desservies</span>
+            <Icon name="mdi:chevron-down" class="h-5 w-5 text-blue-600 transform transition-transform" />
+          </summary>
+          <div class="p-4 border-t border-gray-200">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+              {otherCities.map((city) => (
               <div class="flex items-center">
                 <span class="text-gray-700 text-sm">{city}</span>
               </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </details>
+        </details>
+      </div>
     </div>
-  </div>
 </section>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const cityDropdowns = document.querySelectorAll('.city-dropdown');
-      
+      const cityDropdowns = document.querySelectorAll('.city-dropdown');      
       cityDropdowns.forEach(dropdown => {
         dropdown.addEventListener('click', function(e) {
-          // Prevent the default behavior
           e.stopPropagation();
-          
-          // Close all other dropdowns
           cityDropdowns.forEach(item => {
             if (item !== dropdown && item.hasAttribute('open')) {
               item.removeAttribute('open');
@@ -211,18 +206,13 @@ const otherCities = [
   </script>
 
 <style>
-    /* Ensure consistent height for closed dropdowns */
     .city-dropdown summary {
       min-height: 3.5rem;
     }
-    
-    /* Prevent content shifting by using a fixed layout approach */
     .city-dropdown {
       height: auto;
       position: relative;
     }
-    
-    /* Transform the dropdown icon when open */
     .city-dropdown[open] summary .transform {
       transform: rotate(180deg);
     }
