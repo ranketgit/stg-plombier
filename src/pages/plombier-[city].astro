@@ -9,11 +9,9 @@ import CityAvantages from '../components/city/CityAvantages.astro';
 import CityProblems from '../components/city/CityProblems.astro';
 import CityTestimonials from '../components/city/CityTestimonials.astro';
 import CityFAQ from '../components/city/CityFAQ.astro';
-import CityTips from '../components/city/CityTips.astro';
-import CityTarifs from '../components/city/CityTarifs.astro';
-import CityConclusion from '../components/city/CityConclusion.astro';
 import { generateSchema } from "../seo/schema";
 const Icon = `<svg class="h-6 w-6 text-green-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+const PriceIcon = `<svg class="h-5 w-5 text-blue-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>`;
 
 
 export async function getStaticPaths() {
@@ -52,7 +50,6 @@ const meta_title = `Plombier ${cityData.name} en urgence ⭐️ 24/7`;
 const meta_description = `Plombier professionnel et agréé à ${cityData.name} ⭐️ détection et réparation de fuite d'eau, installation sanitaire. Intervention urgente 24/7 ☎️ 0476/23.23.23.`;
 const schemaMarkup = generateSchema(meta_title, meta_description, 31);
 ---
-
 <Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
   <Hero heroData={heroData} />
   <CityServices cityName={cityData.name} cardBackgroundImages={[ '/debouchage-de-canalisation.webp'
@@ -76,7 +73,8 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 31);
           <div>
             <h3 class="font-semibold text-lg text-green-700 mb-1">Prévention du gel en hiver</h3>
             <p class="text-gray-700 text-sm">
-              À <strong>{cityData.name}</strong>, les températures hivernales peuvent parfois être rigoureuses. Protégez vos
+              À <strong>{cityData.name}</strong>, les températures hivernales peuvent parfois être rigoureuses. Protégez
+              vos
               canalisations extérieures avec des gaines isolantes et, en cas de grand froid, laissez un léger filet
               d'eau couler dans vos robinets pour prévenir le gel des tuyaux.
             </p>
@@ -126,7 +124,8 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 31);
         Nos services de plomberie à {cityData.name}
       </h2>
       <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
-        Notre <strong>équipe de plombiers</strong> intervient non seulement à <strong>{cityData.name} {cityData.postalCode}</strong> mais également dans les communes et
+        Notre <strong>équipe de plombiers</strong> intervient non seulement à <strong>{cityData.name}
+          {cityData.postalCode}</strong> mais également dans les communes et
         localités avoisinantes:
       </p>
       <div class="flex flex-wrap justify-center gap-y-6 -mt-6">
@@ -142,13 +141,76 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 31);
         ))}
       </div>
       <p class="text-center text-gray-600 mt-10 max-w-3xl mx-auto">
-        Même si vous habitez dans une commune limitrophe de <strong>{cityData.name}</strong>, vous pouvez compter sur notre
+        Même si vous habitez dans une commune limitrophe de <strong>{cityData.name}</strong>, vous pouvez compter sur
+        notre
         <strong>service de plomberie professionnel</strong> pour une intervention rapide et efficace.
       </p>
     </div>
   </section>
   )}
 
-  <CityTarifs cityName={cityData.name} />
-  <CityConclusion cityName={cityData.name} />
+  <section class="py-12 md:py-16">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+        Tarifs plombier à {cityData.name}
+      </h2>
+      <p class="text-center text-gray-600 mb-10">
+        Nos tarifs à {cityData.name} sont transparents et compétitifs. Voici un aperçu de nos prix pour les
+        interventions les plus courantes:
+      </p>
+      <div class="bg-white p-8 rounded-3xl shadow-lg border-t-4 border-blue-500">
+        <ul class="space-y-4">
+          <li class="flex items-center text-gray-700">
+            <Fragment set:html={PriceIcon} /> <strong>Déplacement à {cityData.name}:</strong><span
+              class="ml-auto font-medium">Inclus</span></li>
+          <li class="flex items-center text-gray-700">
+            <Fragment set:html={PriceIcon} /> <strong>Débouchage simple:</strong><span class="ml-auto font-medium">À
+              partir de 100€</span></li>
+          <li class="flex items-center text-gray-700">
+            <Fragment set:html={PriceIcon} /> <strong>Recherche et réparation de fuite:</strong><span
+              class="ml-auto font-medium">À partir de 100€*</span></li>
+          <li class="flex items-center text-gray-700">
+            <Fragment set:html={PriceIcon} /> <strong>Remplacement robinetterie:</strong><span
+              class="ml-auto font-medium">À partir de 100€**</span></li>
+          <li class="flex items-center text-gray-700">
+            <Fragment set:html={PriceIcon} /> <strong>Installation sanitaire:</strong><span
+              class="ml-auto font-medium">Sur devis gratuit</span></li>
+        </ul>
+        <p class="text-xs text-gray-500 mt-6 border-t pt-4">
+          * Selon complexité. ** Fourniture comprise (modèle standard).<br />
+          Tous nos tarifs sont annoncés avant intervention et comprennent la TVA. Pour les interventions d'urgence en
+          dehors des heures ouvrables à {cityData.name}, un supplément peut s'appliquer, qui vous sera clairement
+          communiqué lors de votre appel.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="bg-blue-700 text-white py-12 md:py-16">
+    <div class="container mx-auto px-4 max-w-4xl text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">
+        Conclusion - Votre plombier de confiance à {cityData.name} {cityData.postalCode}
+      </h2>
+      <div class="space-y-4 text-blue-100 mb-8">
+        <p>
+          Que vous soyez confronté à une <strong>urgence plomberie</strong> ou que vous planifiez des travaux
+          d'installation ou de rénovation, notre équipe de <strong>plombiers professionnels à {cityData.name}</strong> est à votre
+          service pour vous garantir une prestation de qualité, rapide et au juste prix.
+        </p>
+        <p>
+          Notre connaissance approfondie de {cityData.name}, de ses quartiers et des problématiques locales de plomberie
+          nous permet d'intervenir efficacement pour tout type de problème, des plus courants aux plus complexes.
+        </p>
+        <p class="font-semibold text-white">
+          N'hésitez pas à nous contacter pour bénéficier de l'expertise de nos <strong>plombiers qualifiés à {cityData.name}</strong> et
+          obtenir un devis gratuit adapté à vos besoins spécifiques.
+        </p>
+      </div>
+      <div class="pt-4">
+        <a href="tel:+32476232323"
+          class="bg-white text-blue-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-full inline-flex items-center justify-center transition-colors duration-300 shadow-md text-lg">
+          0476/23.23.23
+        </a>
+      </div>
+    </div>
+  </section>
 </Layout>
