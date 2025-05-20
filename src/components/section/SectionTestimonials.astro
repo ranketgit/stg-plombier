@@ -9,12 +9,12 @@ const testimonials = [
   {
     quote: `Intervention rapide et efficace pour notre douche bouchée. Le plombier était parfaitement familier avec les installations typiques du quartier ${sectionName}. Service impeccable!`,
     name: "Jean M.",
-    location: `${parentCityName} ${sectionName}`
+    location: `${sectionName} - ${parentCityName}`
   },
   {
     quote: `J'ai fait appel à leurs services pour une fuite sous mon évier. Diagnostic précis et réparation propre. Très satisfait de leur connaissance de notre quartier.`,
     name: "Isabelle D.",
-    location: `${parentCityName} ${sectionName}`
+    location: `${sectionName} - ${parentCityName}`
   }
 ];
 const QuoteIcon = `<svg class="h-8 w-8 text-blue-200" fill="currentColor" viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path></svg>`;
@@ -22,7 +22,7 @@ const QuoteIcon = `<svg class="h-8 w-8 text-blue-200" fill="currentColor" viewBo
 <section class=" py-12 md:py-16">
   <div class="container mx-auto px-4">
     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
-      Témoignages de Nos Clients à {parentCityName} {sectionName}
+      Témoignages de nos clients à {sectionName} {parentCityName}
     </h2>
     <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
       {testimonials.map(testimonial => (
