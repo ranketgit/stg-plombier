@@ -27,13 +27,6 @@ export async function getStaticPaths() {
   }));
 }
 const { locationData } = Astro.props;
-
-const heroData = {
-  phoneNumber: "+32476232323",
-  callButtonText: "0476/23.23.23",
-  serviceButtonText: "Nos Services",
-};
-
 const meta_title = `Plombier ${locationData.name} en urgence ⭐️ 24/7`;
 const meta_description = `Plombier professionnel ⭐️ disponible 24/7 dans la ${locationData.name}. Intervention rapide et efficace, devis gratuit. Expert en plomberie sanitaire. ☎️ 0476/23.23.23`;
 const schemaMarkup = generateSchema(meta_title, meta_description, 51);

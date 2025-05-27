@@ -13,13 +13,7 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  integrations: [sitemap(
-  {
-    changefreq: "weekly",
-      priority: 0.9,
-      lastmod: new Date(),
-  }
-  ),
+  integrations: [sitemap(),
   icon()
 ]
 });
