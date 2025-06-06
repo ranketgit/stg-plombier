@@ -7,12 +7,15 @@ import FAQ from '../components/homepage/FAQ.astro'
 // import { Image } from 'astro:assets';
 import Contact from '../components/Contact.astro';
 import { Icon } from 'astro-icon/components';
+const schema = {
+  
+}
 
 const	meta_title = "Plombier déboucheur Professionnel en Belgique ⭐️ 24/7";
 const	meta_description = "Plombier déboucheur professionnel disponible en urgence dans toute la Belgique ⭐️ 24/7 , appeler ☎️ 0476/23.23.23";
 ---
 
-<Layout meta_title={meta_title} meta_description={meta_description}>
+<Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schema}>
   <section class="relative text-white overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center z-0"
       style="background-image: url('/plombier-agree-en-urgence.webp');">

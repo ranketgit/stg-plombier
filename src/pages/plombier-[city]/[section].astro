@@ -37,19 +37,18 @@ export async function getStaticPaths() {
 const { city, section } = Astro.params;
 const { locationData } = Astro.props;
 
-const heroData = {
-  title: `Plombier ${locationData.sectionName} ${locationData.cityName} ⭐️ Intervention Rapide et Qualité`,
-  subtitle: `Vous recherchez un plombier de confiance à $${locationData.sectionName} $${locationData.postalCode} ? Notre équipe de plombiers qualifiés intervient rapidement à ${locationData.sectionName} pour tous vos besoins en plomberie. Spécialistes du débouchage, de la réparation de fuites et de l'installation sanitaire, nous sommes à votre service 24h/24 et 7j/7 pour résoudre efficacement vos problèmes de plomberie.\nGrâce à notre excellente connaissance à ${locationData.sectionName} de ${locationData.cityName} et de ses spécificités, nous vous garantissons une intervention adaptée et rapide, quel que soit votre problème de plomberie.`, // Full subtitle
-  backgroundImageUrl: "/plombier-professionnel-belgique.webp", // Adjust path or use different image
-};
-
 const meta_title = `Plombier ${locationData.sectionName} en urgence ⭐️ 24/7`;
 const meta_description = `Plombier professionnel à ${locationData.sectionName} ⭐️ réparation fuites, installations sanitaires. Intervention urgente 24h/24 et 7j/7. Devis gratuit ☎️ 0476/23.23.23.`;
 const schemaMarkup = generateSchema(meta_title, meta_description, 21);
 ---
 
 <Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
-    <Hero heroData={heroData} />
+    <Hero heroData={{
+        title: `Plombier ${locationData.sectionName} ${locationData.cityName} ⭐️ Intervention Rapide et Qualité`,
+        subtitle: `Vous recherchez un plombier de confiance à $${locationData.sectionName} $${locationData.postalCode} ? Notre équipe de plombiers qualifiés intervient rapidement à ${locationData.sectionName} pour tous vos besoins en plomberie. Spécialistes du débouchage, de la réparation de fuites et de l'installation sanitaire, nous sommes à votre service 24h/24 et 7j/7 pour résoudre efficacement vos problèmes de plomberie.\nGrâce à notre excellente connaissance à ${locationData.sectionName} de ${locationData.cityName} et de ses spécificités, nous vous garantissons une intervention adaptée et rapide, quel que soit votre problème de plomberie.`, // Full subtitle
+        backgroundImageUrl: "/plombier-professionnel-belgique.webp",
+        serviceButtonText: "Nos Services à " + locationData.sectionName,
+      }} />
     <SectionServices sectionName={locationData.sectionName} parentCityName={locationData.cityName} />
     <SectionParticularites sectionName={locationData.sectionName} />
     <SectionUrgence sectionName={locationData.sectionName} parentCityName={locationData.cityName} />

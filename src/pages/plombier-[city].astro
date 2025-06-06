@@ -36,22 +36,17 @@ export async function getStaticPaths() {
 const { city } = Astro.params;
 const { cityData } = Astro.props;
 
-const heroData = {
-  title: `Plombier ${cityData.name} - Dépannage d'urgence et services professionnels`,
-  subtitle: `Besoin d'un plombier à ${cityData.name}? Notre équipe intervient rapidement dans tout ${cityData.name} et ses environs pour résoudre efficacement vos problèmes de plomberie. Disponibles 24/7.`,
-  phoneNumber: "+32476232323",
-  callButtonText: "0476/23.23.23",
-  serviceButtonText: "Nos Services à " + cityData.name,
-  backgroundImageUrl: "/plombier-professionnel-belgique.webp",
-};
-
-
 const meta_title = `Plombier ${cityData.name} en urgence ⭐️ 24/7`;
 const meta_description = `Plombier professionnel et agréé à ${cityData.name} ⭐️ détection et réparation de fuite d'eau, installation sanitaire. Intervention urgente 24/7 ☎️ 0476/23.23.23.`;
 const schemaMarkup = generateSchema(meta_title, meta_description, 35);
 ---
 <Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
-  <Hero heroData={heroData} />
+  <Hero heroData={{
+    title: `Plombier ${cityData.name} - Dépannage d'urgence et services professionnels`,
+    subtitle: `Besoin d'un plombier à ${cityData.name}? Notre équipe intervient rapidement dans tout ${cityData.name} et ses environs pour résoudre efficacement vos problèmes de plomberie. Disponibles 24/7.`,
+    serviceButtonText: "Nos Services à " + cityData.name,
+    backgroundImageUrl: "/plombier-professionnel-belgique.webp",
+  }} />
   <CityServices cityName={cityData.name} cardBackgroundImages={[ '/debouchage-de-canalisation.webp'
     , '/installation-sanitaire.webp' , '/service-chaufagiste.webp' , '/reparation-fuite-eau.webp' , ]} />
   <CityQuartiers cityName={cityData.name} imageUrl="/plombier-pro-belgique-assur-plombier.webp" />
