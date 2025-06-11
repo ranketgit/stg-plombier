@@ -1,0 +1,258 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { data } from '../data/locations'; 
+import { generateSchema } from "../seo/schema";
+import Hero from '../components/homepage/Hero.astro';
+
+export async function getStaticPaths() {
+  const paths = data.flatMap(province => 
+    province.Cities.map(city => ({
+      params: { 
+        city: city.slug 
+      },
+      props: {
+        cityData: {
+          name: city.cityName,
+          slug: city.slug,
+          postalCode: city.codePostal,
+          province: province.State,
+          sections: city.sections || [] // Pass the sections array, ensuring it's an array
+        }
+      }
+    }))
+  );
+  return paths;
+}
+
+const { cityData } = Astro.props;
+
+const meta_title = `Débouchage ${cityData.name} en urgence 24h/24 | Assur Plombier`;
+const meta_description = `Débouchage rapide à ${cityData.name} 7j/7. WC, éviers, égouts bouchés ? Intervention en moins de 2h. Devis gratuit. Appelez maintenant !`;
+const schemaMarkup = generateSchema(meta_title, meta_description, 48);
+
+const heroData = {
+  title: `Débouchage à ${cityData.name} : Votre Plombier d'Urgence Disponible 24h/24`,
+  subtitle: `Vous faites face à une canalisation bouchée à ${cityData.name} ? Assur Plombier intervient rapidement dans toute la commune de ${cityData.name} et ses environs pour résoudre tous vos problèmes de débouchage. Que ce soit un WC qui déborde, un évier bouché ou des égouts qui remontent, notre équipe de plombiers expérimentés garantit une intervention en moins de 2 heures, même le week-end et les jours fériés.`,
+  serviceButtonText: "Appeler pour une Urgence",
+  backgroundImageUrl: "/service-de-plomberie-sanitaire-assur-plombier.webp"
+};
+
+const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+---
+
+<Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
+  
+  <Hero heroData={heroData} />
+
+  <section class="bg-white py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+        Nos Services de Débouchage à {cityData.name}
+      </h2>
+      <div class="mb-8">
+        <img src="/plombier-debouchage-canalisation-urgence.webp" alt={`Débouchage de canalisation à ${cityData.name}`} class="rounded-lg shadow-md w-full lg:max-w-4xl mx-auto" width="1500" height="1000" />
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        
+        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage WC</h3>
+          <p class="text-gray-700 text-sm">
+            Toilettes bouchées à {cityData.name} ? Notre équipe de déboucheurs professionnels élimine rapidement les obstructions dans vos WC sans endommager votre installation. Intervention avec furet électrique et techniques spécialisées.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage Évier et Lavabo</h3>
+          <p class="text-gray-700 text-sm">
+            Évier de cuisine ou lavabo bouché à {cityData.name} ? Nous utilisons des techniques professionnelles pour rétablir l'écoulement normal de vos éviers et lavabos. Élimination efficace des bouchons de graisses, cheveux et résidus alimentaires.
+          </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage Baignoire et Douche</h3>
+          <p class="text-gray-700 text-sm">
+            Évacuation lente dans votre salle de bain à {cityData.name} ? Nos solutions efficaces éliminent les bouchons de cheveux et de savon qui obstruent vos canalisations. Techniques adaptées pour préserver vos installations.
+          </p>
+        </div>
+        
+        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+            <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage de Colonnes d'Immeubles</h3>
+            <p class="text-gray-700 text-sm">
+              Problème dans votre copropriété à {cityData.name} ? Nous intervenons dans les bâtiments collectifs pour déboucher les colonnes d'immeubles avec un équipement adapté aux installations communes.
+            </p>
+        </div>
+
+        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+            <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage Canalisation Extérieure</h3>
+            <p class="text-gray-700 text-sm">
+              Problème d'évacuation dans vos conduites extérieures à {cityData.name} ? Traitement professionnel des canalisations externes avec pompes à haute pression et caméras d'inspection pour un diagnostic précis.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-100 py-12 md:py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+        Pourquoi Choisir Assur Plombier à {cityData.name} ?
+      </h2>
+      <div class="space-y-5">
+        
+        <div class="flex items-start bg-white p-4 rounded-3xl shadow">
+          <Fragment set:html={CheckIcon} />
+          <div>
+            <h3 class="font-semibold text-lg text-gray-700 mb-1">Intervention Rapide Garantie</h3>
+            <p class="text-gray-600 text-sm">
+              Notre proximité avec {cityData.name} nous permet d'arriver sur place en moins de 2 heures, même en urgence nocturne ou le week-end.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start bg-white p-4 rounded-3xl shadow">
+          <Fragment set:html={CheckIcon} />
+          <div>
+            <h3 class="font-semibold text-lg text-gray-700 mb-1">Équipement Professionnel de Pointe</h3>
+            <p class="text-gray-600 text-sm">
+              Nos plombiers-déboucheurs interviennent avec du matériel professionnel : furets électriques, pompes à haute pression et caméras d'inspection pour résoudre définitivement vos problèmes d'écoulement.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start bg-white p-4 rounded-3xl shadow">
+          <Fragment set:html={CheckIcon} />
+          <div>
+            <h3 class="font-semibold text-lg text-gray-700 mb-1">Tarifs Transparents et Honnêtes</h3>
+            <p class="text-gray-600 text-sm">
+              Devis gratuit avant intervention. Pas de frais cachés. Prix fixe annoncé à l'avance pour éviter les mauvaises surprises.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start bg-white p-4 rounded-3xl shadow">
+          <Fragment set:html={CheckIcon} />
+          <div>
+            <h3 class="font-semibold text-lg text-gray-700 mb-1">Garantie de Résultat</h3>
+            <p class="text-gray-600 text-sm">
+              Si le bouchon revient dans les 48h, nous revenons gratuitement. Votre satisfaction est notre priorité à {cityData.name}.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="bg-white py-12 md:py-16">
+    <div class="container mx-auto px-4">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+            Zone d'Intervention autour de {cityData.name}
+        </h2>
+        <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
+            Nous couvrons l'ensemble de la commune de {cityData.name} ainsi que toutes les localités dans un rayon de 20 km. Intervention garantie dans les mêmes délais pour tous nos clients. <br/>
+            <strong>Communes voisines desservies :</strong> Contactez-nous pour confirmer notre couverture dans votre secteur proche de {cityData.name}.
+        </p>
+
+        {cityData.sections && cityData.sections.length > 0 && (
+          <div class="max-w-4xl mx-auto">
+            <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-6 text-center">
+                Nos services de débouchage dans les quartiers de {cityData.name}
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                {cityData.sections.map((section) => (
+                    <a href={`/debouchage-${cityData.slug}/${section.slug}/`}
+                        class="block bg-gray-50 text-center p-4 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 text-blue-700 hover:text-blue-800 font-medium"
+                        title={`Débouchage à ${section.name} - ${cityData.name}`}>
+                        Débouchage {section.name}
+                    </a>
+                ))}
+            </div>
+          </div>
+        )}
+    </div>
+</section>
+
+  <section class="bg-gray-100 py-12 md:py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+        Témoignages de Clients à {cityData.name}
+      </h2>
+      <div class="space-y-6">
+        
+        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+          <blockquote class="text-gray-600 italic">
+            "WC complètement bouché un dimanche à {cityData.name}, impossible de tirer la chasse ! Le plombier d'Assur Plombier est arrivé en 1h15, a réglé le problème en 20 minutes. Très professionnel et prix correct."
+          </blockquote>
+          <p class="text-right font-semibold text-gray-800 mt-4">— Marie Jacobs, {cityData.name}</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+          <blockquote class="text-gray-600 italic">
+           "Égouts qui remontaient régulièrement à {cityData.name}. Assur Plombier a fait une inspection caméra, trouvé les racines responsables et tout nettoyé avec l'hydrocurage. Plus aucun souci depuis 6 mois !"
+          </blockquote>
+          <p class="text-right font-semibold text-gray-800 mt-4">— Pierre Dumont, {cityData.name}</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+          <blockquote class="text-gray-600 italic">
+            "Évier de cuisine bouché le matin à {cityData.name}, plombier sur place dans l'heure. Travail propre, explications claires et garantie respectée. Je recommande !"
+          </blockquote>
+          <p class="text-right font-semibold text-gray-800 mt-4">— Famille Moreno, {cityData.name}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-12 md:py-16">
+    <div class="container mx-auto px-4 max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+        Questions Fréquentes - Débouchage à {cityData.name}
+      </h2>
+      <div class="space-y-6">
+
+        <div class="bg-gray-50 p-4 rounded-xl">
+          <h3 class="font-semibold text-lg text-gray-800">Combien de temps faut-il pour déboucher une canalisation à {cityData.name} ?</h3>
+          <p class="text-gray-600 mt-1 text-sm">La plupart des débouchages simples (WC, évier) sont résolus en 30 à 60 minutes. Pour les canalisations principales, comptez 1 à 2 heures selon la complexité du bouchon.</p>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-xl">
+          <h3 class="font-semibold text-lg text-gray-800">Intervenez-vous la nuit et le week-end à {cityData.name} ?</h3>
+          <p class="text-gray-600 mt-1 text-sm">Oui, nous assurons un service d'urgence 24h/24 et 7j/7 à {cityData.name}. Une majoration de 30€ s'applique pour les interventions en dehors des heures ouvrables.</p>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-xl">
+          <h3 class="font-semibold text-lg text-gray-800">Que faire en attendant le plombier si mes WC débordent ?</h3>
+          <p class="text-gray-600 mt-1 text-sm">Coupez l'arrivée d'eau des toilettes, évitez de tirer la chasse et aérez la pièce. Ne versez pas de produits chimiques qui pourraient compliquer notre intervention.</p>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-xl">
+            <h3 class="font-semibold text-lg text-gray-800">Proposez-vous une garantie sur vos débouchages à {cityData.name} ?</h3>
+            <p class="text-gray-600 mt-1 text-sm">Oui, si le même bouchon se reforme dans les 48h suivant notre intervention, nous revenons gratuitement pour le résoudre définitivement.</p>
+        </div>
+
+        <div class="bg-gray-50 p-4 rounded-xl">
+            <h3 class="font-semibold text-lg text-gray-800">Comment éviter que mes canalisations se bouchent à nouveau ?</h3>
+            <p class="text-gray-600 mt-1 text-sm">Évitez de jeter graisses, lingettes et cheveux dans les évacuations. Un entretien préventif annuel avec nos services permet d'éviter 90% des bouchons récurrents.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-blue-800 py-12 md:py-16">
+    <div class="container mx-auto px-4 max-w-4xl text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">
+        Contactez Assur Plombier à {cityData.name}
+      </h2>
+      <p class="text-gray-100 mb-8 max-w-2xl mx-auto">
+        Une canalisation bouchée à {cityData.name} ? N'attendez pas que la situation s'aggrave ! Appelez immédiatement nos plombiers d'urgence.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+        <a href="#form-plombier" class="bg-white text-blue-800 hover:bg-gray-100 font-semibold py-2 px-6 rounded-xl inline-flex items-center justify-center transition-colors duration-300 shadow-md">
+            Intervention Rapide à {cityData.name} - Devis Gratuit
+        </a>
+        <a href="tel:+32476232323" class="border-2 border-white text-white hover:bg-white hover:text-blue-800 font-semibold py-2 px-6 rounded-xl inline-flex items-center justify-center transition-colors duration-300">
+            Urgence Débouchage 24h/7j : 0476/23.23.23
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
