@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { data } from '../data/locations'; 
 import { generateSchema } from "../seo/schema";
-import Hero from '../components/homepage/Hero.astro'; // Using the Hero component
+import Hero from '../components/homepage/Hero.astro';
 
 export async function getStaticPaths() {
   return data.map(location => ({
@@ -12,7 +12,8 @@ export async function getStaticPaths() {
     props: {
       regionData: {
         name: location.State,
-        slug: location.slug
+        slug: location.slug,
+        cities: location.Cities // Passing cities data
       }
     }
   }));
@@ -38,17 +39,14 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
 
   <Hero heroData={heroData} />
 
-  <section class="py-12 md:py-16">
-    <div class="container mx-auto px-4 max-w-5xl">
-      <img src="/plombier-debouchage-canalisation-urgence.webp" width="1200" height="675" class="rounded-lg shadow-md mx-auto" alt={`Service de débouchage professionnel en ${regionData.name}`} />
-    </div>
-  </section>
-
   <section class="bg-white py-12 md:py-16">
     <div class="container mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
         Nos Services de Débouchage dans Toute la {regionData.name}
       </h2>
+      <div class="container mx-auto px-4 max-w-5xl mb-24">
+        <img src="/debouchage-assur-plombier-region.webp" width="1200" height="675" class="rounded-lg shadow-md mx-auto" alt={`Service de débouchage professionnel en ${regionData.name}`} />
+      </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         
         <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
@@ -160,29 +158,52 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
         </div>
     </div>
   </section>
-
+  
   <section class="bg-gray-100 py-12 md:py-16">
+      <div class="container mx-auto px-4">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+              Nos services de débouchage dans les communes de {regionData.name}
+          </h2>
+          <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
+              Nous intervenons dans toutes les villes et communes de la région. Trouvez votre plombier local ci-dessous :
+          </p>
+
+          {regionData.cities && regionData.cities.length > 0 && (
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-6xl mx-auto">
+              {regionData.cities.map((city) => (
+              <a href={`/debouchage-${city.slug}/`}
+                  class="block bg-white text-center p-4 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 text-blue-700 hover:text-blue-800 font-medium"
+                  title={`Débouchage à ${city.cityName}`}>
+                  Débouchage {city.cityName}
+              </a>
+              ))}
+          </div>
+          )}
+      </div>
+  </section>
+  
+  <section class="bg-white py-12 md:py-16">
     <div class="container mx-auto px-4 max-w-4xl">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
         Témoignages Clients de Toute la {regionData.name}
       </h2>
       <div class="space-y-6">
         
-        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
           <blockquote class="text-gray-600 italic">
             "Habitation isolée en {regionData.name}, égouts bouchés un samedi. Malgré l'éloignement, le plombier d'Assur Plombier est venu rapidement et a tout réglé. Service au top même dans les petites localités !"
           </blockquote>
           <p class="text-right font-semibold text-gray-800 mt-4">— André Vermeulen, {regionData.name}</p>
         </div>
 
-        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
           <blockquote class="text-gray-600 italic">
            "Problème complexe dans notre copropriété en {regionData.name}. L'équipe a organisé l'intervention avec les autorités locales, travail professionnel sans perturber les résidents."
           </blockquote>
           <p class="text-right font-semibold text-gray-800 mt-4">— Syndic Immobilier, {regionData.name}</p>
         </div>
 
-        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
           <blockquote class="text-gray-600 italic">
             "Urgence en pleine nuit en {regionData.name}, j'ai appelé à 2h du matin. Le plombier était là à 3h15, problème résolu avant l'aube. Vraiment professionnel !"
           </blockquote>
@@ -192,29 +213,29 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
     </div>
   </section>
 
-  <section class="bg-white py-12 md:py-16">
+  <section class="bg-gray-100 py-12 md:py-16">
     <div class="container mx-auto px-4 max-w-3xl">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
         Questions Fréquentes - Débouchage {regionData.name}
       </h2>
       <div class="space-y-6">
 
-        <div class="bg-gray-50 p-4 rounded-xl">
+        <div class="bg-white p-4 rounded-xl">
           <h3 class="font-semibold text-lg text-gray-800">Couvrez-vous vraiment toute la {regionData.name} ?</h3>
           <p class="text-gray-600 mt-1 text-sm">Oui, nous avons des plombiers dans chaque zone de {regionData.name}. Quelques communes très isolées peuvent avoir un léger délai supplémentaire, mais nous intervenons partout.</p>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl">
+        <div class="bg-white p-4 rounded-xl">
           <h3 class="font-semibold text-lg text-gray-800">Les tarifs sont-ils les mêmes dans toute la {regionData.name} ?</h3>
           <p class="text-gray-600 mt-1 text-sm">Nos tarifs de base sont identiques, avec de légers ajustements pour les zones rurales éloignées afin de couvrir les frais de déplacement supplémentaires.</p>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl">
+        <div class="bg-white p-4 rounded-xl">
           <h3 class="font-semibold text-lg text-gray-800">Comment choisissez-vous quel plombier envoyer ?</h3>
           <p class="text-gray-600 mt-1 text-sm">Notre centrale d'appels identifie automatiquement l'équipe la plus proche de votre localisation en {regionData.name} et la plus disponible pour une intervention rapide.</p>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl">
+        <div class="bg-white p-4 rounded-xl">
             <h3 class="font-semibold text-lg text-gray-800">Travaillez-vous avec les autorités locales ?</h3>
             <p class="text-gray-600 mt-1 text-sm">Oui, nos plombiers sont habitués aux spécificités administratives de chaque commune de {regionData.name} et peuvent coordonner avec les services techniques locaux si nécessaire.</p>
         </div>

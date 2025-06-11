@@ -48,42 +48,46 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
   
   <Hero heroData={heroData} />
 
-  <section class="bg-white py-12 md:py-16">
+
+  <section class="bg-gray-50 py-12 md:py-16">
     <div class="container mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
         Services de Débouchage Spécialisés pour {sectionData.name}
       </h2>
+      <div class="container mx-auto px-4 max-w-5xl mb-24">
+        <img src="/debouchage-assur-plombier-section.webp" width="1200" height="675" class="rounded-lg shadow-md mx-auto" alt={`Plombier expert en débouchage à ${sectionData.name}`} />
+      </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         
-        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+        <div class="bg-white p-6 rounded-4xl shadow-sm">
           <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage WC dans les Habitations de {sectionData.name}</h3>
           <p class="text-gray-700 text-sm">
             Toilettes bouchées à {sectionData.name} ? Nos déboucheurs professionnels éliminent rapidement les obstructions sans endommager votre installation. Nous connaissons les types de WC courants dans votre quartier.
           </p>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+        <div class="bg-white p-6 rounded-4xl shadow-sm">
           <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage Évier et Lavabo Localisé</h3>
           <p class="text-gray-700 text-sm">
             Techniques professionnelles pour rétablir l'écoulement normal de vos éviers et lavabos à {sectionData.name}. Solutions adaptées aux installations typiques de votre secteur.
           </p>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+        <div class="bg-white p-6 rounded-4xl shadow-sm">
           <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage Baignoire et Douche de Quartier</h3>
           <p class="text-gray-700 text-sm">
             Solutions efficaces contre les bouchons de cheveux et de savon dans les salles de bain de {sectionData.name}. Interventions discrètes et respectueuses de votre voisinage.
           </p>
         </div>
         
-        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+        <div class="bg-white p-6 rounded-4xl shadow-sm">
             <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage de Colonnes d'Immeubles Locaux</h3>
             <p class="text-gray-700 text-sm">
               Intervention dans les copropriétés et bâtiments collectifs de {sectionData.name}. Nous connaissons déjà la plupart des immeubles de votre quartier et leurs spécificités techniques.
             </p>
         </div>
 
-        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+        <div class="bg-white p-6 rounded-4xl shadow-sm">
             <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage Canalisation Extérieure de Proximité</h3>
             <p class="text-gray-700 text-sm">
               Traitement des problèmes d'évacuation dans vos conduites extérieures à {sectionData.name}. Équipement professionnel : furets électriques, pompes à haute pression et caméras d'inspection.
@@ -93,14 +97,14 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
     </div>
   </section>
 
-  <section class="bg-gray-100 py-12 md:py-16">
+  <section class="bg-white py-12 md:py-16">
     <div class="container mx-auto px-4 max-w-4xl">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
         Pourquoi Nous Sommes LE Plombier de {sectionData.name}
       </h2>
       <div class="space-y-5">
         
-        <div class="flex items-start bg-white p-4 rounded-3xl shadow">
+        <div class="flex items-start bg-gray-50 p-4 rounded-3xl shadow">
           <Fragment set:html={CheckIcon} />
           <div>
             <h3 class="font-semibold text-lg text-gray-700 mb-1">Connaissance Parfaite du Secteur</h3>
@@ -110,7 +114,7 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
           </div>
         </div>
 
-        <div class="flex items-start bg-white p-4 rounded-3xl shadow">
+        <div class="flex items-start bg-gray-50 p-4 rounded-3xl shadow">
           <Fragment set:html={CheckIcon} />
           <div>
             <h3 class="font-semibold text-lg text-gray-700 mb-1">Temps de Trajet Minimal</h3>
@@ -120,7 +124,7 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
           </div>
         </div>
 
-        <div class="flex items-start bg-white p-4 rounded-3xl shadow">
+        <div class="flex items-start bg-gray-50 p-4 rounded-3xl shadow">
           <Fragment set:html={CheckIcon} />
           <div>
             <h3 class="font-semibold text-lg text-gray-700 mb-1">Relations de Voisinage</h3>
@@ -130,7 +134,7 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
           </div>
         </div>
 
-        <div class="flex items-start bg-white p-4 rounded-3xl shadow">
+        <div class="flex items-start bg-gray-50 p-4 rounded-3xl shadow">
           <Fragment set:html={CheckIcon} />
           <div>
             <h3 class="font-semibold text-lg text-gray-700 mb-1">Matériel Professionnel Spécialisé</h3>
@@ -143,30 +147,29 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
     </div>
   </section>
   
-
-
-  <section class="bg-gray-100 py-12 md:py-16">
+ 
+  <section class="bg-white py-12 md:py-16">
     <div class="container mx-auto px-4 max-w-4xl">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
         Vos Voisins de {sectionData.name} Témoignent
       </h2>
       <div class="space-y-6">
         
-        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
           <blockquote class="text-gray-600 italic">
-            "Enfin un vrai plombier de {sectionData.name} ! Il est arrivé en 45 minutes, connaissait déjà le problème récurrent de notre immeuble rue [exemple]. Parfait !"
+            "Le plombier du coin, enfin ! Enfin un vrai plombier de {sectionData.name} ! Il est arrivé en 45 minutes, connaissait déjà le problème récurrent de notre immeuble rue [exemple]. Parfait !"
           </blockquote>
           <p class="text-right font-semibold text-gray-800 mt-4">— Martine Dubois, {sectionData.name}</p>
         </div>
 
-        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
           <blockquote class="text-gray-600 italic">
            "Ma voisine de {sectionData.name} m'avait donné le contact. WC bouché le dimanche matin, réglé en 30 minutes. Prix honnête et service au top. Je le recommande aussi !"
           </blockquote>
           <p class="text-right font-semibold text-gray-800 mt-4">— Paul Martin, {sectionData.name}</p>
         </div>
 
-        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500">
+        <div class="bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-blue-500">
           <blockquote class="text-gray-600 italic">
             "Maison ancienne à {sectionData.name}, canalisations compliquées. Le plombier connaissait le problème avant même de commencer ! Intervention efficace et propre."
           </blockquote>
@@ -176,34 +179,34 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
     </div>
   </section>
 
-  <section class="bg-white py-12 md:py-16">
+  <section class="bg-gray-100 py-12 md:py-16">
     <div class="container mx-auto px-4 max-w-3xl">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
         Questions des Habitants de {sectionData.name}
       </h2>
       <div class="space-y-6">
 
-        <div class="bg-gray-50 p-4 rounded-xl">
+        <div class="bg-white p-4 rounded-xl">
           <h3 class="font-semibold text-lg text-gray-800">Pourquoi êtes-vous si rapide à {sectionData.name} ?</h3>
           <p class="text-gray-600 mt-1 text-sm">Nous sommes basés directement à {sectionData.name} ! Pas besoin de traverser la ville, nous connaissons tous les raccourcis et nous sommes vraiment dans le quartier.</p>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl">
+        <div class="bg-white p-4 rounded-xl">
           <h3 class="font-semibold text-lg text-gray-800">Connaissez-vous les particularités de mon immeuble ?</h3>
           <p class="text-gray-600 mt-1 text-sm">Très probablement ! Nous intervenons régulièrement dans la plupart des immeubles de {sectionData.name}. Nous connaissons les réseaux typiques et les problèmes récurrents.</p>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl">
+        <div class="bg-white p-4 rounded-xl">
           <h3 class="font-semibold text-lg text-gray-800">Travaillez-vous vraiment que à {sectionData.name} ?</h3>
           <p class="text-gray-600 mt-1 text-sm">Exactement ! C'est notre spécialité. Plutôt que de courir partout, nous préférons être LES experts de {sectionData.name} et offrir un service vraiment local.</p>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl">
+        <div class="bg-white p-4 rounded-xl">
             <h3 class="font-semibold text-lg text-gray-800">Puis-je vous avoir en urgence même la nuit ?</h3>
             <p class="text-gray-600 mt-1 text-sm">Bien sûr ! Habitant à {sectionData.name}, nous sommes disponibles 24h/24 pour les vraies urgences. Temps de trajet minimal, même à 3h du matin.</p>
         </div>
 
-        <div class="bg-gray-50 p-4 rounded-xl">
+        <div class="bg-white p-4 rounded-xl">
             <h3 class="font-semibold text-lg text-gray-800">Acceptez-vous les paiements en plusieurs fois ?</h3>
             <p class="text-gray-600 mt-1 text-sm">Pour les gros travaux à {sectionData.name}, oui ! Nous sommes flexibles avec nos voisins. Paiement échelonné possible selon la situation.</p>
         </div>
