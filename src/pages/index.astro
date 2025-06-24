@@ -1,21 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Services from '../components/homepage/Services.astro';
-import Locations from '../components/homepage/Locations.astro';
-import FAQ from '../components/homepage/FAQ.astro'
-// import srcImage from "../assets/reparation-fuite-eau.jpg";
-// import { Image } from 'astro:assets';
 import Contact from '../components/Contact.astro';
-import { Icon } from 'astro-icon/components';
-const schema = {
-  
-}
 
-const	meta_title = "Plombier déboucheur Professionnel en Belgique ⭐️ 24/7";
-const	meta_description = "Plombier déboucheur professionnel disponible en urgence dans toute la Belgique ⭐️ 24/7 , appeler ☎️ 0476/23.23.23";
+const meta_title = "Plombier déboucheur Professionnel en Belgique ⭐️ 24/7";
+const meta_description = "Plombier déboucheur professionnel disponible en urgence dans toute la Belgique ⭐️ 24/7 , appeler ☎️ 0476/23.23.23";
 ---
 
-<Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schema}>
+<Layout meta_title={meta_title} meta_description={meta_description}>
   <section class="relative text-white overflow-hidden">
     <div class="absolute inset-0 bg-cover bg-center z-0"
       style="background-image: url('/plombier-agree-en-urgence.webp');">
@@ -73,7 +64,6 @@ const	meta_description = "Plombier déboucheur professionnel disponible en urgen
               <p class="text-xs mt-1">4.9/5 (280+ avis)</p>
             </div>
 
-            <!-- Certified Badge -->
             <div class="flex items-center">
               <div class="bg-white/20 p-1 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20"
@@ -85,7 +75,6 @@ const	meta_description = "Plombier déboucheur professionnel disponible en urgen
               </div>
               <span class="ml-2 text-sm">Certifié</span>
             </div>
-            <!-- Quick Response -->
             <div class="flex items-center">
               <div class="bg-white/20 p-1 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20"
@@ -97,7 +86,6 @@ const	meta_description = "Plombier déboucheur professionnel disponible en urgen
               </div>
               <span class="ml-2 text-sm">Réponse en 15 min</span>
             </div>
-            <!-- Service Count -->
             <div class="flex items-center">
               <div class="bg-white/20 p-1 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20"
@@ -149,9 +137,976 @@ const	meta_description = "Plombier déboucheur professionnel disponible en urgen
       </div>
     </div>
   </section>
-  <Services />
-  <Locations />
-  <FAQ />
+
+  <section id="services" class="py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-4">
+        Nos Services de Plomberie Professionnels
+      </h2>
+      <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+        Notre entreprise de plomberie propose une gamme complète de services pour répondre à tous vos besoins en matière
+        d'installation, réparation et entretien de systèmes de plomberie. Découvrez ci-dessous nos principales
+        prestations:
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div
+          class="relative rounded-3xl shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300 group">
+          <div class="absolute inset-0 w-full h-full bg-cover bg-center z-0"
+            style="background-image: url('/debouchage-de-canalisation.webp')">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-blue-900/70 to-blue-900/70 group-hover:from-blue-800/80 group-hover:to-blue-700/95 transition-all duration-300">
+            </div>
+          </div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-white">
+            <div class="flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-200 mr-3 flex-shrink-0"
+                viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.3 2.6L10.2 4l.9 1.1l-2.3 2.8l-1-1.1L6.1 8.2l2.3 2.8l-2.2 2.8L5.1 13l-1.3 1.3l.9 1.1l-2 1.6l1.5 1.9l2-1.6l.9 1.1l1.3-1.3l1.1-1.1l1.1.6l1.1.6l2.8-2.2l2.8-2.2l1.5-1.9l-2-1.6l.9-1.1L12.3 2.6m-1.9 4.3l1.5-1.9l.7.5l-1.5 1.9zm-2.3 2.8l1.5-1.9l.7.5l-1.5 1.9z" />
+              </svg>
+              <h3 class="text-xl font-semibold text-white">Débouchage de Canalisations</h3>
+            </div>
+            <p class="text-blue-100 text-sm mb-4">Les canalisations bouchées représentent l'un des problèmes de plomberie
+              les plus courants dans les foyers belges. Notre équipe de déboucheurs professionnels utilise des
+              techniques de pointe et des équipements spécialisés pour déboucher efficacement vos canalisations:</p>
+            <ul class="space-y-2 mb-4 flex-grow">
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Débouchage WC: Élimination rapide des obstructions dans vos toilettes sans
+                  endommager votre installation</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Débouchage évier et lavabo: Techniques professionnelles pour rétablir
+                  l'écoulement normal de vos éviers</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Débouchage baignoire et douche: Solutions efficaces contre les bouchons de
+                  cheveux et de savon</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Débouchage de colonnes d'immeubles: Intervention dans les copropriétés et
+                  bâtiments collectifs</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Débouchage canalisation extérieure: Traitement des problèmes d'évacuation dans
+                  vos conduites extérieures</span>
+              </li>
+            </ul>
+            <p class="text-blue-200 text-xs italic mt-auto">Nos plombiers-déboucheurs interviennent avec du matériel
+              professionnel comme des furets électriques, des pompes à haute pression et des caméras d'inspection pour
+              résoudre définitivement vos problèmes d'écoulement.</p>
+          </div>
+        </div>
+
+        <div
+          class="relative rounded-3xl shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300 group">
+          <div class="absolute inset-0 w-full h-full bg-cover bg-center z-0"
+            style="background-image: url('/reparation-fuite-eau.webp')">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-blue-900/70 to-blue-900/70 group-hover:from-blue-800/80 group-hover:to-blue-700/95 transition-all duration-300">
+            </div>
+          </div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-white">
+            <div class="flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-200 mr-3 flex-shrink-0"
+                viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20 5H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2M9 16c-1.66 0-3-1.34-3-3s1.34-3 3-3s3 1.34 3 3s-1.34 3-3 3m10-4h-2V9h2zm0-4h-2V7h2zM7.5 13H4V7h5c-.55 0-1 .45-1 1v4.5c0 .28-.22.5-.5.5" />
+              </svg>
+              <h3 class="text-xl font-semibold text-white">Réparation de Fuites d'Eau</h3>
+            </div>
+            <p class="text-blue-100 text-sm mb-4">Une fuite d'eau non traitée peut causer d'importants dégâts dans votre
+              habitation et augmenter considérablement votre facture d'eau. Notre service de détection et réparation de
+              fuites vous propose:</p>
+            <ul class="space-y-2 mb-4 flex-grow">
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Localisation précise des fuites cachées (sous carrelage, dans les murs,
+                  plafonds)</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Réparation de tuyauterie endommagée</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Remplacement de joints défectueux</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Colmatage professionnel des conduites percées</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Inspection par caméra des canalisations enterrées</span>
+              </li>
+            </ul>
+            <p class="text-blue-200 text-xs italic mt-auto">Nos plombiers utilisent des technologies de détection non
+              destructives pour identifier l'origine exacte des fuites avant d'intervenir, limitant ainsi les dégâts
+              dans votre habitation.</p>
+          </div>
+        </div>
+
+        <div
+          class="relative rounded-3xl shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300 group">
+          <div class="absolute inset-0 w-full h-full bg-cover bg-center z-0"
+            style="background-image: url('/service-chaufagiste.webp')">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-blue-900/70 to-blue-900/70 group-hover:from-blue-800/80 group-hover:to-blue-700/95 transition-all duration-300">
+            </div>
+          </div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-white">
+            <div class="flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-200 mr-3 flex-shrink-0"
+                viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M20 5H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2M9 16H7v-2h2zm4 0h-2v-2h2zm4 0h-2v-2h2zm0-4h-2V7h2zm-4 0h-2V7h2zM9 12H7V7h2z" />
+              </svg>
+              <h3 class="text-xl font-semibold text-white">Services de Chauffagiste</h3>
+            </div>
+            <p class="text-blue-100 text-sm mb-4">Votre système de chauffage est essentiel au confort de votre foyer,
+              particulièrement durant les hivers belges. Nos chauffagistes qualifiés vous proposent:</p>
+            <ul class="space-y-2 mb-4 flex-grow">
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Installation de nouvelles chaudières (gaz, mazout, électrique)</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Entretien annuel obligatoire de votre chaudière</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Dépannage en urgence de systèmes de chauffage défaillants</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Remplacement et purge de radiateurs</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Installation de thermostats intelligents pour économiser l'énergie</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Mise aux normes de votre installation</span>
+              </li>
+            </ul>
+            <p class="text-blue-200 text-xs italic mt-auto">Un entretien régulier de votre système de chauffage par nos
+              chauffagistes certifiés vous garantit non seulement une performance optimale mais également une réduction
+              de vos factures d'énergie.</p>
+          </div>
+        </div>
+
+        <div
+          class="relative rounded-3xl shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300 group lg:col-span-3 lg:justify-center">
+          <div class="absolute inset-0 w-full h-full bg-cover bg-center z-0"
+            style="background-image: url('/installation-sanitaire.webp')">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-blue-900/70 to-blue-900/70 group-hover:from-blue-800/80 group-hover:to-blue-700/95 transition-all duration-300">
+            </div>
+          </div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-white">
+            <div class="flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-200 mr-3 flex-shrink-0"
+                viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M9 15H7v-2h2zm4 0h-2v-2h2zm4 0h-2v-2h2zm2-10H5c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2m-2 10h-2v-2h2zm-4 0h-2v-2h2zm-4 0H7v-2h2z" />
+              </svg>
+              <h3 class="text-xl font-semibold text-white">Installation Sanitaire</h3>
+            </div>
+            <p class="text-blue-100 text-sm mb-4">Rénover votre salle de bain ou installer de nouveaux équipements
+              sanitaires? Notre équipe spécialisée en installation sanitaire vous accompagne dans tous vos projets:</p>
+            <ul class="space-y-2 mb-4 flex-grow">
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Installation et remplacement de WC, douches, baignoires et lavabos</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Pose de robinetterie et mitigeurs</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Installation de cabines de douche et baignoires balnéo</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Aménagement complet de salles de bain</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Installation de systèmes d'économie d'eau</span>
+              </li>
+            </ul>
+            <p class="text-blue-200 text-xs italic mt-auto">Nous vous conseillons sur les meilleures solutions adaptées
+              à votre espace et à votre budget, avec une finition impeccable garantie.</p>
+          </div>
+        </div>
+
+        <div
+          class="relative rounded-3xl shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300 group lg:col-span-3 lg:justify-center">
+          <div class="absolute inset-0 w-full h-full bg-cover bg-center z-0"
+            style="background-image: url('/plombier-agree-en-urgence.webp')">
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-blue-900/70 to-blue-900/70 group-hover:from-blue-800/80 group-hover:to-blue-700/95 transition-all duration-300">
+            </div>
+          </div>
+          <div class="relative z-10 p-6 flex flex-col h-full text-white">
+            <div class="flex items-center mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-200 mr-3 flex-shrink-0"
+                viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2a10 10 0 0 0-10 10a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8m-1-11h2v5h-2zm0 6h2v2h-2z" />
+              </svg>
+              <h3 class="text-xl font-semibold text-white">Services pour Fosses Septiques</h3>
+            </div>
+            <p class="text-blue-100 text-sm mb-4">Pour les habitations non raccordées au tout-à-l'égout, nous proposons
+              des services complets pour l'entretien de votre système d'assainissement:</p>
+            <ul class="space-y-2 mb-4 flex-grow">
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Vidange de fosse septique</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Installation de nouvelles fosses aux normes européennes</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Entretien préventif des systèmes d'assainissement</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Débouchage de fosses septiques</span>
+              </li>
+              <li class="flex items-start text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m-2.29-5.71L16.29 9l-1.41-1.42l-4 4L8.71 9.29L7.29 10.7z" />
+                </svg>
+                <span class="text-white">Diagnostic et résolution de problèmes d'odeurs</span>
+              </li>
+            </ul>
+            <p class="text-blue-200 text-xs italic mt-auto">Un entretien régulier de votre fosse septique est essentiel
+              pour éviter les problèmes d'évacuation et respecter les normes environnementales en vigueur.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-2xl md:text-3xl font-bold text-center text-blue-800 mb-8">
+        Services Spécialisés de Plomberie
+      </h3>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+        Notre expertise s'étend également à des installations plus spécifiques:
+      </p>
+      <div class="overflow-x-auto bg-white rounded-3xl shadow-md">
+        <table class="w-full text-left border-collapse">
+          <thead class="bg-blue-50 border-b border-blue-200">
+            <tr>
+              <th class="py-3 px-4 md:px-6 font-semibold text-sm text-blue-800 uppercase">Service Spécialisé</th>
+              <th class="py-3 px-4 md:px-6 font-semibold text-sm text-blue-800 uppercase">Description</th>
+              <th class="py-3 px-4 md:px-6 font-semibold text-sm text-blue-800 uppercase">Avantages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-gray-200 bg-white">
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-800 font-medium">Installation pompe à chaleur</td>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-600">Système de chauffage écologique et économique</td>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-600">Réduction jusqu'à 70% de vos factures d'énergie</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-800 font-medium">Adoucisseur d'eau</td>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-600">Solution contre le calcaire dans l'eau</td>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-600">Protection de vos appareils et tuyauterie</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-white">
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-800 font-medium">Système de récupération d'eau de pluie
+              </td>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-600">Installation de citernes et systèmes de filtration
+              </td>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-600">Économies sur votre facture d'eau</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50">
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-800 font-medium">Traitement de l'eau</td>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-600">Filtration et purification de l'eau potable</td>
+              <td class="py-3 px-4 md:px-6 text-sm text-gray-600">Eau de meilleure qualité pour votre santé</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <style>
+    .group:hover .text-white {
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+
+  <section id="locations" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-center text-blue-800 mb-4">
+          Plombier à votre service dans toutes les provinces de Belgique
+        </h2>
+        <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+          Notre équipe de <strong>plombiers professionnels </strong>intervient rapidement dans toutes les provinces
+          belges. Que vous habitiez en Flandre, en Wallonie ou dans la <strong>région de Bruxelles-Capitale</strong>, un
+          <strong>plombier qualifié</strong> peut être à votre domicile en moins d'une heure en cas d'urgence.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-24">
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Province d'Anvers
+              </h3>
+              <p class="text-gray-600 text-sm">De la métropole anversoise aux communes environnantes, nos plombiers sont
+                disponibles 24h/24 pour répondre à vos urgences.</p>
+              <a href="/plombier-province-antwerpen/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Province d'Anvers
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Région de Bruxelles-Capitale
+              </h3>
+              <p class="text-gray-600 text-sm">Notre service de plomberie à Bruxelles vous garantit une intervention
+                rapide 24h/24. Nos plombiers bruxellois connaissent parfaitement les spécificités des installations dans
+                les maisons de maître comme dans les appartements modernes de la capitale.</p>
+              <a href="/plombier-region-bruxelles-capitale/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Région de Bruxelles-Capitale
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Province du Hainaut
+              </h3>
+              <p class="text-gray-600 text-sm">De Charleroi à Mons, nos plombiers hainuyers sont à votre disposition pour
+                toute intervention d'urgence ou travaux planifiés.</p>
+              <a href="/plombier-province-hainaut/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Province du Hainaut
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Province du Brabant Wallon
+              </h3>
+              <p class="text-gray-600 text-sm">De Wavre à Nivelles, en passant par Ottignies-Louvain-la-Neuve, nos
+                plombiers interviennent dans tout le Brabant Wallon pour des services de débouchage, plomberie et
+                chauffage de qualité.</p>
+              <a href="/plombier-province-brabant-wallon/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Province du Brabant Wallon
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Province de Liège
+              </h3>
+              <p class="text-gray-600 text-sm">De la ville de Liège aux communes avoisinantes, notre service de plomberie
+                liégeois vous assure un dépannage rapide et efficace pour tous vos problèmes de plomberie.</p>
+              <a href="/plombier-province-liege/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Province de Liège
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Province de Limbourg
+              </h3>
+              <p class="text-gray-600 text-sm">Nos plombiers interviennent rapidement dans toute la province de Limbourg
+                pour vos besoins en plomberie et chauffage.</p>
+              <a href="/plombier-province-limburg/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Province de Limbourg
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Province du Luxembourg
+              </h3>
+              <p class="text-gray-600 text-sm">Malgré la vaste étendue de la province, nos plombiers luxembourgeois vous
+                garantissent une intervention rapide même dans les zones les plus reculées.</p>
+              <a href="/plombier-province-luxembourg/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Province du Luxembourg
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Province de Namur
+              </h3>
+              <p class="text-gray-600 text-sm">Notre équipe de plombiers couvre l'ensemble de la province de Namur pour
+                vous offrir des services de plomberie de qualité.</p>
+              <a href="/plombier-province-namur/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Province de Namur
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Flandre Orientale
+              </h3>
+              <p class="text-gray-600 text-sm">De Gand à Alost, nos plombiers sont à votre service pour toute
+                intervention de plomberie en Flandre Orientale.</p>
+              <a href="/plombier-province-oost-vlaanderen/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Flandre Orientale
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Province du Brabant Flamand
+              </h3>
+              <p class="text-gray-600 text-sm">Nos équipes de plombiers couvrent l'ensemble du Brabant Flamand, de
+                Louvain à Vilvorde, pour tous vos besoins en plomberie et chauffage.</p>
+              <a href="/plombier-province-vlaams-brabant/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Province du Brabant Flamand
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div
+            class="bg-white border border-gray-200 rounded-4xl shadow-md overflow-hidden hover:shadow-lg transition-shadow cursor-pointer">
+            <div class="p-5">
+              <h3 class="text-xl font-semibold text-blue-800 mb-3 flex items-center">
+                Flandre Occidentale
+              </h3>
+              <p class="text-gray-600 text-sm">Notre service de plomberie couvre toute la Flandre Occidentale, de Bruges
+                à Ostende, pour tous vos besoins en plomberie.</p>
+              <a href="/plombier-province-west-vlaanderen/"
+                class="mt-4 text-blue-600 text-sm font-medium flex items-center hover:text-blue-800">
+                Nos services dans toute la Flandre Occidentale
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M4 11v2h12l-5.5 5.5l1.42 1.42L19.84 12L12.92 5.08L11.5 6.5L17 12z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="mb-16 flex flex-col justify-center items-center">
+          <h2 class="text-3xl font-bold text-center text-blue-800 mb-6">
+            Plombier Professionnel dans les Principales Villes Belges
+          </h2>
+          <p class="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-10">
+            Notre service de plomberie est disponible dans toutes les grandes villes de Belgique ainsi que dans leurs
+            communes périphériques. Quel que soit votre lieu de résidence, nos plombiers locaux peuvent intervenir
+            rapidement à votre domicile.
+          </p>
+
+          <div class="grid grid-cols-1 gap-4 mb-8 md:min-w-xl max-w-xl" id="city-container">
+            <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id="city-0">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+                <span class="font-medium text-blue-800">Bruxelles et environs</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                </svg>
+              </summary>
+              <div class="p-4 border-t border-gray-200">
+                <p class="text-gray-600">Notre équipe de plombiers bruxellois est disponible 24h/24 pour toute urgence
+                  de plomberie dans les 19 communes de Bruxelles-Capitale. Spécialistes du débouchage et de la
+                  réparation de fuites, nos plombiers connaissent parfaitement les spécificités des immeubles
+                  bruxellois, qu'il s'agisse d'anciennes maisons de maître ou d'appartements modernes.</p>
+              </div>
+            </details>
+            <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id="city-1">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+                <span class="font-medium text-blue-800">Anvers (Antwerpen)</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                </svg>
+              </summary>
+              <div class="p-4 border-t border-gray-200">
+                <p class="text-gray-600">Nos plombiers anversois interviennent rapidement pour tous vos problèmes de
+                  plomberie à Anvers et dans les communes avoisinantes. Experts en débouchage canalisation et réparation
+                  de chauffage, ils vous garantissent un service de qualité 7j/7.</p>
+              </div>
+            </details>
+            <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id="city-2">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+                <span class="font-medium text-blue-800">Gand (Gent)</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                </svg>
+              </summary>
+              <div class="p-4 border-t border-gray-200">
+                <p class="text-gray-600">À Gand et ses environs, notre équipe de plombiers professionnels vous propose
+                  des services complets de plomberie, du simple dépannage aux installations sanitaires complètes.</p>
+              </div>
+            </details>
+            <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id="city-3">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+                <span class="font-medium text-blue-800">Charleroi</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                </svg>
+              </summary>
+              <div class="p-4 border-t border-gray-200">
+                <p class="text-gray-600">Notre service de plomberie à Charleroi répond à toutes les urgences de
+                  plomberie dans la ville et ses alentours. Débouchage WC, réparation fuite, installation chauffage...
+                  nos plombiers carolorégiens sont à votre service.</p>
+              </div>
+            </details>
+            <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id="city-4">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+                <span class="font-medium text-blue-800">Liège</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                </svg>
+              </summary>
+              <div class="p-4 border-t border-gray-200">
+                <p class="text-gray-600">Notre équipe de plombiers liégeois intervient rapidement pour tous vos besoins
+                  en plomberie à Liège et dans toute la province. Spécialistes du débouchage et du chauffage, ils vous
+                  garantissent un service professionnel de qualité.</p>
+              </div>
+            </details>
+            <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id="city-5">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+                <span class="font-medium text-blue-800">Bruges (Brugge)</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                </svg>
+              </summary>
+              <div class="p-4 border-t border-gray-200">
+                <p class="text-gray-600">À Bruges et dans ses environs, nos plombiers vous proposent des interventions
+                  rapides pour tout problème de plomberie ou de chauffage.</p>
+              </div>
+            </details>
+            <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id="city-6">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+                <span class="font-medium text-blue-800">Namur</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                </svg>
+              </summary>
+              <div class="p-4 border-t border-gray-200">
+                <p class="text-gray-600">Nos plombiers namurois sont disponibles pour des interventions d'urgence et des
+                  travaux planifiés dans toute la région de Namur.</p>
+              </div>
+            </details>
+            <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id="city-7">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+                <span class="font-medium text-blue-800">Louvain (Leuven)</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                </svg>
+              </summary>
+              <div class="p-4 border-t border-gray-200">
+                <p class="text-gray-600">À Louvain et dans le Brabant Flamand, notre équipe de plombiers vous garantit
+                  un service professionnel pour toutes vos installations et réparations de plomberie.</p>
+              </div>
+            </details>
+            <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden city-dropdown" id="city-8">
+              <summary
+                class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+                <span class="font-medium text-blue-800">Mons</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform"
+                  viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+                </svg>
+              </summary>
+              <div class="p-4 border-t border-gray-200">
+                <p class="text-gray-600">Notre service de plomberie à Mons répond à toutes vos urgences et besoins en
+                  plomberie dans la région montoise.</p>
+              </div>
+            </details>
+          </div>
+          <details class="bg-white border border-gray-200 rounded-3xl overflow-hidden mx-auto max-w-2xl">
+            <summary
+              class="flex items-center justify-between p-4 cursor-pointer bg-gray-50 hover:bg-blue-50 transition-colors">
+              <span class="font-medium text-blue-800">Autres communes desservies</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600 transform transition-transform"
+                viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+              </svg>
+            </summary>
+            <div class="p-4 border-t border-gray-200">
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Hasselt</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Tournai</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Ostende (Oostende)</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Malines (Mechelen)</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Alost (Aalst)</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Courtrai (Kortrijk)</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Verviers</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Mouscron</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Genk</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Saint-Nicolas (Sint-Niklaas)</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-gray-700 text-sm">Et toutes les communes belges</span>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const cityDropdowns = document.querySelectorAll('.city-dropdown');
+      cityDropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function (e) {
+          e.stopPropagation();
+          cityDropdowns.forEach(item => {
+            if (item !== dropdown && item.hasAttribute('open')) {
+              item.removeAttribute('open');
+            }
+          });
+        });
+      });
+    });
+  </script>
+  <style>
+    .city-dropdown summary {
+      min-height: 3.5rem;
+    }
+
+    .city-dropdown {
+      height: auto;
+      position: relative;
+    }
+
+    .city-dropdown[open] summary .transform {
+      transform: rotate(180deg);
+    }
+  </style>
+
+  <section class="py-12 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">Questions fréquentes sur Nos services de plomberie
+      </h2>
+      <ul class="space-y-4 lg:mx-48">
+        <li class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <button type="button"
+            class="flex items-center justify-between w-full p-4 text-left text-blue-600 font-semibold transition-colors duration-300 hover:bg-blue-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50"
+            aria-expanded="false" data-faq-index="0">
+            <h3>Quels sont vos délais d'intervention en cas d'urgence?</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 transition-transform duration-300"
+              id="icon-0" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+            </svg>
+          </button>
+          <p class="p-4 bg-gray-100 text-gray-700 text-sm hidden" id="answer-0">
+            En cas d'urgence plomberie comme une fuite importante ou un WC bouché, notre équipe s'engage à intervenir
+            dans l'heure suivant votre appel, dans la plupart des grandes villes belges. Pour les zones plus éloignées,
+            le délai peut être de 1 à 2 heures selon la distance et la disponibilité de nos plombiers. Notre service
+            d'urgence fonctionne 24h/24 et 7j/7, y compris les week-ends et jours fériés.
+          </p>
+        </li>
+        <li class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <button type="button"
+            class="flex items-center justify-between w-full p-4 text-left text-blue-600 font-semibold transition-colors duration-300 hover:bg-blue-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50"
+            aria-expanded="false" data-faq-index="1">
+            <h3>Comment se déroule une intervention de débouchage de canalisation?</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 transition-transform duration-300"
+              id="icon-1" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+            </svg>
+          </button>
+          <p class="p-4 bg-gray-100 text-gray-700 text-sm hidden" id="answer-1">
+            Lors d'une intervention de débouchage, notre plombier commence par identifier la cause exacte de
+            l'obstruction. Il utilise ensuite l'équipement adapté à votre situation: furet manuel ou électrique pour les
+            bouchons accessibles, pompe à haute pression pour les obstructions plus tenaces, ou caméra d'inspection pour
+            localiser les problèmes dans les canalisations enterrées. Notre objectif est toujours de déboucher vos
+            canalisations de manière définitive, sans endommager vos installations.
+          </p>
+        </li>
+        <li class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <button type="button"
+            class="flex items-center justify-between w-full p-4 text-left text-blue-600 font-semibold transition-colors duration-300 hover:bg-blue-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50"
+            aria-expanded="false" data-faq-index="2">
+            <h3>Proposez-vous des devis gratuits avant intervention?</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 transition-transform duration-300"
+              id="icon-2" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+            </svg>
+          </button>
+          <p class="p-4 bg-gray-100 text-gray-700 text-sm hidden" id="answer-2">
+            Absolument! Nous proposons des devis gratuits et sans engagement pour tous nos services de plomberie
+            planifiés (installations, rénovations). Pour les interventions d'urgence, nos plombiers vous communiquent
+            une estimation du coût avant de commencer les travaux, avec des tarifs transparents incluant déplacement,
+            main d'œuvre et pièces nécessaires.
+          </p>
+        </li>
+        <li class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <button type="button"
+            class="flex items-center justify-between w-full p-4 text-left text-blue-600 font-semibold transition-colors duration-300 hover:bg-blue-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50"
+            aria-expanded="false" data-faq-index="3">
+            <h3>Quelles garanties offrez-vous sur vos services?</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 transition-transform duration-300"
+              id="icon-3" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+            </svg>
+          </button>
+          <p class="p-4 bg-gray-100 text-gray-700 text-sm hidden" id="answer-3">
+            Tous nos travaux de plomberie sont garantis: 1 an pour les réparations et débouchages, et jusqu'à 5 ans
+            pour les nouvelles installations. Cette garantie couvre à la fois la main d'œuvre et les pièces installées.
+            De plus, notre entreprise est entièrement assurée pour couvrir tout dommage éventuel durant nos
+            interventions.
+          </p>
+        </li>
+        <li class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <button type="button"
+            class="flex items-center justify-between w-full p-4 text-left text-blue-600 font-semibold transition-colors duration-300 hover:bg-blue-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50"
+            aria-expanded="false" data-faq-index="4">
+            <h3>À quelle fréquence faut-il faire l'entretien d'une chaudière?</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 transition-transform duration-300"
+              id="icon-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+            </svg>
+          </button>
+          <p class="p-4 bg-gray-100 text-gray-700 text-sm hidden" id="answer-4">
+            En Belgique, l'entretien de votre chaudière est obligatoire: une fois par an pour les chaudières au mazout
+            et tous les deux ans pour les chaudières au gaz. Cet entretien régulier est non seulement une obligation
+            légale mais aussi une nécessité pour optimiser le rendement de votre installation, réduire votre
+            consommation d'énergie et prolonger la durée de vie de votre chaudière.
+          </p>
+        </li>
+        <li class="bg-white rounded-2xl shadow-md overflow-hidden">
+          <button type="button"
+            class="flex items-center justify-between w-full p-4 text-left text-blue-600 font-semibold transition-colors duration-300 hover:bg-blue-50 focus:outline-none focus-visible:ring focus-visible:ring-blue-500 focus-visible:ring-opacity-50"
+            aria-expanded="false" data-faq-index="5">
+            <h3>Que faire en cas de fuite d'eau avant l'arrivée du plombier?</h3>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-400 transition-transform duration-300"
+              id="icon-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7.41 8.58L12 13.17l4.59-4.59L18 10l-6 6l-6-6z" />
+            </svg>
+          </button>
+          <p class="p-4 bg-gray-100 text-gray-700 text-sm hidden" id="answer-5">
+            En attendant l'arrivée de notre plombier, fermez d'abord le robinet d'arrivée d'eau principal pour limiter
+            les dégâts. Pour une fuite sur un appareil spécifique, fermez sa vanne d'alimentation dédiée. Épongez l'eau
+            déjà répandue et placez un récipient sous la fuite. Prenez des photos des dégâts pour votre assurance. Notre
+            service d'urgence vous guidera par téléphone en attendant l'intervention de notre plombier.
+          </p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqItems = document.querySelectorAll('[data-faq-index]');
+
+      faqItems.forEach((item) => {
+        item.addEventListener('click', () => {
+          const index = item.getAttribute('data-faq-index');
+          const answerElement = document.getElementById(`answer-${index}`);
+          const iconElement = document.getElementById(`icon-${index}`);
+          const isExpanded = item.getAttribute('aria-expanded') === 'true' || false;
+
+          item.setAttribute('aria-expanded', !isExpanded);
+          answerElement.classList.toggle('hidden');
+          iconElement.classList.toggle('rotate-180');
+        });
+      });
+    });
+  </script>
+
   <section class="bg-blue-800 py-16">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl font-bold text-white mb-8">Votre Plombier de Confiance en Belgique</h2>
@@ -176,7 +1131,10 @@ const	meta_description = "Plombier déboucheur professionnel disponible en urgen
           <div class="flex justify-center mb-4">
             <a href="tel:+32476232323" title="Téléphone Assur Plombier 0476/23.23.23"
               class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-3xl transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-green-400 flex items-center shadow-md">
-              <Icon name="mdi:phone" class="w-6 h-6 mr-3" />
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mr-3" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02z" />
+              </svg>
               <span class="text-xl">0476/23.23.23</span>
             </a>
           </div>

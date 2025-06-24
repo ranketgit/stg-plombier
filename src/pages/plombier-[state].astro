@@ -1,18 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { data } from "../data/locations";
-import WhyChooseUs from "../components/region/WhyChooseUs.astro";
-import Testimonials from '../components/region/Testimonials.astro';
-import FAQ from '../components/region/FAQ.astro';
-import CommonProblems from '../components/region/CommonProblems.astro';
-import Tips from '../components/region/Tips.astro';
 import { generateSchema } from "../seo/schema";
 import Contact from '../components/Contact.astro';
 
 export async function getStaticPaths() {
   return data.map(location => ({
-    params: { 
-      state: location.slug 
+    params: {
+      state: location.slug
     },
     props: {
       locationData: {
@@ -26,6 +21,7 @@ export async function getStaticPaths() {
     }
   }));
 }
+
 const { locationData } = Astro.props;
 const meta_title = `Plombier ${locationData.name} en urgence ⭐️ 24/7`;
 const meta_description = `Plombier professionnel ⭐️ disponible 24/7 dans la ${locationData.name}. Intervention rapide et efficace, devis gratuit. Expert en plomberie sanitaire. ☎️ 0476/23.23.23`;
@@ -93,8 +89,6 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 51);
               </div>
               <p class="text-xs mt-1">4.9/5 (280+ avis)</p>
             </div>
-
-            <!-- Certified Badge -->
             <div class="flex items-center">
               <div class="bg-white/20 p-1 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20"
@@ -106,7 +100,6 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 51);
               </div>
               <span class="ml-2 text-sm">Certifié</span>
             </div>
-            <!-- Quick Response -->
             <div class="flex items-center">
               <div class="bg-white/20 p-1 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20"
@@ -118,7 +111,6 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 51);
               </div>
               <span class="ml-2 text-sm">Réponse en 15 min</span>
             </div>
-            <!-- Service Count -->
             <div class="flex items-center">
               <div class="bg-white/20 p-1 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20"
@@ -137,125 +129,184 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 51);
       </div>
     </div>
   </section>
-<section id="services" class="bg-white py-12 md:py-16">
-  <div class="container mx-auto px-4">
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
-      Services de plomberie disponibles dans la {locationData.name}
-    </h2>
-    <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
-      Notre <strong>entreprise de plomberie dans la {locationData.name}</strong> vous propose une gamme complète de services pour répondre à tous vos
-      besoins:
-    </p>
-    <div class="mb-8">
-      <img src="/plombier-agree-en-urgence.webp" alt={`Services de plomberie dans la ${locationData.name} - Assur plombier`}
-        class="rounded-lg shadow-md w-full lg:max-w-4xl mx-auto" width="1500" height="1000" />
-    </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
-        <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage Canalisation en {locationData.name}</h3>
-        <p class="text-gray-600 mb-4 text-sm">
-          Les canalisations bouchées sont l'un des problèmes les plus courants auxquels sont confrontés les habitants de
-          {locationData.name}. Que ce soit dans les anciennes habitations du centre-ville ou dans les constructions plus récentes
-          des quartiers périphériques, nos déboucheurs professionnels interviennent rapidement pour:
-        </p>
-        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
-          <li>Débouchage WC et toilettes bouchées</li>
-          <li>Débouchage évier et lavabo</li>
-          <li>Débouchage douche et baignoire</li>
-          <li>Débouchage machine à laver</li>
-          <li>Débouchage canalisation extérieure</li>
-        </ul>
-        <p class="text-gray-600 text-sm">
-          Notre équipe de {locationData.name} utilise des techniques professionnelles comme le furet électrique, la pompe haute
-          pression ou la caméra d'inspection pour identifier et éliminer efficacement toute obstruction dans vos
-          tuyauteries, même les plus tenaces.
-        </p>
+  <section id="services" class="bg-white py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+        Services de plomberie disponibles dans la {locationData.name}
+      </h2>
+      <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
+        Notre <strong>entreprise de plomberie dans la {locationData.name}</strong> vous propose une gamme complète de services pour répondre à tous vos
+        besoins:
+      </p>
+      <div class="mb-8">
+        <img src="/plombier-agree-en-urgence.webp" alt={`Services de plomberie dans la ${locationData.name} - Assur plombier`}
+          class="rounded-lg shadow-md w-full lg:max-w-4xl mx-auto" width="1500" height="1000" />
       </div>
-
-      <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
-        <h3 class="text-xl font-semibold text-blue-800 mb-3">Réparation Fuite d'Eau dans la {locationData.name}</h3>
-        <p class="text-gray-600 mb-4 text-sm">
-          Une fuite d'eau non traitée peut rapidement causer d'importants dégâts dans votre habitation en {locationData.name}. Notre
-          service de détection et réparation de fuites intervient rapidement pour:
-        </p>
-        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
-          <li>Localisation de fuites cachées (sous carrelage, dans les murs)</li>
-          <li>Réparation de tuyaux qui fuient</li>
-          <li>Remplacement de joints défectueux</li>
-          <li>Réparation de robinets qui gouttent</li>
-          <li>Colmatage professionnel de conduites</li>
-        </ul>
-        <p class="text-gray-600 text-sm">
-          Nos plombiers à {locationData.name} utilisent des équipements de détection acoustique et thermographique pour identifier
-          l'origine exacte des fuites avant d'intervenir, limitant ainsi les travaux nécessaires dans votre logement.
-        </p>
-      </div>
-
-      <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
-        <h3 class="text-xl font-semibold text-blue-800 mb-3">Services de Chauffagiste en {locationData.name}</h3>
-        <p class="text-gray-600 mb-4 text-sm">
-          Les hivers peuvent être rigoureux en {locationData.name}, rendant votre système de chauffage indispensable au confort de
-          votre foyer. Nos chauffagistes qualifiés en {locationData.name} vous proposent:
-        </p>
-        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
-          <li>Installation de chaudières (gaz, mazout, électrique)</li>
-          <li>Entretien annuel obligatoire de chaudière</li>
-          <li>Dépannage chauffage en urgence</li>
-          <li>Remplacement et purge de radiateurs</li>
-          <li>Installation de systèmes de chauffage écologiques</li>
-          <li>Réparation de pannes de chauffage</li>
-        </ul>
-        <p class="text-gray-600 text-sm">
-          Conformément à la législation belge, nous vous recommandons un entretien annuel de votre chaudière par nos
-          techniciens certifiés en {locationData.name}, garantissant ainsi sa performance optimale et une réduction de vos factures
-          d'énergie.
-        </p>
-      </div>
-
-      <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
-        <h3 class="text-xl font-semibold text-blue-800 mb-3">Installation Sanitaire en {locationData.name}</h3>
-        <p class="text-gray-600 mb-4 text-sm">
-          Pour tous vos projets de rénovation ou d'installation sanitaire en {locationData.name}, notre équipe de plombiers
-          professionnels vous accompagne:
-        </p>
-        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
-          <li>Installation et remplacement de WC</li>
-          <li>Installation de douches et baignoires</li>
-          <li>Pose de lavabos et éviers</li>
-          <li>Installation de robinetterie</li>
-          <li>Aménagement complet de salle de bain</li>
-          <li>Installation de systèmes d'économie d'eau</li>
-        </ul>
-        <p class="text-gray-600 text-sm">
-          Nous vous proposons un service complet, de la conception à la réalisation, avec des finitions soignées pour
-          votre plus grande satisfaction.
-        </p>
-      </div>
-
-      <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
-        <h3 class="text-xl font-semibold text-blue-800 mb-3">Vidange Fosse Septique en {locationData.name}</h3>
-        <p class="text-gray-600 mb-4 text-sm">
-          Dans les zones de la {locationData.name}, de nombreuses habitations ne sont pas raccordées au tout-à-l'égout.
-          Notre service d'assainissement propose:
-        </p>
-        <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
-          <li>Vidange de fosse septique</li>
-          <li>Entretien de systèmes d'assainissement individuel</li>
-          <li>Débouchage de fosses septiques</li>
-          <li>Mise aux normes d'installations existantes</li>
-          <li>Diagnostic et résolution de problèmes d'odeurs</li>
-        </ul>
-        <p class="text-gray-600 text-sm">
-          Un entretien régulier de votre fosse septique est essentiel pour éviter les problèmes d'évacuation et
-          respecter les normes environnementales en vigueur dans la {locationData.name}.
-        </p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Débouchage Canalisation en {locationData.name}</h3>
+          <p class="text-gray-600 mb-4 text-sm">
+            Les canalisations bouchées sont l'un des problèmes les plus courants auxquels sont confrontés les habitants de
+            {locationData.name}. Que ce soit dans les anciennes habitations du centre-ville ou dans les constructions plus récentes
+            des quartiers périphériques, nos déboucheurs professionnels interviennent rapidement pour:
+          </p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
+            <li>Débouchage WC et toilettes bouchées</li>
+            <li>Débouchage évier et lavabo</li>
+            <li>Débouchage douche et baignoire</li>
+            <li>Débouchage machine à laver</li>
+            <li>Débouchage canalisation extérieure</li>
+          </ul>
+          <p class="text-gray-600 text-sm">
+            Notre équipe de {locationData.name} utilise des techniques professionnelles comme le furet électrique, la pompe haute
+            pression ou la caméra d'inspection pour identifier et éliminer efficacement toute obstruction dans vos
+            tuyauteries, même les plus tenaces.
+          </p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Réparation Fuite d'Eau dans la {locationData.name}</h3>
+          <p class="text-gray-600 mb-4 text-sm">
+            Une fuite d'eau non traitée peut rapidement causer d'importants dégâts dans votre habitation en {locationData.name}. Notre
+            service de détection et réparation de fuites intervient rapidement pour:
+          </p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
+            <li>Localisation de fuites cachées (sous carrelage, dans les murs)</li>
+            <li>Réparation de tuyaux qui fuient</li>
+            <li>Remplacement de joints défectueux</li>
+            <li>Réparation de robinets qui gouttent</li>
+            <li>Colmatage professionnel de conduites</li>
+          </ul>
+          <p class="text-gray-600 text-sm">
+            Nos plombiers à {locationData.name} utilisent des équipements de détection acoustique et thermographique pour identifier
+            l'origine exacte des fuites avant d'intervenir, limitant ainsi les travaux nécessaires dans votre logement.
+          </p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Services de Chauffagiste en {locationData.name}</h3>
+          <p class="text-gray-600 mb-4 text-sm">
+            Les hivers peuvent être rigoureux en {locationData.name}, rendant votre système de chauffage indispensable au confort de
+            votre foyer. Nos chauffagistes qualifiés en {locationData.name} vous proposent:
+          </p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
+            <li>Installation de chaudières (gaz, mazout, électrique)</li>
+            <li>Entretien annuel obligatoire de chaudière</li>
+            <li>Dépannage chauffage en urgence</li>
+            <li>Remplacement et purge de radiateurs</li>
+            <li>Installation de systèmes de chauffage écologiques</li>
+            <li>Réparation de pannes de chauffage</li>
+          </ul>
+          <p class="text-gray-600 text-sm">
+            Conformément à la législation belge, nous vous recommandons un entretien annuel de votre chaudière par nos
+            techniciens certifiés en {locationData.name}, garantissant ainsi sa performance optimale et une réduction de vos factures
+            d'énergie.
+          </p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Installation Sanitaire en {locationData.name}</h3>
+          <p class="text-gray-600 mb-4 text-sm">
+            Pour tous vos projets de rénovation ou d'installation sanitaire en {locationData.name}, notre équipe de plombiers
+            professionnels vous accompagne:
+          </p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
+            <li>Installation et remplacement de WC</li>
+            <li>Installation de douches et baignoires</li>
+            <li>Pose de lavabos et éviers</li>
+            <li>Installation de robinetterie</li>
+            <li>Aménagement complet de salle de bain</li>
+            <li>Installation de systèmes d'économie d'eau</li>
+          </ul>
+          <p class="text-gray-600 text-sm">
+            Nous vous proposons un service complet, de la conception à la réalisation, avec des finitions soignées pour
+            votre plus grande satisfaction.
+          </p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-4xl shadow-sm">
+          <h3 class="text-xl font-semibold text-blue-800 mb-3">Vidange Fosse Septique en {locationData.name}</h3>
+          <p class="text-gray-600 mb-4 text-sm">
+            Dans les zones de la {locationData.name}, de nombreuses habitations ne sont pas raccordées au tout-à-l'égout.
+            Notre service d'assainissement propose:
+          </p>
+          <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4">
+            <li>Vidange de fosse septique</li>
+            <li>Entretien de systèmes d'assainissement individuel</li>
+            <li>Débouchage de fosses septiques</li>
+            <li>Mise aux normes d'installations existantes</li>
+            <li>Diagnostic et résolution de problèmes d'odeurs</li>
+          </ul>
+          <p class="text-gray-600 text-sm">
+            Un entretien régulier de votre fosse septique est essentiel pour éviter les problèmes d'évacuation et
+            respecter les normes environnementales en vigueur dans la {locationData.name}.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-  <WhyChooseUs state={locationData.name} />
+  </section>
+
+  <section class="bg-white py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+        Pourquoi Choisir Notre Service de Plomberie à {locationData.name}?
+      </h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="text-center p-4">
+          <div class="text-blue-600 mb-3 inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">Disponibilité 24h/24 et 7j/7</h3>
+          <p class="text-sm text-gray-600">
+            Notre équipe de plombiers à {locationData.name} est disponible jour et nuit, week-ends et jours fériés inclus, pour répondre à toutes vos urgences de plomberie.
+          </p>
+        </div>
+        <div class="text-center p-4">
+          <div class="text-blue-600 mb-3 inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">Intervention Rapide</h3>
+          <p class="text-sm text-gray-600">
+            Nous nous engageons à être chez vous dans l'heure suivant votre appel pour les interventions urgentes à {locationData.name} et ses environs immédiats.
+          </p>
+        </div>
+        <div class="text-center p-4">
+          <div class="text-blue-600 mb-3 inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">Devis Gratuit et Sans Engagement</h3>
+          <p class="text-sm text-gray-600">
+            Avant toute intervention planifiée, nous vous proposons un devis détaillé et transparent, sans frais et sans obligation.
+          </p>
+        </div>
+        <div class="text-center p-4">
+          <div class="text-blue-600 mb-3 inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">Plombiers Qualifiés et Expérimentés</h3>
+          <p class="text-sm text-gray-600">
+            Tous nos plombiers à {locationData.name} sont certifiés, régulièrement formés aux nouvelles techniques et possèdent une solide expérience dans tous types d'interventions.
+          </p>
+        </div>
+        <div class="text-center p-4">
+          <div class="text-blue-600 mb-3 inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">Tarifs Transparents</h3>
+          <p class="text-sm text-gray-600">
+            Nos tarifs sont clairs et annoncés avant l'intervention, sans surprises ni frais cachés. Nous proposons des tarifs compétitifs adaptés au marché local de {locationData.name}.
+          </p>
+        </div>
+        <div class="text-center p-4">
+          <div class="text-blue-600 mb-3 inline-block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+          </div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">Garantie Sur Nos Travaux</h3>
+          <p class="text-sm text-gray-600">
+            Tous nos travaux de plomberie à {locationData.name} sont garantis: 1 an pour les réparations et débouchages, jusqu'à 5 ans pour les nouvelles installations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="bg-gray-100 py-12 md:py-16">
     <div class="container mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
@@ -265,7 +316,6 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 51);
         Notre <strong>service de plomberie</strong> couvre l'ensemble de la <strong>{locationData.name}</strong>,
         incluant toutes les communes et localités environnantes:
       </p>
-
       {locationData.cities && locationData.cities.length > 0 && (
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {locationData.cities.map((city) => (
@@ -277,17 +327,111 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 51);
         ))}
       </div>
       )}
-
       <p class="text-center text-gray-600 mt-10 max-w-3xl mx-auto">
         Que vous habitiez dans l'une des communes périphériques de la {locationData.name}, nos plombiers connaissent
         parfaitement le terrain et peuvent intervenir rapidement à votre domicile.
       </p>
     </div>
   </section>
-  <Testimonials state={locationData.name} />
-  <FAQ state={locationData.name} />
-  <CommonProblems state={locationData.name} />
-  <Tips state={locationData.name} />
+  
+  <section class="bg-white py-12 md:py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+        Témoignages de Nos Clients à {locationData.name}
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="bg-gray-50 p-6 rounded-3xl shadow-sm border-l-4 border-blue-500">
+          <blockquote class="italic text-gray-600 mb-4">
+            "Intervention rapide et efficace pour un WC bouché un dimanche soir. Le plombier est arrivé en 45 minutes et a réglé le problème en moins de 30 minutes. Tarif correct et service impeccable!"
+          </blockquote>
+          <p class="font-semibold text-gray-800">Laurent D.</p>
+          <p class="text-sm text-gray-500">une commune proche de {locationData.name}</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-3xl shadow-sm border-l-4 border-blue-500">
+          <blockquote class="italic text-gray-600 mb-4">
+            "Excellente prestation pour la rénovation complète de notre salle de bain. Travail soigné, respect des délais et équipe professionnelle. Je recommande vivement leurs services à tous les habitants de {locationData.name}."
+          </blockquote>
+          <p class="font-semibold text-gray-800">Sophie M.</p>
+          <p class="text-sm text-gray-500">{locationData.name} centre</p>
+        </div>
+        <div class="bg-gray-50 p-6 rounded-3xl shadow-sm border-l-4 border-blue-500">
+          <blockquote class="italic text-gray-600 mb-4">
+            "J'ai fait appel à leur service pour une fuite sous mon évier. Diagnostic précis et réparation rapide sans avoir à tout démonter. Plombier ponctuel et travail propre. Très satisfait!"
+          </blockquote>
+          <p class="font-semibold text-gray-800">Thomas L.</p>
+          <p class="text-sm text-gray-500">une commune proche de {locationData.name}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-gray-100 py-12 md:py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+        Questions fréquentes sur nos services de plomberie à {locationData.name}
+      </h2>
+      <div class="space-y-6">
+        <div class="bg-white p-5 rounded-3xl shadow-sm">
+          <h3 class="font-semibold text-lg text-blue-800 mb-2">Quel est votre délai d'intervention à {locationData.name}?</h3>
+          <p class="text-gray-600 text-sm">En cas d'urgence plomberie à {locationData.name} comme une fuite importante ou un WC bouché, notre équipe s'engage à intervenir dans l'heure suivant votre appel. Pour les zones plus éloignées autour de {locationData.name}, le délai peut être de 1 à 2 heures selon la distance et la disponibilité de nos plombiers. Notre service d'urgence fonctionne 24h/24 et 7j/7, y compris les week-ends et jours fériés.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl shadow-sm">
+          <h3 class="font-semibold text-lg text-blue-800 mb-2">Quels sont vos tarifs pour un débouchage de canalisation à {locationData.name}?</h3>
+          <p class="text-gray-600 text-sm">Nos tarifs de débouchage à {locationData.name} dépendent du type d'intervention nécessaire. Un débouchage simple à l'aide d'un furet manuel commence à partir de 100€, tandis qu'une intervention plus complexe nécessitant un camion hydrocureur sera facturée différemment. Nous vous communiquons toujours un tarif transparent avant notre intervention, sans frais cachés.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl shadow-sm">
+          <h3 class="font-semibold text-lg text-blue-800 mb-2">Proposez-vous des contrats d'entretien de chaudière à {locationData.name}?</h3>
+          <p class="text-gray-600 text-sm">Oui, nous proposons des contrats d'entretien annuel pour votre chaudière à {locationData.name}, conformément à la législation belge qui rend cet entretien obligatoire. Nos contrats incluent le déplacement, la main d'œuvre, le nettoyage complet de votre chaudière et un rapport d'intervention. Contactez-nous pour connaître nos forfaits adaptés à votre type d'installation.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl shadow-sm">
+          <h3 class="font-semibold text-lg text-blue-800 mb-2">Comment se déroule une détection de fuite non visible à {locationData.name}?</h3>
+          <p class="text-gray-600 text-sm">Pour les fuites non visibles à {locationData.name}, nos plombiers utilisent plusieurs techniques: détection acoustique pour entendre l'eau qui s'échappe, caméras thermiques pour repérer les différences de température révélant une fuite, et tests de pression pour confirmer l'existence d'une fuite. Cette approche non destructive nous permet de localiser précisément l'origine du problème avant d'intervenir, limitant ainsi les dégâts dans votre habitation.</p>
+        </div>
+        <div class="bg-white p-5 rounded-3xl shadow-sm">
+          <h3 class="font-semibold text-lg text-blue-800 mb-2">Intervenez-vous également pour les problèmes de plomberie dans les commerces et entreprises de {locationData.name}?</h3>
+          <p class="text-gray-600 text-sm">Absolument! Outre nos services aux particuliers, nous intervenons également pour tous types de problèmes de plomberie dans les commerces, restaurants, bureaux et entreprises de {locationData.name}. Nous comprenons l'impact qu'un problème de plomberie peut avoir sur votre activité professionnelle et nous nous engageons à intervenir en priorité pour minimiser toute interruption de service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-12 md:py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8 text-center">
+        Les Problèmes de Plomberie Courants à {locationData.name}
+      </h2>
+      <p class="text-center text-gray-600 mb-10">
+        La région de {locationData.name} présente certaines particularités qui influencent les problèmes de plomberie rencontrés par ses habitants:
+      </p>
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">Eau Calcaire et Entartrage</h3>
+          <p class="text-gray-600 text-sm">
+            L'eau distribuée à {locationData.name} est souvent calcaire, ce qui favorise l'entartrage des canalisations et des appareils sanitaires. Nos plombiers peuvent vous conseiller sur les solutions anti-calcaire adaptées et intervenir pour détartrer vos installations.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">Canalisations Anciennes</h3>
+          <p class="text-gray-600 text-sm">
+            Dans les quartiers historiques de {locationData.name}, de nombreuses habitations sont équipées de canalisations vieillissantes en plomb ou en fonte qui nécessitent une attention particulière. Notre équipe est spécialisée dans la rénovation de plomberie dans les bâtiments anciens.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">Problèmes Liés au Gel en Hiver</h3>
+          <p class="text-gray-600 text-sm">
+            Les hivers rigoureux à {locationData.name} peuvent causer le gel et l'éclatement des canalisations extérieures ou mal isolées. Nous intervenons en urgence pour réparer ces dégâts et pouvons vous conseiller sur les mesures préventives à adopter.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg text-gray-700 mb-2">Racines dans les Canalisations Extérieures</h3>
+          <p class="text-gray-600 text-sm">
+            Les zones résidentielles arborées de {locationData.name} sont souvent confrontées à des problèmes d'intrusion de racines dans les canalisations extérieures. Notre équipement de pointe nous permet d'identifier et d'éliminer ces obstructions tenaces.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="bg-blue-800 py-12 md:py-16">
     <div class="container mx-auto px-4 max-w-4xl">
       <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">

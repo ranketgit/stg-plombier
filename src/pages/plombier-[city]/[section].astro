@@ -1,15 +1,8 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Hero from "../../components/homepage/Hero.astro";
-import { data } from "../../data/locations";        
-
-import SectionServices from '../../components/section/SectionServices.astro';
-import SectionParticularites from '../../components/section/SectionParticularities.astro';
-import SectionUrgence from '../../components/section/SectionUrgence.astro';
-import SectionTestimonials from '../../components/section/SectionTestimonials.astro';
-import SectionFAQ from '../../components/section/SectionFAQ.astro';
-const Icon = `<svg class="h-6 w-6 text-green-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+import { data } from "../../data/locations";
 import { generateSchema } from "../../seo/schema";
+import Contact from '../../components/Contact.astro';
 
 export async function getStaticPaths() {
   const paths = data.flatMap(province =>
@@ -31,9 +24,9 @@ export async function getStaticPaths() {
       }))
     )
   );
-
   return paths;
 }
+
 const { city, section } = Astro.params;
 const { locationData } = Astro.props;
 
@@ -43,17 +36,273 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 21);
 ---
 
 <Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
-    <Hero heroData={{
-        title: `Plombier ${locationData.sectionName} ${locationData.cityName} ⭐️ Intervention Rapide et Qualité`,
-        subtitle: `Vous recherchez un plombier de confiance à $${locationData.sectionName} $${locationData.postalCode} ? Notre équipe de plombiers qualifiés intervient rapidement à ${locationData.sectionName} pour tous vos besoins en plomberie. Spécialistes du débouchage, de la réparation de fuites et de l'installation sanitaire, nous sommes à votre service 24h/24 et 7j/7 pour résoudre efficacement vos problèmes de plomberie.\nGrâce à notre excellente connaissance à ${locationData.sectionName} de ${locationData.cityName} et de ses spécificités, nous vous garantissons une intervention adaptée et rapide, quel que soit votre problème de plomberie.`, // Full subtitle
-        backgroundImageUrl: "/plombier-professionnel-belgique.webp",
-        serviceButtonText: "Nos Services à " + locationData.sectionName,
-      }} />
-    <SectionServices sectionName={locationData.sectionName} parentCityName={locationData.cityName} />
-    <SectionParticularites sectionName={locationData.sectionName} />
-    <SectionUrgence sectionName={locationData.sectionName} parentCityName={locationData.cityName} />
-    <SectionTestimonials sectionName={locationData.sectionName} parentCityName={locationData.cityName} />
-    <SectionFAQ sectionName={locationData.sectionName} parentCityName={locationData.cityName} />
+    <section class="relative text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center z-0" style="background-image: url('/plombier-professionnel-belgique.webp');">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-800 z-0"></div>
+        <div class="container mx-auto px-4 py-12 md:py-16 relative z-10">
+            <div class="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+                <div class="space-y-4">
+                    <div class="inline-flex items-center justify-center px-4 py-2 rounded-2xl text-sm font-bold text-white" style="background: linear-gradient(to right, #000000 33%, #FDDA24 33%, #FDDA24 66%, #EF3340 66%)">
+                        Intervention 24/7 en Belgique Nos Services à {locationData.sectionName}
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-bold text-white">
+                        Plombier {locationData.sectionName} {locationData.cityName} ⭐️ Intervention Rapide et Qualité
+                    </h1>
+                    <p class="text-base md:text-lg text-white/90">
+                        Vous recherchez un plombier de confiance à {locationData.sectionName} {locationData.postalCode} ? Notre équipe de plombiers qualifiés intervient rapidement à {locationData.sectionName} pour tous vos besoins en plomberie. Spécialistes du débouchage, de la réparation de fuites et de l'installation sanitaire, nous sommes à votre service 24h/24 et 7j/7 pour résoudre efficacement vos problèmes de plomberie.
+                        Grâce à notre excellente connaissance à {locationData.sectionName} de {locationData.cityName} et de ses spécificités, nous vous garantissons une intervention adaptée et rapide, quel que soit votre problème de plomberie.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 pt-3">
+                        <a href="tel:+32476232323" class="bg-white text-blue-800 hover:bg-gray-100 font-semibold py-2 px-4 rounded-xl inline-flex items-center justify-center transition-colors duration-300 shadow-md">
+                            Tél 0476/23.23.23
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-6 pt-6">
+                        <div class="flex flex-col items-center">
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118l-2.8-2.034c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            </div>
+                            <p class="text-xs mt-1">4.9/5 (280+ avis)</p>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-white/20 p-1 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <span class="ml-2 text-sm">Certifié</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-white/20 p-1 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path></svg>
+                            </div>
+                            <span class="ml-2 text-sm">Réponse en 15 min</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-white/20 p-1 rounded-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor"><path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"></path></svg>
+                            </div>
+                            <span class="ml-2 text-sm">+3500 clients satisfaits</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mx-auto w-full max-w-md">
+                    <Contact />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+                Services de plomberie à {locationData.sectionName} de {locationData.cityName}
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
+                    <svg class="h-8 w-8 text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4">Débouchage canalisation à {locationData.sectionName}</h3>
+                    <p class="text-gray-600 mb-4 text-sm">
+                        Les habitants de {locationData.sectionName} font régulièrement face à des problèmes de canalisations bouchées.
+                        Notre service de débouchage intervient pour:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
+                        <li><strong>Débouchage WC:</strong> Élimination rapide des obstructions</li>
+                        <li><strong>Débouchage évier et lavabo:</strong> Techniques efficaces contre les bouchons</li>
+                        <li><strong>Débouchage douche et baignoire:</strong> Solutions contre les accumulations de cheveux</li>
+                        <li><strong>Débouchage canalisation extérieure:</strong> Intervention sur vos évacuations extérieures</li>
+                    </ul>
+                    <p class="text-gray-600 text-sm">
+                        Notre équipe utilise des équipements professionnels adaptés aux spécificités des installations à
+                        {locationData.sectionName} : furets électriques, pompes haute pression et caméras d'inspection.
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
+                    <svg class="h-8 w-8 text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4">Réparation de fuites d'eau à {locationData.sectionName} - {locationData.cityName}</h3>
+                    <p class="text-gray-600 mb-4 text-sm">
+                        Les fuites d'eau peuvent causer d'importants dégâts dans les habitations de la localité de {locationData.sectionName}. Notre
+                        service de détection et réparation vous propose:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
+                        <li><strong>Localisation de fuites cachées:</strong> Sous carrelage, dans les murs</li>
+                        <li><strong>Réparation de tuyauterie endommagée:</strong> Solutions durables</li>
+                        <li><strong>Remplacement de joints défectueux:</strong> Intervention sur robinetterie</li>
+                        <li><strong>Traitement des fuites sur canalisations enterrées:</strong> Expertise extérieure</li>
+                    </ul>
+                    <p class="text-gray-600 text-sm">
+                        À <strong>{locationData.sectionName} - {locationData.cityName}</strong>, nous utilisons des technologies de détection non
+                        destructives pour identifier précisément l'origine des fuites avant d'intervenir.
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-3xl shadow-md border-t-4 border-blue-500">
+                    <svg class="h-8 w-8 text-blue-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h3 class="text-xl font-semibold text-blue-800 mb-4">Services de chauffauge à {locationData.sectionName}</h3>
+                    <p class="text-gray-600 mb-4 text-sm">
+                        Les logements de la section de {locationData.sectionName} nécessitent un <strong>système de chauffage</strong> fiable. Nos chauffagistes
+                        qualifiés vous offrent:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 space-y-1 text-sm mb-4 pl-2">
+                        <li><strong>Installation et remplacement de chaudières:</strong> Solutions adaptées</li>
+                        <li><strong>Entretien annuel obligatoire:</strong> Conformité avec la législation belge</li>
+                        <li><strong>Dépannage chauffage d'urgence:</strong> Intervention rapide</li>
+                        <li><strong>Réparation et purge de radiateurs:</strong> Optimisation de votre système</li>
+                    </ul>
+                    <p class="text-gray-600 text-sm">
+                        Nos techniciens certifiés garantissent la performance de votre installation de chauffage, essentielle au
+                        confort des résidents de {locationData.sectionName}.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+                Particularités de plomberie à {locationData.sectionName}
+            </h2>
+            <p class="text-center text-gray-600 mb-10 max-w-3xl mx-auto">
+                La section {locationData.sectionName} certaines caractéristiques qui influencent les <strong>problèmes de plomberie</strong> :
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-white p-6 rounded-3xl shadow-md">
+                    <svg class="h-8 w-8 text-purple-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                    <h3 class="font-semibold text-lg text-purple-700 mb-2">Bâtiments typiques</h3>
+                    <p class="text-gray-600 text-sm">
+                        La saction {locationData.sectionName} compte de nombreux [type de bâtiments spécifiques à {locationData.sectionName}] qui présentent des configurations de plomberie particulières. Notre équipe est familière avec ces spécificités et adapte ses interventions en conséquence.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-md">
+                    <svg class="h-8 w-8 text-cyan-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 4H6a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2m-4-1v8m0 0l3-3m-3 3L9 8m-5 5h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 001.414 0l2.414-2.414a1 1 0 01.707-.293H17"></path></svg>
+                    <h3 class="font-semibold text-lg text-cyan-700 mb-2">Qualité de l'eau</h3>
+                    <p class="text-gray-600 text-sm">
+                        L'eau distribuée à {locationData.sectionName} présente [caractéristiques locales de l'eau à {locationData.sectionName} - ex: un taux de calcaire élevé, une pression variable]. Nous proposons des solutions adaptées pour optimiser votre confort et protéger vos installations.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-md">
+                    <svg class="h-8 w-8 text-orange-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.844 13.182 9 13 9 12.805c0-.196-.157-.38-.322-.533L5.75 9.447c-.162-.152-.38-.247-.608-.247H3v10h2.143c.226 0 .444-.094.606-.245l2.935-2.858zM17 3h-4a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2V5a2 2 0 00-2-2z"></path></svg>
+                    <h3 class="font-semibold text-lg text-orange-700 mb-2">Réseau d'évacuation</h3>
+                    <p class="text-gray-600 text-sm">
+                        Le réseau d'évacuation de {locationData.sectionName} peut présenter certaines particularités [ex: canalisations anciennes, diamètre spécifique] qui nécessitent une expertise spécifique pour les interventions de débouchage et d'entretien.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 md:py-16">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-2xl md:text-3xl font-bold text-red-800 mb-8 text-center">
+                Plombier d'urgence à {locationData.sectionName} - Disponible 24h/24
+            </h2>
+            <p class="text-center text-red-700 mb-10">
+                Notre <strong>service d'urgence plomberie à {locationData.sectionName}</strong> est disponible jour et nuit pour:
+            </p>
+            <div class="grid grid-cols-2 gap-6 max-w-3xl mx-auto">
+                <div class="bg-white p-4 rounded-3xl shadow border border-red-200">
+                    <h4 class="font-semibold text-gray-700 flex items-center"> <svg class="h-6 w-6 inline-block mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Fuites d'eau importantes</h4>
+                    <p class="text-xs text-gray-600 pl-8">Intervention rapide pour limiter les dégâts</p>
+                </div>
+                <div class="bg-white p-4 rounded-3xl shadow border border-red-200">
+                    <h4 class="font-semibold text-gray-700 flex items-center"> <svg class="h-6 w-6 inline-block mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> WC bouché en urgence</h4>
+                    <p class="text-xs text-gray-600 pl-8">Solution rapide pour ce désagrément</p>
+                </div>
+                <div class="bg-white p-4 rounded-3xl shadow border border-red-200">
+                    <h4 class="font-semibold text-gray-700 flex items-center"> <svg class="h-6 w-6 inline-block mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Canalisation bouchée avec débordement</h4>
+                    <p class="text-xs text-gray-600 pl-8">Traitement prioritaire</p>
+                </div>
+                <div class="bg-white p-4 rounded-3xl shadow border border-red-200">
+                    <h4 class="font-semibold text-gray-700 flex items-center"> <svg class="h-6 w-6 inline-block mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Panne de chauffage en hiver</h4>
+                    <p class="text-xs text-gray-600 pl-8">Rétablissement de votre confort</p>
+                </div>
+            </div>
+            <p class="text-center text-red-700 font-semibold mt-10">
+                Notre engagement: un plombier professionnel chez vous dans l'heure suivant votre appel pour les situations d'urgence à {locationData.sectionName} - {locationData.cityName}.
+            </p>
+        </div>
+    </section>
+    
+    <section class="py-12 md:py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+                Témoignages de nos clients à {locationData.sectionName} {locationData.cityName}
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-3xl shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-2 -mr-2 opacity-10">
+                        <svg class="h-8 w-8 text-blue-200" fill="currentColor" viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path></svg>
+                    </div>
+                    <blockquote class="text-gray-600 mb-4 italic relative z-10">
+                        "Intervention rapide et efficace pour notre douche bouchée. Le plombier était parfaitement familier avec les installations typiques du quartier {locationData.sectionName}. Service impeccable!"
+                    </blockquote>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <p class="font-semibold text-gray-800">Jean M.</p>
+                        <p class="text-sm text-blue-600 font-medium">{locationData.sectionName} - {locationData.cityName}</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-3xl shadow-lg relative overflow-hidden">
+                    <div class="absolute top-0 right-0 -mt-2 -mr-2 opacity-10">
+                        <svg class="h-8 w-8 text-blue-200" fill="currentColor" viewBox="0 0 24 24"><path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"></path></svg>
+                    </div>
+                    <blockquote class="text-gray-600 mb-4 italic relative z-10">
+                        "J'ai fait appel à leurs services pour une fuite sous mon évier. Diagnostic précis et réparation propre. Très satisfait de leur connaissance de notre quartier."
+                    </blockquote>
+                    <div class="mt-4 pt-4 border-t border-gray-200">
+                        <p class="font-semibold text-gray-800">Isabelle D.</p>
+                        <p class="text-sm text-blue-600 font-medium">{locationData.sectionName} - {locationData.cityName}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-12 md:py-16">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-10 text-center">
+                Questions fréquentes sur nos services dans la section {locationData.sectionName} de la commune de {locationData.cityName}
+            </h2>
+            <div class="space-y-5">
+                <details class="group bg-gray-50 p-4 rounded-3xl shadow-sm border border-gray-200" open>
+                    <summary class="flex justify-between items-center font-semibold text-lg text-blue-800 cursor-pointer list-none">
+                        <span>Quel est votre délai d'intervention à {locationData.sectionName} {locationData.cityName}?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <p class="text-gray-600 text-sm mt-3 group-open:animate-fadeIn">
+                        Pour les urgences plomberie à {locationData.sectionName}, notre équipe s'engage à intervenir dans l'heure suivant votre appel. Notre service d'urgence fonctionne 24h/24 et 7j/7, y compris les week-ends et jours fériés.
+                    </p>
+                </details>
+                <details class="group bg-gray-50 p-4 rounded-3xl shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center font-semibold text-lg text-blue-800 cursor-pointer list-none">
+                        <span>Connaissez-vous bien les spécificités des installations à {locationData.sectionName}?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <p class="text-gray-600 text-sm mt-3 group-open:animate-fadeIn">
+                        Absolument! Notre équipe intervient régulièrement à {locationData.sectionName} et connaît parfaitement les caractéristiques des installations locales, notamment [spécificité technique locale de {locationData.sectionName}]. Cette expertise nous permet d'intervenir efficacement et rapidement.
+                    </p>
+                </details>
+                <details class="group bg-gray-50 p-4 rounded-3xl shadow-sm border border-gray-200">
+                    <summary class="flex justify-between items-center font-semibold text-lg text-blue-800 cursor-pointer list-none">
+                        <span>Proposez-vous des devis gratuits à {locationData.sectionName}?</span>
+                        <span class="transition group-open:rotate-180">
+                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                        </span>
+                    </summary>
+                    <p class="text-gray-600 text-sm mt-3 group-open:animate-fadeIn">
+                        Oui, nous offrons des devis gratuits et sans engagement pour tous les projets d'installation ou de rénovation plomberie à {locationData.sectionName} {locationData.cityName}. Un de nos techniciens se déplace chez vous pour évaluer précisément vos besoins et vous proposer les solutions les plus adaptées.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <section class="bg-green-50 py-12 md:py-16">
         <div class="container mx-auto px-4 max-w-4xl">
             <h2 class="text-2xl md:text-3xl font-bold text-green-800 mb-8 text-center">
@@ -64,7 +313,7 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 21);
                 ${locationData.postalCode}`} />
             <div class="space-y-5">
                 <div class="flex items-start bg-white p-4 rounded-3xl shadow border border-green-200">
-                    <Fragment set:html={Icon} />
+                    <svg class="h-6 w-6 text-green-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <div>
                         <h3 class="font-semibold text-lg text-green-700 mb-1">Prévention Spécifique au Quartier</h3>
                         <p class="text-gray-700 text-sm">
@@ -75,7 +324,7 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 21);
                     </div>
                 </div>
                 <div class="flex items-start bg-white p-4 rounded-3xl shadow border border-green-200">
-                    <Fragment set:html={Icon} />
+                    <svg class="h-6 w-6 text-green-600 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <div>
                         <h3 class="font-semibold text-lg text-green-700 mb-1">Entretien Régulier</h3>
                         <p class="text-gray-700 text-sm">
@@ -88,6 +337,7 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 21);
             </div>
         </div>
     </section>
+
     <section class="bg-blue-700 text-white py-12 md:py-16">
         <div class="container mx-auto px-4 max-w-4xl text-center">
             <h2 class="text-2xl md:text-3xl font-bold mb-6">
@@ -114,3 +364,24 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 21);
         </div>
     </section>
 </Layout>
+<style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .group-open\:animate-fadeIn {
+        animation: fadeIn 0.3s ease-out;
+    }
+    details>summary {
+        list-style: none;
+    }
+    details>summary::-webkit-details-marker {
+        display: none;
+    }
+</style>
