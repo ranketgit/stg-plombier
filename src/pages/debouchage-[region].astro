@@ -21,9 +21,9 @@ export async function getStaticPaths() {
 
 const { regionData } = Astro.props;
 
-const meta_title = `Débouchage ${regionData.name} 24h/24 | Assur Plombier Belgique`;
-const meta_description = `Service débouchage dans toute la ${regionData.name}. WC, éviers, égouts bouchés ? Plombiers locaux disponibles 7j/7. Devis gratuit !`;
-const schemaMarkup = generateSchema(meta_title, meta_description, 45);
+const meta_title = `Débouchage ${regionData.name} ⭐️ 24h/24`;
+const meta_description = `Service débouchage dans toute la ${regionData.name}⭐️ WC, éviers, égouts bouchés ? Plombiers locaux disponibles 7j/7. Devis gratuit !`;
+const schemaMarkup = generateSchema(meta_title, meta_description, 47);
 
 
 const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
@@ -44,10 +44,10 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
             Intervention 24/7 en {regionData.name}
           </div>
           <h1 class="text-3xl md:text-4xl font-bold text-white">
-            Débouchage en ${regionData.name} : Réseau de Plombiers Experts
+            Débouchage en {regionData.name} : Réseau de Plombiers Experts
           </h1>
           <p class="text-base md:text-lg text-white/90">
-            Besoin d'un débouchage urgent en ${regionData.name}? Assur Plombier dispose d'un réseau de plombiers qualifiés qui couvrent l'ensemble de la région, garantissant une intervention rapide 24h/24 et 7j/7.
+            Besoin d'un débouchage urgent en {regionData.name}? Assur Plombier dispose d'un réseau de plombiers qualifiés qui couvrent l'ensemble de la région, garantissant une intervention rapide 24h/24 et 7j/7.
           </p>
           <div class="flex flex-col sm:flex-row gap-3 pt-3">
             <a href="tel:+32476232323" title="Téléphone de Assur Plombier 0476/23.23.23"
