@@ -1,7 +1,14 @@
+---
+interface Props {
+  location?: string;
+}
+
+const { location = "Belgique" } = Astro.props;
+---
 <div class="bg-white p-4 md:p-6 rounded-3xl shadow-lg text-gray-800 max-w-md mx-auto">
  
   <form action="https://formsubmit.co/e7a95dd2f3fa70b6a6d3613a26abfe4a" method="POST" class="space-y-4">
-    <input type="hidden" name="_subject" value="Nouvelle demande de Devis - Site Plomberie" />
+    <input type="hidden" name="_subject" value={`Demande de devis gratuit ${location}`} />
     <input type="text" name="_honey" style="display:none;" />
     <input type="hidden" name="_captcha" value="false" />
     <input type="text" name="_next" style="display:none;" value={new URL(Astro.url.pathname, import.meta.env.SITE).href}/>
