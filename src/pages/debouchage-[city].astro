@@ -28,7 +28,7 @@ const { cityData } = Astro.props;
 
 const meta_title = `Débouchage ${cityData.name} en urgence 24h/24 | Assur Plombier`;
 const meta_description = `Débouchage rapide à ${cityData.name} 7j/7. WC, éviers, égouts bouchés ? Intervention en moins de 2h. Devis gratuit. Appelez maintenant !`;
-const schemaMarkup = generateSchema(meta_title, meta_description, 48);
+const schemaMarkup = generateSchema(meta_title, meta_description, 51);
 
 
 const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
@@ -50,7 +50,7 @@ const CheckIcon = `<svg class="h-6 w-6 text-green-600 mr-4 flex-shrink-0" fill="
             Débouchage à ${cityData.name} : Votre Plombier d'Urgence Disponible 24h/24
           </h1>
           <p class="text-base md:text-lg text-white/90">
-            Vous faites face à une canalisation bouchée à ${cityData.name} ? Assur Plombier intervient rapidement dans toute la commune de ${cityData.name} et ses environs pour résoudre tous vos problèmes de débouchage. Que ce soit un WC qui déborde, un évier bouché ou des égouts qui remontent, notre équipe de plombiers expérimentés garantit une intervention en moins de 2 heures, même le week-end et les jours fériés.
+            Vous faites face à une canalisation bouchée à {cityData.name} ? Assur Plombier intervient rapidement dans toute la commune de {cityData.name} et ses environs pour résoudre tous vos problèmes de débouchage. Que ce soit un WC qui déborde, un évier bouché ou des égouts qui remontent, notre équipe de plombiers expérimentés garantit une intervention en moins de 2 heures, même le week-end et les jours fériés.
           </p>
           <div class="flex flex-col sm:flex-row gap-3 pt-3">
             <a href="tel:+32476232323" class="bg-white text-blue-800 hover:bg-gray-100 font-semibold py-2 px-4 rounded-xl inline-flex items-center justify-center transition-colors duration-300 shadow-md">
