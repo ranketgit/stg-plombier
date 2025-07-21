@@ -3,8 +3,6 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { ClientRouter } from "astro:transitions";
-import { generateSchema } from '../seo/schema';
-
 interface Props {
   meta_title: string;
   meta_description: string;
@@ -14,7 +12,7 @@ const {meta_title,  meta_description,  schemaMarkup} = Astro.props;
 ---
 
 <!doctype html>
-<html class="" lang="fr-BE">
+<html lang="fr-BE">
 
 <head>
 	<meta charset="UTF-8" />
@@ -24,7 +22,6 @@ const {meta_title,  meta_description,  schemaMarkup} = Astro.props;
 	<link rel="sitemap" href="/sitemap-index.xml" />
 	<link rel="canonical" href={new URL(Astro.url.pathname, import.meta.env.SITE).href} item-prop="url" />
 	<meta name="robots" content="index, follow" />
-
 	<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 	<link rel="shortcut icon" href="/favicon.ico" />
@@ -40,7 +37,7 @@ const {meta_title,  meta_description,  schemaMarkup} = Astro.props;
 	<meta name="twitter:image" content="/assur-plombier-deboucheur-chauffagiste.webp" />
 	<meta name="twitter:card" content="summary_large_image" />
 	{schemaMarkup && (
-	<script type="application/ld+json" set:html={JSON.stringify(generateSchema(meta_title, meta_description, 23))} />
+		<script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
 	)
   }
   <ClientRouter />

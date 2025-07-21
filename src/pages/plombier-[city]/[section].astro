@@ -31,8 +31,8 @@ const { city, section } = Astro.params;
 const { locationData } = Astro.props;
 
 const meta_title = `Plombier ${locationData.sectionName} en urgence ⭐️ 24/7`;
-const meta_description = `Plombier professionnel à ${locationData.sectionName} ⭐️ réparation fuites, installations sanitaires. Intervention urgente 24h/24 et 7j/7. Devis gratuit ☎️ 0476/23.23.23.`;
-const schemaMarkup = generateSchema(meta_title, meta_description, 21);
+const meta_description = `Plombier ${locationData.sectionName} professionnel ⭐️ réparation fuites, installations sanitaires. Intervention urgente 24h/24 et 7j/7. Devis gratuit ☎️ 0476/23.23.23.`;
+const schemaMarkup = generateSchema(meta_title, meta_description, 35);
 ---
 
 <Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
@@ -47,11 +47,20 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 21);
                         Intervention 24/7 en Belgique Nos Services à {locationData.sectionName}
                     </div>
                     <h1 class="text-3xl md:text-4xl font-bold text-white">
-                        Plombier {locationData.sectionName} {locationData.cityName} ⭐️ Intervention Rapide et Qualité
+                        <strong>Plombier {locationData.sectionName} {locationData.cityName}</strong> ⭐️ Intervention
+                        Rapide & Travaux de Qualité
                     </h1>
                     <p class="text-base md:text-lg text-white/90">
-                        Vous recherchez un plombier de confiance à {locationData.sectionName} {locationData.postalCode} ? Notre équipe de plombiers qualifiés intervient rapidement à {locationData.sectionName} pour tous vos besoins en plomberie. Spécialistes du débouchage, de la réparation de fuites et de l'installation sanitaire, nous sommes à votre service 24h/24 et 7j/7 pour résoudre efficacement vos problèmes de plomberie.
-                        Grâce à notre excellente connaissance à {locationData.sectionName} de {locationData.cityName} et de ses spécificités, nous vous garantissons une intervention adaptée et rapide, quel que soit votre problème de plomberie.
+                        Vous recherchez un <strong>plombier de confiance à {locationData.sectionName}
+                            {locationData.postalCode}</strong> ?
+                        <strong>Assur Plombier</strong> vous accompagne pour tous vos <strong>travaux de
+                            plomberie</strong> : installation sanitaire, réparation de fuites, remplacement de
+                        robinetterie ou entretien du réseau.
+                        Présents à <strong>{locationData.sectionName}</strong>, nos <strong>plombiers qualifiés</strong>
+                        interviennent 24h/24 et 7j/7 dans toute la commune de <strong>{locationData.cityName}</strong>,
+                        avec une parfaite connaissance des installations locales.
+                        Faites confiance à un artisan local pour une <strong>intervention rapide</strong> et durable,
+                        adaptée aux spécificités de votre quartier.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3 pt-3">
                         <a href="tel:+32476232323" class="bg-white text-blue-800 hover:bg-gray-100 font-semibold py-2 px-4 rounded-xl inline-flex items-center justify-center transition-colors duration-300 shadow-md">
