@@ -28,7 +28,7 @@ const { cityData } = Astro.props;
 
 const meta_title = `Plombier ${cityData.name} en urgence ⭐️ 24/7`;
 const meta_description = `Plombier professionnel et agréé à ${cityData.name} ⭐️ détection et réparation de fuite d'eau, installation sanitaire. Intervention urgente 24/7 ☎️ 0476/23.23.23.`;
-const schemaMarkup = generateSchema(meta_title, meta_description, 35);
+const schemaMarkup = generateSchema(meta_title, meta_description, 45);
 ---
 
 <Layout meta_title={meta_title} meta_description={meta_description} schemaMarkup={schemaMarkup}>
@@ -43,10 +43,15 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 35);
             Intervention 24/7 en Belgique Nos Services à {cityData.name}
           </div>
           <h1 class="text-3xl md:text-4xl font-bold text-white">
-            Plombier {cityData.name} - Dépannage d'urgence et services professionnels
+            <strong>Plombier {cityData.name}</strong> – <strong>Dépannage en urgence</strong> & <strong>services de
+              plomberie</strong> professionnels
           </h1>
           <p class="text-base md:text-lg text-white/90">
-            Besoin d'un plombier à {cityData.name}? Notre équipe intervient rapidement dans tout {cityData.name} et ses environs pour résoudre efficacement vos problèmes de plomberie. Disponibles 24/7.
+            Vous recherchez un <strong>plombier fiable à {cityData.name}</strong> ? <strong>Assur Plombier</strong>
+            intervient 24h/24 et 7j/7 dans toute <strong>{cityData.name}</strong> pour tout <strong>dépannage
+              plomberie</strong> : <strong>fuite d’eau</strong>, <strong>réparation de robinetterie</strong>, ou
+            <strong>installation sanitaire</strong>. Intervention rapide, devis gratuit, et travail soigné assuré par
+            des <strong>professionnels locaux</strong>.
           </p>
           <div class="flex flex-col sm:flex-row gap-3 pt-3">
             <a href="tel:+32476232323" class="bg-white text-blue-800 hover:bg-gray-100 font-semibold py-2 px-4 rounded-xl inline-flex items-center justify-center transition-colors duration-300 shadow-md">
@@ -567,22 +572,27 @@ const schemaMarkup = generateSchema(meta_title, meta_description, 35);
   <section class="bg-blue-700 text-white py-12 md:py-16">
     <div class="container mx-auto px-4 max-w-4xl text-center">
       <h2 class="text-2xl md:text-3xl font-bold mb-6">
-        Conclusion - Votre plombier de confiance à {cityData.name} {cityData.postalCode}
+        Conclusion – Votre <strong>plombier de confiance à {cityData.name} {cityData.postalCode}</strong>
       </h2>
       <div class="space-y-4 text-blue-100 mb-8">
         <p>
-          Que vous soyez confronté à une <strong>urgence plomberie</strong> ou que vous planifiez des travaux d'installation ou de rénovation, notre équipe de <strong>plombiers professionnels à {cityData.name}</strong> est à votre service pour vous garantir une prestation de qualité, rapide et au juste prix.
+          Vous êtes confronté à une <strong>urgence plomberie à {cityData.name}</strong> ou vous planifiez des
+          <strong>travaux sanitaires</strong> ? Faites appel à notre équipe de <strong>plombiers professionnels</strong>
+          pour une intervention rapide, soignée et adaptée à vos besoins.
         </p>
         <p>
-          Notre connaissance approfondie de {cityData.name}, de ses quartiers et des problématiques locales de plomberie nous permet d'intervenir efficacement pour tout type de problème, des plus courants aux plus complexes.
+          Grâce à notre parfaite connaissance de <strong>{cityData.name}</strong> et de ses quartiers, nous intervenons
+          efficacement sur tout type de <strong>problème de plomberie</strong> : <strong>fuites d’eau</strong>,
+          <strong>réparations</strong>, <strong>installations sanitaires</strong> ou projets de rénovation.
         </p>
-        <p class="font-semibold text-white">
-          N'hésitez pas à nous contacter pour bénéficier de l'expertise de nos <strong>plombiers qualifiés à {cityData.name}</strong> et obtenir un devis gratuit adapté à vos besoins spécifiques.
+        <p class="text-white">
+          Contactez dès maintenant nos <strong>plombiers qualifiés à {cityData.name}</strong> pour un <strong>devis
+            gratuit</strong> et une intervention dans les meilleurs délais.
         </p>
       </div>
       <div class="pt-4">
-        <a href="tel:+32476232323" class="bg-white text-blue-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-full inline-flex items-center justify-center transition-colors duration-300 shadow-md text-lg">
-          
+        <a href="tel:+32476232323"
+          class="bg-white text-blue-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-full inline-flex items-center justify-center transition-colors duration-300 shadow-md text-lg">
           0476/23.23.23
         </a>
       </div>
