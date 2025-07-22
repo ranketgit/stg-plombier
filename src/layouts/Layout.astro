@@ -33,14 +33,47 @@ const {meta_title,  meta_description,  schemaMarkup} = Astro.props;
 	<meta property="og:url" content={new URL(Astro.url.pathname, import.meta.env.SITE).href} />
 	<meta name="twitter:title" content={meta_title} />
 	<meta name="twitter:description" content={meta_description} />
-	<meta property="og:image" content="/assur-plombier-deboucheur-chauffagiste.webp" />
-	<meta name="twitter:image" content="/assur-plombier-deboucheur-chauffagiste.webp" />
+	<meta property="og:image" content="https://assur-plombier.be/assur-plombier-deboucheur-chauffagiste.webp" />
+	<meta name="twitter:image" content="https://assur-plombier.be/assur-plombier-deboucheur-chauffagiste.webp" />
 	<meta name="twitter:card" content="summary_large_image" />
 	{schemaMarkup && (
 		<script type="application/ld+json" set:html={JSON.stringify(schemaMarkup)} />
 	)
-  }
-  <ClientRouter />
+  	}
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "Assur Plombier",
+			"alternateName": "Assur Plombier Belgium",
+			"url": "https://assur-plombier.be/",
+			"logo": "https://assur-plombier.be/logo-assur-plombier.svg",
+			"image": "https://assur-plombier.be/assur-plombier-deboucheur-chauffagiste.webp.webp",
+			"description": "Votre plombier déboucheur professionnel à proximité en Belgique. Intervention rapide et service de qualité garanti 24h/24 et 7j/7.",
+			"email": "contact@assur-plombier.be",
+			"telephone": "+32 476 23 23 23",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Boulevard Anspach 42",
+				"addressLocality": "Brussels",
+				"postalCode": "1000",
+				"addressCountry": "BE"
+			},
+			"areaServed": {
+				"@type": "Country",
+				"name": "Belgium"
+			},
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"telephone": "+32 476 23 23 23",
+				"contactType": "Customer Service",
+				"availableLanguage": ["fr", "nl", "en"],
+				"areaServed": "BE"
+			},
+			"sameAs": []
+		}
+	</script>
+  	<ClientRouter />
 	</head>
 	<body class="relative">
 		<Header />
@@ -48,7 +81,6 @@ const {meta_title,  meta_description,  schemaMarkup} = Astro.props;
 		<Footer />
 	</body>
 </html>
-
 <style>
 	html,
 	body {
