@@ -2067,7 +2067,6 @@ export const data = [
             { name: "Noville", slug: "noville", codePostal: "6600" },
             { name: "Longvilly", slug: "longvilly", codePostal: "6600" },
             { name: "Bertogne", slug: "bertogne", codePostal: "6687" },
-            { name: "Longchamps", slug: "longchamps", codePostal: "6688" },
             { name: "Flamierge", slug: "flamierge", codePostal: "6686" }
           ]
         },
@@ -3153,7 +3152,6 @@ export const data = [
             { name: "Erembodegem", slug: "erembodegem", codePostal: "9320" },
             { name: "Gijzegem", slug: "gijzegem", codePostal: "9308" },
             { name: "Herdersem", slug: "herdersem", codePostal: "9310" },
-            { name: "Hofstade", slug: "hofstade", codePostal: "9308" }, 
             { name: "Meldert", slug: "meldert", codePostal: "9310" },
             { name: "Moorsel", slug: "moorsel", codePostal: "9310" },
             { name: "Nieuwerkerken", slug: "nieuwerkerken", codePostal: "9320" }
